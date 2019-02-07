@@ -1,0 +1,18 @@
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+     string_integer = '' + x;
+     reversed_string = '';
+     for (var i = string_integer.length; i >= 1; i--) {
+         reversed_string += string_integer[i - 1];
+     }
+    if (reversed_string === string_integer) {
+        return true;
+    } else {
+        return false;
+    }
+    
+};
+isPalindrome(121);
