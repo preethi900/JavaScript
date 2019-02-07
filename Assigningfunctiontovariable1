@@ -1,0 +1,12 @@
+/*
+ * Programming Quiz: Cry (5-5)
+ */
+
+// your code goes here
+
+var cry = function sorrow() {
+    var result = "boohoo!";
+    return result;
+};
+
+console.log(cry());
