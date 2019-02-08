@@ -2,17 +2,18 @@
  * @param {number} x
  * @return {boolean}
  */
+ //Palindrome function
 var isPalindrome = function(x) {
-     string_integer = '' + x;
-     reversed_string = '';
-     for (var i = string_integer.length; i >= 1; i--) {
+     string_integer = '' + x; //Converting integer to string
+     reversed_string = ''; //Initializing array to store reversed string
+     for (var i = string_integer.length; i >= 1; i--) {   //Reversing the string
          reversed_string += string_integer[i - 1];
      }
-    if (reversed_string === string_integer) {
+    if (reversed_string === string_integer) {  //checking if reversed string is equal to the original string
         return true;
     } else {
         return false;
     }
     
 };
-isPalindrome(121);
+isPalindrome(121); //Function call
