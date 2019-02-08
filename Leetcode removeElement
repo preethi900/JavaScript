@@ -3,10 +3,11 @@
  * @param {number} val
  * @return {number}
  */
+ //Remove elements from array as per the value
 var removeElement = function(nums, val) {
-    for (var i = 0; i <= nums.length -1 ; i++) {
-        if (nums[i] === val) {
-           nums.splice(i,1)
+    for (var i = 0; i <= nums.length -1 ; i++) { //Loop for navigating the array
+        if (nums[i] === val) { //If condition to check if the array value is equal to the arguement value
+           nums.splice(i,1) //Splice removes the value from the index mentioned
             i--;
         }
     }
@@ -16,4 +17,4 @@ var removeElement = function(nums, val) {
 };
 
 
-removeElement([1,22,2,3,1] ,22);
+removeElement([1,22,2,3,1] ,22); //Function call
