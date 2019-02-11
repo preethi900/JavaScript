@@ -1,0 +1,16 @@
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var plusOne = function(digits) {
+    for (var i = digits.length -1 ; i >= 0; i--) { //setting the last element of array to i
+        if (++digits[i] > 9) { //Incrementing i by 1 and checking if its greater than 9
+            digits[i] = 0;
+        } else {
+            return digits;  //Returns the array after incrementing the last value if the value is less than 9
+        }
+    }
+    digits.unshift(1); //Unshifting the value 1 from the current position
+    return digits;
+};
+plusOne([1,2,3,4]);
