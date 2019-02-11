@@ -1,0 +1,9 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+    var words = s.trim().split(" ").pop(); //splitting the string to words and popping
+    return words.length; //Returns the length of last word
+    };
+ lengthOfLastWord("hi yes!");
