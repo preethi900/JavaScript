@@ -5,8 +5,8 @@
 var trailingZeroes = function(n) {
     
     var count = 0;
-    while ( n > 4) {
-        count += Math.floor(n /= 5);
+    while ( n > 4) { ///Enters the loop only when number is greater than 4 else returns 0
+        count += Math.floor(n /= 5); //Formula to calculate the trailing zeroes in a factorial
         }
     return count;
     
