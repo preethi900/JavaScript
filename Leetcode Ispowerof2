@@ -1,0 +1,14 @@
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfTwo = function(n) {
+    if ( n <= 0) { //if number is less than 0 returns false
+        return false;
+    } 
+    while ( n % 2 === 0) { //To check if the number is divisible by 2 always till it reaches 1
+        n /= 2;
+        
+    }
+    return n === 1 ;
+};
