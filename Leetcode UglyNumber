@@ -1,0 +1,14 @@
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isUgly = function(num) {
+    arr = [2,3,5]; //Defining the factors in an array
+    for (i = 0; i < arr.length && num > 1; i++) {
+        while (num % arr[i] === 0) {
+               num /= arr[i]; ///Reducing the number to check if it becomes 1
+               }
+       }
+   return num === 1; 
+    
+};
