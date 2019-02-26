@@ -1,0 +1,15 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    var sep = s.replace(/\s+/g,' ').trim();
+    var sone = sep.split(" ");
+    var arr = '';
+    for (var i = sone.length -1; i >= 0; i--) {
+       arr += sone[i] + ' ';
+    }
+    return arr.trim();
+    
+};
+reverseWords("the sky is blue");
