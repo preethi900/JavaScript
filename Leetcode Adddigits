@@ -1,0 +1,20 @@
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var addDigits = function(num) {
+    str = '' + num;
+    splt = str.split("");
+    if (splt.length == 1) {
+     return Number(splt);
+    }
+    while(splt.length > 1) {
+        var answer = 0;
+        for (var i = 0; i < splt.length; i++) {
+            answer += Number(splt[i]);
+            }
+        splt = answer.toString().split("");
+    } 
+    return answer;
+};
+addDigits(11);
