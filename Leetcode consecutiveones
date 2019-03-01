@@ -1,0 +1,13 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMaxConsecutiveOnes = function(nums) {
+    var remove0 = nums.join("").split("0");
+    var len = remove0.map(c => c.length);
+    var result = Math.max(...len);
+    return result;
+    
+    
+};
+findMaxConsecutiveOnes([1,1,0]);
