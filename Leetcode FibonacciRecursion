@@ -2,14 +2,14 @@
  * @param {number} N
  * @return {number}
  */
+
 var fib = function(N) {
-    if (N === 0 || N === 1) {
-        return N;
-    } else {
-    var result = fib(N-1) + fib(N-2);
-    return result;
-    }
-    
+  f = [0,1];
+  for (var i = 2; i <= N; i++) {
+      f[i] = f[i -1] + f[i - 2]; 
+  }
+    return f[N];
 };
 
 fib(9);
+
