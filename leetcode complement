@@ -1,0 +1,14 @@
+/**
+ * @param {number} N
+ * @return {number}
+ */
+var bitwiseComplement = function(N) {
+    binarynumber = N.toString(2);
+    complement = binarynumber.split('').map(num => num === '1' ? '0' : '1').join('');
+    number = parseInt(complement,2);
+    return number;
+    
+};
+
+
+bitwiseComplement(7);
