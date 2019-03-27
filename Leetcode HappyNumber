@@ -1,0 +1,19 @@
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function(n) {
+  const set = new Set();
+
+  while (!set.has(n)) {
+    if (n === 1) {
+      return true;
+    }
+    set.add(n);
+    n = n.toString().split('').reduce((total, current) => total + Math.pow(current, 2), 0);
+  }
+
+  return false;
+
+};
+isHappy(6);
