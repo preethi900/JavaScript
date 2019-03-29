@@ -1,0 +1,14 @@
+var findComplement = function(num) {
+    let n = num.toString(2).split('');
+    for (var i =0 ; i < n.length; i++) {
+        if (n[i] === '1') {
+            n[i] = 0;
+    
+        } else {
+            n[i] = 1;
+        }
+    }
+    
+    var nu = n.join('');
+    return parseInt(nu,2);
+};
