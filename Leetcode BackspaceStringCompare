@@ -1,0 +1,25 @@
+/**
+ * @param {string} S
+ * @param {string} T
+ * @return {boolean}
+ */
+var backspaceCompare = function(S, T) {
+    var S1 = S.split('');
+    var T1 = T.split('');
+    function backspace(stringcheck) {
+        var arr =[];
+        for(var i =0 ;i < stringcheck.length; i++) {
+            if (stringcheck[i] != '#') {
+                arr.push(stringcheck[i]);
+            } else {
+                arr.pop();
+            }
+        }
+        return arr.join('');
+    }
+    if (backspace(S1) === backspace(T1)) {
+        return true;
+    } else {
+        return false;
+    }
+};
