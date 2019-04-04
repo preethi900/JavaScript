@@ -1,0 +1,22 @@
+var toGoatLatin = function(S) {
+    var S1 = S.split(' ');
+ 
+    for  (var j =0 ; j < S1.length ; j++) {
+            if (S1[j][0] === 'a'||S1[j][0] === 'A' || S1[j][0] === 'e' || S1[j][0]==='E'|| S1[j][0]==='i' || S1[j][0]==='I' ||S1[j][0]==='o' || S1[j][0]==='O'||S1[j][0]==='u'||S1[j][0]==='U' )   {
+                S1[j] = S1[j] + 'ma';
+                
+                
+            } else {
+                var arr = S1[j].split('');
+                arr.push(arr.shift());
+                S1[j]=arr.join('') + 'ma';
+                
+            }
+        for (var i = 0; i < j + 1; i++) {
+            S1[j] += 'a';
+            
+        }
+}
+    
+    return S1.join(' ');
+};
