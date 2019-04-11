@@ -1,0 +1,26 @@
+var validMountainArray = function(A) {
+    var max = Math.max(...A);
+    if (A[0] === max || A[A.length -1] === max ||A.length === 0) {
+        return false;
+    }
+    if (A.length >= 3) {
+      var intial = A.indexOf(Math.max(...A));
+        let arr1 =[];
+        for (var i = intial ; i < A.length - 1; i++) {
+        if (A[i] > A[i +1]) {
+            arr1.push(A[i+1]);
+        } 
+    }
+    let arr2 =[];
+    for (var j = intial ; j > 0 ; j--) {
+        if (A[j] > A[j - 1]) {
+            arr2.push(A[j-1]);
+        } 
+    }
+    if(arr1.length + arr2.length + 1=== A.length) {
+        return true;
+    } else {
+        return false;
+    }
+    } 
+};
