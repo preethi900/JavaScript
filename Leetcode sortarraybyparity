@@ -1,0 +1,16 @@
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParity = function(A) {
+    let array = []; let arr = [];
+    for (var i =0 ; i < A.length; i++) {
+        if (A[i] % 2 === 0 ) {
+            array.push(A[i]);
+        } else {
+            arr.push(A[i]);
+        }
+    }
+    var res = array.concat(arr);
+    return res;
+};
