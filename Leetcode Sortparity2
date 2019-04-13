@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParityII = function(A) {
+        var arr =[]; var arr1 = []; var res1 =[];
+        for (var i =0; i < A.length; i++) {
+            if (A[i] % 2 === 0) {
+                arr.push(A[i]);
+            } else {
+                arr1.push(A[i]);
+            }
+        }
+    
+        for (var i =0 ; i < arr.length; i++) {
+            res1.push(arr[i],arr1[i]);
+        }
+        return res1;
+};
