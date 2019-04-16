@@ -1,0 +1,29 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isUnivalTree = function(root) {
+    if (root === null) {
+        return true;
+    }
+    if (root.left !== null) {
+        if (root.val !== root.left.val) {
+            return false;
+        }
+    }
+     if (root.right !== null) {
+        if (root.val !== root.right.val) {
+            return false;
+        }
+    }
+let left = isUnivalTree(root.left);
+let right = isUnivalTree(root.right); 
+return left && right;
+};
