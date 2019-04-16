@@ -1,0 +1,16 @@
+/**
+ * @param {number[][]} A
+ * @return {number[][]}
+ */
+var transpose = function(A) {
+    let arr = [];
+    for (var i =0 ;i < A[0].length; i++) {
+        arr[i] = [];
+    }
+        for (var i =0 ; i< A.length; i++) {
+        for (var j = 0; j < A[i].length ; j++) {
+            arr[j][i] = A[i][j];
+        }
+    }
+    return arr;
+};
