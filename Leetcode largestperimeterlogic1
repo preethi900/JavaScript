@@ -1,0 +1,19 @@
+
+var largestPerimeter = function(A) {
+    var sorted = A.sort((a, b) => a - b);    
+    if (sorted.length < 2 ) {
+        return 0;
+    }
+    for (var i = sorted.length -1 ; i >= 0; i--) {
+     
+        var peri = sorted[i] + sorted[i-1] + sorted[i-2];
+        var p = peri/2;
+        var area = Math.sqrt(p*(p - sorted[i])*(p - sorted[i -1])* (p -sorted[i - 2]));
+        //console.log(area,peri,sorted);
+        if (area > 0) {
+            return peri;
+        }
+
+    }
+    return 0;
+};
