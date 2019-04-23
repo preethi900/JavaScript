@@ -1,0 +1,11 @@
+// Logic 1 >> Using perimeter condition ==> 97%, 18%
+
+var largestPerimeter = function(A) {
+    var sorted = A.sort((a, b) => a - b);    
+    for (var i = sorted.length -1 ; i >= 0; i--) {
+      if (sorted[i] < sorted[i-1] + sorted[i-2]) {
+        return sorted[i] + sorted[i-1] + sorted[i-2];
+}
+    }
+    return 0;
+};
