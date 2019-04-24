@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} A
+ * @param {number} K
+ * @return {number[]}
+ */
+var addToArrayForm = function(A, K) {
+    var str = "";
+    var arr = [];
+    for (var i = 0; i < A.length ; i++) {
+        str += A[i];
+    }
+    var num = BigInt(str) + BigInt(K);
+    arr.push(num);
+    var arr = arr.toString().split('');
+    return arr;
+    
+};
