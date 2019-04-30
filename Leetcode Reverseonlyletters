@@ -1,0 +1,29 @@
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var reverseOnlyLetters = function(S) {
+    var str=[];
+    var res=[];
+    for(var i=S.length-1;i>=0;i--){
+        if((S[i]>="A"&&S[i]<="Z")||(S[i]>="a"&&S[i]<="z")){
+            str.push(S[i]);
+        }
+        else{
+            res[i]=S[i];
+        }
+    }
+    
+    var ind=0;
+    for(var i=0;i<str.length;i++){
+        if(res[ind]==null){
+            res[ind]=str[i];
+            ind++;
+        }
+        else{
+            ind++;
+            i--;
+        }
+    }
+    return res.join("");
+};
