@@ -1,0 +1,23 @@
+/**
+ * @param {string} S
+ * @return {number}
+ */
+var minAddToMakeValid = function(S) {
+    var arr = [];
+    var str = S.split('');
+    var count = 0;
+ for (var i = 0; i < str.length; i++) {
+        if (str[i] === "(") {
+            arr.push(str[i]);
+            count++;
+        } else {
+        if (str[i] === ")" && arr.pop() === "(") {
+            count--;
+        }  else {
+            count++;
+        }
+            
+        }
+    }     
+    return count;
+};
