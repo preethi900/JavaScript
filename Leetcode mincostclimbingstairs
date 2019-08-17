@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} cost
+ * @return {number}
+ */
+var minCostClimbingStairs = function(cost) {
+  var h1 = cost[0];
+  var h2 = cost[1];
+  for (var i=2; i<cost.length; i++) {
+    var h3 = Math.min(h1, h2) + cost[i];
+    h1 = h2;
+    h2 = h3;
+    }
+   return Math.min(h1,h2);  
+};
