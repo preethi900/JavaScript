@@ -1,0 +1,13 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var dominantIndex = function(nums) {
+  let max = Math.max(...nums);
+   let maxInd = nums.indexOf(max);
+   nums.sort((a,b) => a - b);
+   if(max < nums[nums.length -2] * 2) {
+       return -1;
+   }
+    return maxInd;  
+};
