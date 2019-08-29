@@ -1,0 +1,15 @@
+/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+var heightChecker = function(heights) {
+    let original = [...heights];
+    heights.sort((a,b) => a-b);
+    var count = 0;
+    for (var i = 0; i < heights.length ; i++) {
+        if ( original[i] !== heights[i] ) {
+            count++;
+        }
+    }
+    return count;
+};
