@@ -1,0 +1,19 @@
+/**
+ * @param {string} text
+ * @param {string} first
+ * @param {string} second
+ * @return {string[]}
+ */
+var findOcurrences = function(text, first, second) {
+    let arr = [];
+    let arr1 = text.split(' ');
+    for (var i = 0 ; i < arr1.length; i++) {
+        if (arr1[i] === first) {
+            if (arr1[i + 1] === second) {
+                arr.push(arr1[i + 2]);
+            }
+        }
+    }
+    
+    return arr.filter(i => i);
+};
