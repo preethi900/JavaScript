@@ -1,0 +1,25 @@
+/**
+ * @param {number} candies
+ * @param {number} num_people
+ * @return {number[]}
+ */
+var distributeCandies = function(candies, num_people) {
+    let arr = [];
+    for (var i = 0 ; i < num_people ; i++) {
+        arr[i] = 0;
+    }
+    var distributecandy = 1;
+    while (candies) {
+        for (var k = 0; k < num_people ; k++) {
+            arr[k] += distributecandy;
+            candies -= distributecandy;
+            distributecandy++;
+            if (candies <= 0) {
+                arr[k] += candies;
+                return arr;
+            }
+        }
+    }
+    
+    return arr;
+};
