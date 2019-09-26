@@ -1,0 +1,18 @@
+/**
+ * @param {number[]} arr1
+ * @param {number[]} arr2
+ * @return {number[]}
+ */
+var relativeSortArray = function(arr1, arr2) {
+    var arr3 = [];
+    for (var i = 0 ; i < arr2.length; i++) {
+        for (var j = 0 ; j < arr1.length ; j++) {
+            if (arr2[i] === arr1[j]) {
+                arr3.push(arr1[j]);
+                arr1.splice(j,1);
+                j--;
+            }
+        }
+    }
+    return arr3.concat(arr1.sort((a,b) => a - b));
+};
