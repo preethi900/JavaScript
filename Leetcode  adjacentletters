@@ -1,0 +1,17 @@
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var removeDuplicates = function(S) {
+  var s = S.split(''); 
+    for (var i = 0 ; i < s.length ; i++) {
+        if (s[i] === s[i+1]) {
+            s.splice(i,2);
+            i -= 2;
+            if (i < 0) {
+                i = -1;
+            }
+        }
+    }
+    return s.join('');
+};
