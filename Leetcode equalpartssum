@@ -1,0 +1,24 @@
+/**
+ * @param {number[]} A
+ * @return {boolean}
+ */
+var canThreePartsEqualSum = function(A) {
+    var sum = 0;
+    for (var i = 0 ; i < A.length ; i++) {
+        sum += A[i];
+    }
+    var sum1 = 0;
+    var sumnum = 0;
+    for (var j = 0; j < A.length ; j++) {
+        sum1 += A[j];
+        if (sum1 === sum/3) {
+            sumnum++;
+                if(sumnum === 2) {
+                    return true;
+                }
+            sum1 = 0;
+        }
+    
+    }
+    return false;
+};
