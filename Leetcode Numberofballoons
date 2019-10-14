@@ -1,0 +1,18 @@
+/**
+ * @param {string} text
+ * @return {number}
+ */
+
+ var maxNumberOfBalloons = function(text) {
+  const counts = { b: 0, a: 0, l: 0, o: 0, n: 0 };
+  
+  // count characters that are in "balloon"
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] in counts) {
+      counts[text[i]]++;
+    }
+  }
+  
+  // minimum based on counts of each letter, 2xL and 2xO required for a single instance of balloon
+  return Math.min(counts.b, counts.a, Math.floor(counts.l / 2), Math.floor(counts.o / 2), counts.n);
+};
