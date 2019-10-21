@@ -1,0 +1,13 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    var s1 = s.replace(/[^a-zA-Z0-9]/g,'');
+    var s2 = s1.toLowerCase();
+    if (s2 === s2.split('').reverse().join('')) {
+        return true;
+    } else {
+        return false;
+    }
+};
