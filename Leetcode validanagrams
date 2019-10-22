@@ -1,0 +1,19 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    if (s.length !== t.length) {
+        return false;
+    }
+    if (s.length === t.length) {
+        var s11 = s.split('').sort().join('');
+        var t11 = t.split('').sort().join('');
+        if (s11 === t11) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+};
