@@ -1,0 +1,37 @@
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    var arr = [];
+    const max = -(Math.pow(2,31));
+    const max1 = Math.pow(2,31) - 1;
+    var x1 = x + "";
+    if (x1 < 0) {
+        for (var i = x1.length - 1 ; i > 0 ; i--) {
+            arr.push(x1[i]);
+        }
+        var num = arr.join('');
+        var res = Number(num);
+        if (-res > max ){
+        return (-res);
+        } else {
+            return 0;
+        }
+    } else {
+        for (var i = x1.length - 1 ; i >= 0 ; i--) {
+            arr.push(x1[i]);
+        }
+        var num = arr.join('');
+        var res = Number(num);
+        if (res < max1) {
+        return res;
+        } else {
+            return 0;
+        }
+    }
+    
+    
+};
+    
+    
