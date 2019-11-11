@@ -1,0 +1,15 @@
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ */
+var hammingWeight = function(n) {
+    let n1 = n.toString(2).split('');
+    let num1 = 0;
+    for (var i = 0; i < n1.length ; i++) {
+        if (n1[i] === '1') {
+            num1++;
+        }
+    }
+    return num1;
+    
+};
