@@ -1,0 +1,14 @@
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var subtractProductAndSum = function(n) {
+   var sp = n.toString().split('');
+    var product = 1;
+    var sum = 0;
+   for (var i = 0 ; i < sp.length ; i++) {
+       product *= sp[i];
+       sum += Number(sp[i]);
+   }
+    return product - sum;
+};
