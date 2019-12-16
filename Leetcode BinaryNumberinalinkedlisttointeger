@@ -1,0 +1,20 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number}
+ */
+var getDecimalValue = function(head) {
+    let output = 0;
+    while (head) {
+        output = 2*output + head.val;
+        head = head.next;
+    }
+    return output;
+    
+};
