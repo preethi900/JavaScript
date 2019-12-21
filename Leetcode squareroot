@@ -1,0 +1,14 @@
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+ const S = x;
+    let a = 1;
+    let b =x;
+    while (Math.abs(b-a) > 1) {
+        a = (a+b)/2;
+        b= S/a;
+    }
+    return Math.floor((a+b)/2);
+};
