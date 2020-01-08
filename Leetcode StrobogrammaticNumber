@@ -1,0 +1,33 @@
+/**
+ * @param {string} num
+ * @return {boolean}
+ */
+var isStrobogrammatic = function(num) {
+    var after_conversion = "";
+    for (var i = 0 ; i < num.length ; i++) {
+        // Failure case: If these 2,4,5,7,3 comes they are strictly non Strobogrammatic 
+        if (num[i] === "2" || num[i] === "4" || num[i] === "5" || num[i] === "7" || num[i] === "3" ) {
+            return false;
+        }
+        // Success case but the number can become a different number
+        // * We check the number before and after conversion
+        
+        if (num[i] === "6") {
+            after_conversion = "9" + after_conversion;
+            console.log(after_conversion);
+            
+        } else if (num[i] === "9") {
+            after_conversion = "6" + after_conversion;
+            
+        } else  {
+            after_conversion = num[i] + after_conversion;
+        }
+        
+    }
+   
+    if(num === after_conversion) {
+        return true;
+    } else {
+        return false;
+    }
+};
