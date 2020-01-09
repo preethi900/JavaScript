@@ -1,0 +1,20 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isSubsequence = function(s, t) {
+   var count = 0;
+    for (var i = 0 ; i < t.length ; i++) {
+        if (s[count] === t[i]) {
+            count++;
+        }
+        
+    }
+    console.log(count);
+    if (count ===  s.length) {
+        return true;
+    } else {
+        return false;
+    }
+};
