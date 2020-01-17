@@ -1,0 +1,9 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    var s1 = s.trim().split(' ').filter(Boolean).reverse().join(' ');
+    return s1;
+    
+};
