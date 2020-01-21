@@ -1,0 +1,9 @@
+/**
+ * @param {number[]} candies
+ * @return {number}
+ */
+var distributeCandies = function(candies) {
+    var newsetarray = new Set(candies).size;
+    var size = candies.length/2;
+    return Math.min(size,newsetarray);
+};
