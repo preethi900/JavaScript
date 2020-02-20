@@ -7,3 +7,17 @@ var reverseWords = function(s) {
     return s1;
     
 };
+
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    var s1 = s.replace(/ +/g,' ').split(' ');
+    var s2 = "";
+    for (var i = s1.length - 1 ; i >= 0 ;i--) {
+       s2 += ' '+ s1[i];
+    }
+    return s2.trim();
+};
