@@ -1,0 +1,15 @@
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var maximum69Number  = function(num) {
+    var strnum = "" + num ;
+    var strnum1 = strnum.split('');
+    for (var i = 0 ; i < strnum1.length ; i++) {
+        if (strnum1[i] < 9) {
+            strnum1[i] = '9';
+            return parseInt(strnum1.join(''));
+        }
+    }
+    return parseInt(strnum1.join(''));
+};
