@@ -1,0 +1,36 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    if (s === "") {
+        return true;
+    }
+    var arr = [];
+    var brackets = {
+        "(":")",
+        "[" : "]",
+        "{" : "}"
+    }; 
+    for (var i = 0 ; i < s.length ; i++) {
+        if (s[i] in brackets) {
+            arr.push(s[i]);
+        } else {
+           var last_open = arr[arr.length - 1];
+           if (brackets[last_open] === s[i]) {
+               arr.pop();
+           } else {
+               return false;
+           }
+        }
+        
+    }
+    if(arr.length > 0) {
+        return false;
+    } else {
+   
+        return true;
+    }
+    
+    
+};
