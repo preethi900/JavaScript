@@ -1,0 +1,20 @@
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var addDigits = function(num) {
+  var splitnum =  function(num) {
+        num += "";
+        var num1 = num.split('');
+        return num1;
+  };
+    while (num >= 10) {
+       var num1 = splitnum(num);
+        var res1 = 0;
+        for(var i = 0; i < num1.length ;i++) {
+           res1 +=  parseInt(num1[i]);
+        }
+        num = res1;
+    }
+  return num;
+};
