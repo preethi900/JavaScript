@@ -1,0 +1,9 @@
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var reverseOnlyLetters = function(S) {
+    let i = 0;
+    var words = S.replace(/[^a-zA-Z]/g,"").split("").reverse();
+    return S.replace(/[a-zA-Z]/g,_ => words[i++]);
+};
