@@ -1,0 +1,13 @@
+/**
+ * @param {string} A
+ * @param {string} B
+ * @return {string[]}
+ */
+var uncommonFromSentences = function(A, B) {
+    var arr = [];
+  var words = A.split(' ').concat(B.split(' '));
+  for (var i = 0 ;  i < words.length ; i++) {
+      if (words.indexOf(words[i]) === words.lastIndexOf(words[i])) {
+          arr.push(words[i]);
+      }
+  }
