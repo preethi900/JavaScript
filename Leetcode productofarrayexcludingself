@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    var res = [1];
+    var temp = 1;
+    for (var i = 1 ; i < nums.length ; i++) {
+        res[i] = res[i-1] * nums[i-1];
+    }
+    console.log(res);
+    for (var i = nums.length -1 ; i > -1 ; i--) {
+        res[i] = res[i] * temp;
+        temp = temp * nums[i];
+    }
+    return res;
+};
