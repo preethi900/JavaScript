@@ -1,0 +1,32 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var checkValidString = function(s) {
+    let l = 0;
+    let h = 0;
+    for (var i = 0 ; i < s.length ; i++) {
+        if (h < 0) {
+            return false;
+        }
+        if (s[i] === '(') {
+            l++;
+            h++;
+        }
+        if (s[i] === ')') {
+            if( l > 0) {
+                l--;
+            }
+                h--;
+            
+        }
+        if (s[i] === '*') {
+            if( l > 0) {
+                l--;
+            }
+                h++;
+            
+        }
+    }
+    return (l <= 0 && h >= 0);
+};
