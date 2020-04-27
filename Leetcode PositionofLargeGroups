@@ -1,0 +1,26 @@
+/**
+ * @param {string} S
+ * @return {number[][]}
+ */
+var largeGroupPositions = function(S) {
+    let res = [];
+    let count = 1;
+    for (var i = 1 ; i < S.length ; i++) {
+        if (S.charAt(i) === S.charAt(i-1)) {
+            count++;
+            console.log(i,count);
+        } else {
+            if (count >= 3) {
+                res.push([i-count,i-1]);
+                
+            }
+            count = 1;
+        }
+        
+    }
+     if (count >= 3) {
+                res.push([i-count,i-1]);
+            }
+    return res;
+    
+};
