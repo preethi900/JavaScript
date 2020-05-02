@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} widths
+ * @param {string} S
+ * @return {number[]}
+ */
+var numberOfLines = function(widths, S) {
+    let line = 1;
+    let wid = 0;
+    for (var i = 0 ; i < S.length ; i++) {
+        const swid = widths[S.charCodeAt(i) - 97];
+        if (wid + swid > 100) {
+            line++;
+            wid = swid;
+        } else {
+            wid += swid;
+        }
+    }
+    return [line,wid]
+};
