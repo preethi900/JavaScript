@@ -1,0 +1,27 @@
+/**
+ * @param {number[]} A
+ * @return {number}
+ */
+var lenLongestFibSubseq = function(A) {
+    let set = new Set();
+    let res = 2;
+    for (let num of A) {
+        set.add(num);
+    }
+    for (var i = 0 ; i < A.length ; i++) {
+        for (var j = i+1 ; j < A.length ; j++) {
+            let a  = A[i];
+            let b = A[j];
+        
+        let len = 2;
+        while(set.has(a+b)) {
+            [a,b] = [b,a+b];
+            len++;
+        }
+        res = Math.max(res,len);
+            
+    }
+    }
+    return res === 2 ? 0 : res;
+    
+};
