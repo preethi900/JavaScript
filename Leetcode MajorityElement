@@ -1,0 +1,15 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function(nums) {
+   const dictio = {};
+    let size = Math.round(nums.length/2);
+    for (var i = 0 ; i < nums.length ; i++) {
+        dictio[nums[i]] = dictio[nums[i]] + 1 || 1 ;
+        if (dictio[nums[i]] >= size) {
+            return nums[i];
+        }
+        
+    }
+};
