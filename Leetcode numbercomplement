@@ -1,0 +1,17 @@
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var findComplement = function(num) {
+    var bin = num.toString(2).split('');
+    for (var i = 0; i < bin.length ; i++) {
+        if (bin[i] === '1') {
+            bin[i] = '0';
+        } else {
+            bin[i] = '1';
+        }
+    }
+    var res = parseInt((bin.join('')),2);
+    return res;
+    
+};
