@@ -1,0 +1,30 @@
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+var canConstruct = function(ransomNote, magazine) {
+  let map = {};
+    for (let c of magazine) {
+        if(c in map) {
+        map[c] += 1;
+    } else {
+        map[c] = 1;
+    }
+  }
+   for (let c of ransomNote) {
+       if(c in map) {
+           map[c] -= 1;
+        if (map[c] === -1) {
+            return false;
+        }
+      
+       } else {
+           return false;
+       }
+   }
+   
+return true;
+  
+    
+};
