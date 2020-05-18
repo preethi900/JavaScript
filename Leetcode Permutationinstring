@@ -1,0 +1,16 @@
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {boolean}
+ */
+var checkInclusion = function(s1, s2) {
+ var s1 = s1.split('').sort().join('');
+  for (var i = 0 ; i < s2.length ; i++) {
+      var res = '';
+      var res = s2.substr(i,s1.length).split('').sort().join('');
+      if (s1 === res) {
+          return true;
+      } 
+  }
+    return false;
+};
