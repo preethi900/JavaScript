@@ -24,3 +24,23 @@ var kthSmallest = function(root, k) {
     let res = inorder(root);
     return res[k - 1];
 };
+
+//another method
+    function traverse(node) {
+        
+        //null check
+        if(!node) {
+            return;
+        }
+        
+        // traverse left
+        traverse(node.left);
+        res.push(node.val);
+        traverse(node.right);
+        
+        return res;
+    }
+    let res =[];
+    traverse(root);
+    return res[k - 1];
+};
