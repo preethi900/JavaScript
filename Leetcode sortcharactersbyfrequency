@@ -1,0 +1,20 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var frequencySort = function(s) {
+    var map = {};
+    var res = '';
+    var s1 = s.split('');
+    for (var i = 0 ; i < s1.length ; i++) {
+        map[s1[i]] = map[s1[i]] + 1 || 1;
+    }
+    Object.keys(map).sort((a,b) => map[b] - map[a]).forEach(function(v) {
+        for (var j = 0 ; j < map[v] ; j++) {
+         res += v;
+    }
+});
+                                                               
+        
+        return res;
+};
