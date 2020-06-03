@@ -1,0 +1,15 @@
+/**
+ * @param {number[][]} costs
+ * @return {number}
+ */
+var twoCitySchedCost = function(costs) {
+   costs = costs.sort((a,b) => (b[0] - b [1]) - (a[0] - a[1]));
+    var mincost = 0;
+    for (var i = 0 ; i < costs.length/2 ; i++) {
+        mincost += costs[i][1];
+    }
+    for (var i = costs.length/2 ; i < costs.length ; i++) {
+        mincost += costs[i][0];
+    }
+    return mincost;
+};
