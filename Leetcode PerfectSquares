@@ -1,0 +1,15 @@
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var numSquares = function(n) {
+   let mem = [0];
+    for (var i = 1 ; i <= n ; i++) {
+        mem[i] = Infinity;
+        for (var j = 1 ; j*j <= i ; j++) {
+            mem[i] = Math.min(mem[i],mem[i - j*j] +1);
+            
+        }
+    }
+    return mem[n];
+};
