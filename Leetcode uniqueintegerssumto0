@@ -11,3 +11,18 @@ var sumZero = function(n) {
     }
     return arr;
 };
+
+/**
+ * @param {number} n
+ * @return {number[]}
+ */
+var sumZero = function(n) {
+    let res = [];
+    if(n % 2 === 1) {
+        res.push(0);
+    }
+    for (var i = 1 ; i <= n /2 ; i++) {
+        res.push(i,-i);
+    }
+    return res;
+};
