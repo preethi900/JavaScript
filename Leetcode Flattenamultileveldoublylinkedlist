@@ -1,0 +1,30 @@
+/**
+ * // Definition for a Node.
+ * function Node(val,prev,next,child) {
+ *    this.val = val;
+ *    this.prev = prev;
+ *    this.next = next;
+ *    this.child = child;
+ * };
+ */
+
+/**
+ * @param {Node} head
+ * @return {Node}
+ */
+var flatten = function(head) {
+    const arr = [];
+    const helper = (node) => {
+        if(!node) return;
+        arr.push(node);
+        helper(node.child);
+        helper(node.next);
+    };
+    helper(head);
+    for (var i = 0 ; i < arr.length ; i++) {
+        arr[i].prev = arr[i-1] || null;
+        arr[i].next = arr[i+1] || null;
+        arr[i].child = null;
+    }
+    return arr[0] || null;
+};
