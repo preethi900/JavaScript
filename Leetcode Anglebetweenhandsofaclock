@@ -1,0 +1,11 @@
+/**
+ * @param {number} hour
+ * @param {number} minutes
+ * @return {number}
+ */
+var angleClock = function(hour, minutes) {
+    var minutes1 = minutes * 6;
+    var hours1 =(hour + minutes/60) * 30
+    var diff = Math.abs(minutes1 - hours1);
+    return Math.min(diff,360-diff);
+};
