@@ -1,0 +1,12 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent = function(nums, k) {
+    const numHash = {};
+
+    nums.forEach(n => numHash[n] ? numHash[n] += 1 : numHash[n] = 1);
+
+    return Object.keys(numHash).sort((a, b) => numHash[b] - numHash[a]).slice(0, k);
+};
