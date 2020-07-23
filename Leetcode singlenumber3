@@ -1,0 +1,15 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var singleNumber = function(nums) {
+ let s = new Set();
+ for (var i = 0 ; i < nums.length ; i++) {
+     if(s.has(nums[i])) {
+         s.delete(nums[i]);
+     } else {
+         s.add(nums[i]);
+     }
+ }
+    return [...s];
+};
