@@ -1,0 +1,22 @@
+/**
+ * @param {number[][]} graph
+ * @return {number[][]}
+ */
+var allPathsSourceTarget = function(graph) {
+   var output = [];
+    var path = [];
+    path.push(0);
+    function helper(node) {
+        if(node == graph.length - 1) {
+            output.push(path.slice(0));
+        } else {
+            for (var i = 0 ; i < graph[node].length ; i++) {
+                path.push(graph[node][i]);
+                helper(graph[node][i]);
+               path.pop();
+            }
+        }
+    }
+    helper(0);
+    return output;
+};
