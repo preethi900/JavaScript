@@ -1,0 +1,20 @@
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isPowerOfFour = function(num) {
+    var s = 1;
+    if(num === 1) {
+        return true;
+    }
+    if(num < 4) {
+        return false;
+    }
+  while(s < num) {
+       s *= 4;
+      if(s === num) {
+          return true;
+      }
+  }  
+    return false;
+};
