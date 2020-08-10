@@ -1,0 +1,13 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var titleToNumber = function(s) {
+    let res = 0;
+    for (var i = 0; i < s.length ; i++) {
+        const ascii =s.charCodeAt(i) -64;
+        res = (res * 26) + ascii;
+        
+    }
+    return res;
+};
