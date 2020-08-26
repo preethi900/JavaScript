@@ -1,0 +1,26 @@
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var fizzBuzz = function(n) {
+    var res = ["1","2"];
+    if (n === 1) {
+        return [res[0]];
+    }
+    if(n === 2) {
+        return [res[1]];
+    }
+    for (var i = 3 ; i <= n ; i++) {
+        if(i % 3 === 0  && i % 5 === 0) {
+            res.push("FizzBuzz");
+        } else if(i % 3 === 0) {
+            res.push("Fizz");
+        }
+        else if(i % 5 === 0) {
+            res.push("Buzz");
+        } else {
+            res.push(i + '');
+        }
+    }
+    return res;
+};
