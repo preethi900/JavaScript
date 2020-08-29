@@ -1,0 +1,38 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isIsomorphic = function(s, t) {
+    function s_pattern(word) {
+        d = {};
+        var visited = new Set();
+        for (var i = 0 ; i < word.length ; i++) {
+            if(!visited.has(word[i])) {
+                var count = 1;
+                d[word[i]] = count;
+                visited.add(word[i]);
+            } else {
+              count++;
+              d[word[i]] = count;
+            }
+        
+        }
+        return d;
+    }
+    
+    var s1 = s.split('');
+    var t1 = t.split('');
+    if(s.length !== t.length) {
+        return false;
+    }
+    var dict1 = s_pattern(s1);
+    var dict2 = s_pattern(t1);
+    for (var i = 0 ; i < s1.length ;i++) {
+        if(dict1[s1[i]] !== dict2[t1[i]]) {
+            return false;
+        }
+        
+    }
+    return true;
+};
