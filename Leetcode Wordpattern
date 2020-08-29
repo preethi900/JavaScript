@@ -1,0 +1,31 @@
+/**
+ * @param {string} pattern
+ * @param {string} str
+ * @return {boolean}
+ */
+var wordPattern = function(pattern, str) {
+    function p1_dict(p1) {
+        var d = {};
+        var visited = new Set();
+        for (var i = 0 ; i < p1.length ; i++) {
+            if(!visited.has(str1[i])) {
+              d[p1[i]] = str1[i];
+              visited.add(str1[i]);  
+            }
+        }
+        return d;
+    }
+    var str1 = str.split(' ');
+    var p1 = pattern.split('');
+    var p1_value = p1_dict(pattern);
+    console.log(p1_value);
+    for (var i = 0 ; i < str1.length ; i++) {
+        p1[i] = p1_value[p1[i]];
+    }
+    console.log(p1,str1);
+    if (p1.join('') === str1.join('')) {
+        return true;
+    } else {
+        return false;
+    }
+};
