@@ -1,0 +1,28 @@
+var anagram = function (str1,str2) {
+function countnumberofcharacters(word) {
+    let obj = {};
+    
+    for (let char of word) {
+        obj[char] = ++obj[char] || 1;
+
+    }
+    return obj;
+}
+if(str1.length !== str2.length) {
+    return false;
+}
+if(str1 === str2) {
+    return true;
+}
+    var objstr1 = countnumberofcharacters(str1);
+    var objstr2 = countnumberofcharacters(str2);
+    console.log(objstr1,objstr2);
+    for(let keys of str1) {
+    if(objstr1[keys] === objstr2[keys]) {
+        return true;
+    } else {
+        return false;
+    }
+}
+};
+console.log(anagram("texttwisttime","timetwisttext"));
