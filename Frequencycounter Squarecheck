@@ -1,0 +1,28 @@
+var squarecheck = function (arr1,arr2) {
+   if(arr1.length !== arr2.length) {
+       return false;
+   }
+   let objarr1 = {};
+   let objarr2 = {};
+   for (let num of arr1) {
+       
+       num *= num;
+       objarr1[num] = ++objarr1[num] || 1;
+
+   }
+   for (let num of arr2) {
+      
+      objarr2[num] = ++objarr2[num] || 1;
+   }
+   for(let num of arr1) {
+       if(!(num*num in objarr2)) {
+           return false;
+       }
+       if(objarr1[num] !== objarr2[num]) {
+           return false;
+       }
+   }
+
+return true;
+}
+console.log(squarecheck([1,2,2],[4,4,1]));
