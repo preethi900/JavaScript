@@ -1,5 +1,10 @@
-var anagram = function (str1,str2) {
-function countnumberofcharacters(word) {
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    function countnumberofcharacters(word) {
     let obj = {};
     
     for (let char of word) {
@@ -8,21 +13,23 @@ function countnumberofcharacters(word) {
     }
     return obj;
 }
-if(str1.length !== str2.length) {
+if(s.length !== t.length) {
     return false;
 }
-if(str1 === str2) {
+if(s === t) {
     return true;
 }
-    var objstr1 = countnumberofcharacters(str1);
-    var objstr2 = countnumberofcharacters(str2);
+    var objstr1 = countnumberofcharacters(s);
+    var objstr2 = countnumberofcharacters(t);
     console.log(objstr1,objstr2);
-    for(let keys of str1) {
-    if(objstr1[keys] === objstr2[keys]) {
-        return true;
-    } else {
-        return false;
+    for(let keys of t) {
+        if(!(keys in objstr1) ) {
+            return false;
+        }
+        if(objstr1[keys] !== objstr2[keys]) {
+            return false;
+        }
     }
-}
+   
+    return true;
 };
-console.log(anagram("texttwisttime","timetwisttext"));
