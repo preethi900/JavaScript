@@ -1,0 +1,21 @@
+
+function maxSubarraySum(arr,val) {
+    let tempsum = 0;
+    if(arr.length < val) {
+        return null;
+    }
+    for(var i = 0 ; i < val ; i++) {
+        tempsum += arr[i];
+    }
+
+    let finalsum = tempsum;
+    for (var j = val ; j < arr.length; j++) {
+        finalsum = finalsum - arr[j - val] + arr[j];
+        console.log(finalsum);
+        tempsum = Math.max(finalsum,tempsum);
+    }
+    return tempsum;
+
+}
+
+console.log(maxSubarraySum([1,4,2,10,23,3,1,0,20],4));
