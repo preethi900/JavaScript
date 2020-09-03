@@ -19,6 +19,5 @@ function factorial(num) {
         return 1;
     }
       let fact = num*factorial(num - 1);
-      num--;
       return fact;
 }
