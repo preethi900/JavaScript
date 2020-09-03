@@ -1,0 +1,21 @@
+// productOfArray([1,2,3]) // 6
+// productOfArray([1,2,3,10]) // 60
+
+function productOfArray(arr) {
+    function helper(helperInput) {
+        
+        if(helperInput.length === 1) 
+        {
+            return helperInput;
+        }
+        var res = helperInput[0] * helper(helperInput.slice(1));
+        return res;
+    }
+
+    return helper(arr);
+    
+    
+
+}
+
+console.log(productOfArray([1,2,3,4,5]));
