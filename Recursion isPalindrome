@@ -1,0 +1,15 @@
+function isPalindrome(str) {
+    function helper(helperInput) {
+    if(helperInput.length <= 1) {
+        return helperInput ;
+    }
+    return helper(helperInput.slice(1)) +helperInput[0] ;
+}
+  if(helper(str) === str) {
+      return true;
+  }   
+  return false;
+   
+}
+
+console.log(isPalindrome('amanaplanacanalpanama'));
