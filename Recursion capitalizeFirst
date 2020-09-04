@@ -1,0 +1,26 @@
+function capitalizeFirst(arr) {
+    
+    if(arr.length === 0) {
+        return arr;
+    }
+    var str = arr[0][0].toUpperCase();
+    for(var i = 1; i < arr[0].length ; i++ ) {
+        str += arr[0][i];
+    }
+    newArray.push(str);
+    capitalizeFirst(arr.slice(1));
+    return [...new Set(newArray)];
+}
+var newArray = [];
+
+
+
+
+
+
+
+
+
+
+
+console.log(capitalizeFirst(['cat','rat','bat']));
