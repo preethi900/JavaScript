@@ -1,0 +1,40 @@
+function collectStrings(obj) {
+
+    for (let key in obj) {
+        if (typeof obj[key] === "string") {
+               res.push(obj[key]);
+        } else if(typeof obj[key] === "object") {
+            collectStrings(obj[key]);
+        }
+    }
+    return res;
+}
+let res = [];
+
+
+
+
+
+
+
+
+
+
+
+const obj = {
+    stuff: "foo",
+    data: {
+        val: {
+            thing: {
+                info: "bar",
+                moreInfo: {
+                    evenMoreInfo: {
+                        weMadeIt: "baz"
+                    }
+                }
+            }
+        }
+    }
+}
+
+console.log(collectStrings(obj));
