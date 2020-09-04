@@ -1,0 +1,25 @@
+function capitalizeWords(arr) {
+    if(arr.length === 0) {
+        return arr;
+    }
+    
+    var str = '';
+    for (var i = 0 ; i < arr[0].length ; i++) {
+        str += arr[0][i].toUpperCase();
+    }
+    newArray.push(str);
+    capitalizeWords(arr.slice(1));
+    return newArray;
+}
+var newArray = [];
+
+
+
+
+
+
+
+
+
+
+console.log(capitalizeWords(['i','am','learning','recursion']));
