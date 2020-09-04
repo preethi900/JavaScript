@@ -1,0 +1,14 @@
+function flatten(arr) {
+    var newarr = [];
+    if(arr.length === 0) {
+        return arr;
+    }
+    for (var i = 0 ; i < arr.length ; i++) {
+        if(Array.isArray(arr[i])) {
+            newarr = newarr.concat(flatten(arr[i]));
+        } else {
+            newarr.push(arr[i]);
+        }
+    }
+    return newarr;
+}
