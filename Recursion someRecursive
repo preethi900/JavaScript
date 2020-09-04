@@ -1,0 +1,22 @@
+function someRecursive(arr,isOdd) {
+   // const isOdd = val => val % 2 !== 0;
+   if(arr.length === 0) {
+       return false;
+   }
+    if(isOdd(arr[0])) {
+        return true;
+    }
+    return someRecursive(arr.splice(1),isOdd);
+    
+}
+
+
+
+
+
+
+
+
+
+const isOdd = val => val % 2 !== 0;
+console.log(someRecursive([2,4],isOdd));
