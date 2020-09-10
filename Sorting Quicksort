@@ -1,0 +1,30 @@
+function pivot(arr,start = 0 ,end = arr.length - 1) {
+    function swap(arr,i,j) {
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    let pivot = arr[start];
+    let swapindex  = start;
+    for (var i = start + 1 ; i < arr.length ; i++) {
+        if(pivot > arr[i]) {
+            swapindex++;
+            swap(arr,swapindex,i);
+        }
+    }
+    
+    swap(arr,swapindex,start);
+    
+    return swapindex;
+    
+
+}
+
+function quickSort(arr,left = 0,right = arr.length -1) {
+  if(left < right) {  
+   let pivotvalue = pivot(arr,left,right);
+   quickSort(arr,left,pivotvalue-1);
+   quickSort(arr,pivotvalue+1,right);
+  }
+   return arr;
+}
