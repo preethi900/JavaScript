@@ -36,15 +36,17 @@ class SinglyLinkedlist {
             
             this.tail = null;
             this.length --;
+            return current;
             
         } else {
       
         while(current) {
          if(current.next.next === null) {
              this.tail = current;
+             let temp = current.next;
              current.next = null;
              this.length--;
-             return current;
+             return temp;
          } else {
              current = current.next;
          }
@@ -193,14 +195,17 @@ list.push(16);
 list.push(25);
 list.pop();
 
-list.shift();
-list.unshift(5);
-list.unshift(25);
-list.remove(1);
-list.remove(0);
-list.push(5);
-list.push(25);
-list.reverse();
+//list.shift();
+//list.unshift(5);
+//list.unshift(25);
+//list.remove(1);
+//list.remove(0);
+//list.push(5);
+//list.push(25);
+//list.reverse();
+list.pop();
+
+
 
 
 
@@ -209,3 +214,4 @@ list.reverse();
 
 
 console.log(list);
+
