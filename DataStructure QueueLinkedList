@@ -4,23 +4,46 @@ class Node {
         this.next = null;
     }
 }
-class Stack {
+class Queue {
     constructor() {
         this.first = null;
         this.last = null;
         this.size = 0;
     }
-    push(val) {
+    enqueue(val) {
         var newNode = new Node(val);
         if(!this.first) {
             this.first = newNode;
             this.last = this.first; 
         } else {
-            let current = this.first;
-            this.first = newNode;
-            this.first.next = current;
+            this.last.next = newNode;
+            this.last = newNode;
             
         }
         this.size++;
-        return this;
+        return this.size;
     }
+    dequeue() {
+        if(!this.first) {
+            return null;
+        }
+        let current = this.first;
+        if(this.size === 1) {
+            this.last = null;
+        } else {
+           this.first = this.first.next;
+        }
+        this.size--;
+        return current.val;
+    }
+}
+
+
+var list = new Queue();
+list.enqueue(5);
+list.enqueue(6);
+list.enqueue(7);
+list.enqueue(10);
+list.dequeue();
+
+console.log(list.dequeue());
