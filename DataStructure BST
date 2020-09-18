@@ -1,0 +1,67 @@
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
+    }
+    insert(val) {
+       var newNode = new Node(val);
+       if(!this.root) {
+           this.root = newNode;
+           return this;
+       } else {
+           let current = this.root;
+           while(true) {
+               if(val === current.val) {
+                   return undefined;
+               }
+                if(current.val > val) {
+                    if(!current.left){
+                        current.left = newNode;
+                        return this;
+                    } else {
+                        current = current.left;
+                    }
+                } else if(current.val < val) {
+                        if (!current.right) {
+                            current.right = newNode;
+                            return this;
+                        } else {
+                            current = current.right;
+                        }
+                }
+            }   
+       }
+       
+    }
+    find(val) {
+        let current = this.root;
+        while(true) { 
+            if(!current) {
+                return undefined;
+            }
+            if(current.val === val) {
+                return current;
+            }
+            if (current.val > val) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+       } 
+    }
+}
+    var tree = new BinarySearchTree();
+    tree.insert(20);
+    tree.insert(13);
+    tree.insert(22);
+    tree.insert(12);
+    tree.insert(15);
+    tree.insert(17);
+    tree.insert(26);
+    console.log(tree.find(65));
