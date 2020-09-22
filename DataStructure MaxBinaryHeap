@@ -1,0 +1,19 @@
+class MaxBinaryHeap {
+    constructor() {
+       this.values = [];
+    }
+    insert(val) {
+        let arr = this.values;
+        arr.push(val);
+        let index = arr.length -1;
+        let parentindex = Math.floor((index-1)/2);
+            while(arr[parentindex] < arr[index]){
+                var temp = arr[index];
+                arr[index] = arr[parentindex];
+                arr[parentindex] = temp;
+                index = parentindex;
+                parentindex = Math.floor((index-1)/2);  
+            }
+            
+        return arr;
+    }
