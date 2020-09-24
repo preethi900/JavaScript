@@ -5,17 +5,25 @@ class MaxBinaryHeap {
     insert(val) {
         let arr = this.values;
         arr.push(val);
-        let index = arr.length -1;
-        let parentindex = Math.floor((index-1)/2);
-            while(arr[parentindex] < arr[index]){
-                var temp = arr[index];
-                arr[index] = arr[parentindex];
-                arr[parentindex] = temp;
-                index = parentindex;
-                parentindex = Math.floor((index-1)/2);  
-            }
-            
+        this.bubbleUp();
         return arr;
+    }
+    bubbleUp() {
+        let arr = this.values;
+        let index = arr.length - 1;
+        const element = arr[index]; 
+        while (index > 0) {
+            let parentindex = Math.floor((index - 1)/2);
+            let parent = arr[parentindex];
+            if(element <= parent) {
+                break;
+            }
+            let temp = arr[parentindex];
+             arr[parentindex] = arr[index];
+             arr[index] = temp;
+             index = parentindex;
+        }
+        
     }
     extractMax() {
         let arr = this.values;
@@ -24,8 +32,9 @@ class MaxBinaryHeap {
         if(arr.length > 0) {
             arr[0] = lastelement;
             this.bubbledown();
-            return max;
         }
+            return max;
+        
     }
     bubbledown() {
         let index = 0;
@@ -68,11 +77,13 @@ class MaxBinaryHeap {
     list.insert(45);
     list.insert(67);
     list.extractMax();
+   
     list.extractMax();
     list.extractMax();
     list.extractMax();
     list.extractMax();
     list.extractMax();
     list.extractMax();
+    
 
     console.log(list.extractMax());
