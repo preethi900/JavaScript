@@ -1,0 +1,85 @@
+class Node {
+     constructor(val,priority) {
+         this.val = val;
+         this.priority = priority;
+     }
+ }
+
+ class PriorityQueue {
+     constructor() {
+         this.values = [];
+     }
+
+     enqueue(val,priority) {
+         let newNode = new Node(val,priority);
+         let arr = this.values;
+         arr.push(newNode);
+         this.bubbleUp();
+         return arr;
+     }
+     bubbleUp() {
+         let arr = this.values;
+         let index = arr.length - 1;
+         const element = arr[index]; 
+         while (index > 0) {
+             let parentindex = Math.floor((index - 1)/2);
+             let parent = arr[parentindex];
+             if(element.priority >= parent.priority) {
+                 break;
+             }
+             let temp = arr[parentindex];
+             arr[parentindex] = arr[index];
+             arr[index] = temp;
+             index = parentindex;
+         }
+         
+     }
+     dequeue() {
+        let arr = this.values;
+        const min = arr[0];
+        let lastelement = arr.pop();
+        if(arr.length > 0) {
+            arr[0] = lastelement;
+            this.bubbledown();
+        }
+            return min;
+        
+    }
+    bubbledown() {
+        let index = 0;
+        let arr = this.values;
+        const element = arr[0];
+        while(true) {
+            let leftchildindex = 2*index + 1;
+            let rightchildindex = 2*index + 2;
+            let leftchild,rightchild;
+            let swap = null;
+            if(leftchildindex < arr.length) {
+                leftchild = arr[leftchildindex];
+                if(leftchild.priority < element.priority) {
+                    swap = leftchildindex;
+                }
+            }
+            if(rightchildindex < arr.length) {
+                rightchild = arr[rightchildindex];
+                if((swap === null && rightchild.priority < element.priority) || (swap !== null && rightchild.priority < leftchild.priority)) {
+                    swap = rightchildindex;
+                }
+            }
+            if(swap === null) {
+                break;
+            }
+            arr[index] = arr[swap];
+            arr[swap] = element;
+            index = swap;
+        }
+    }
+ }
+
+ var list = new PriorityQueue();
+ list.enqueue("common cold",3);
+ list.enqueue("fever",2);
+ list.enqueue("covid",1);
+ list.dequeue();
+ list.dequeue();
+ console.log(list.dequeue());
