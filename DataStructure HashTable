@@ -1,0 +1,66 @@
+class HashTable {
+    constructor(size = 5) {
+        this.keyMap = new Array(size);
+    }
+    _hash(key) {
+        let total = 0;
+        let WEIRD_PRIME = 31;
+        for(var i = 0 ; i < Math.min(key.length,100) ; i++) {
+            let char = key[i];
+            let value = char.charCodeAt(0) - 96;
+            total = (total  * WEIRD_PRIME + value) % this.keyMap.length;
+        }
+        return total;
+    }
+    set(key,value) {
+        let index = this._hash(key);
+        if(!this.keyMap[index]) {
+            this.keyMap[index] =[];
+        }
+        this.keyMap[index].push([key,value]);
+        return this.keyMap;
+    }
+    get(key) {
+        let index = this._hash(key);
+        if(this.keyMap[index]) {
+        for(var i = 0 ;i < this.keyMap[index].length ; i++) {
+           if(key === this.keyMap[index][i][0]) {
+                return this.keyMap[index][i][1];
+           }
+        }
+    }
+    return undefined;
+    }
+    keys() {
+        let keysArr = [];
+        for (var i = 0 ; i < this.keyMap.length ; i++) {
+            if(this.keyMap[i]) {
+                for(var j = 0 ; j < this.keyMap[i].length ; j++) {
+                    if(!keysArr.includes(this.keyMap[i][j][0])) {
+                        keysArr.push(this.keyMap[i][j][0]);
+                    }
+                }
+            }
+        }
+        return keysArr;
+    }
+    values() {
+        let valuesArr = [];
+        for (var i = 0 ; i < this.keyMap.length ; i++) {
+            if(this.keyMap[i]) {
+                for(var j = 0 ; j < this.keyMap[i].length ; j++) {
+                    if(!valuesArr.includes(this.keyMap[i][j][1])) {
+                        valuesArr.push(this.keyMap[i][j][1]);
+                    }
+                }
+            }
+        }
+        return valuesArr;
+    }
+}
+let ht = new HashTable();
+ht.set("darkblue",1);
+ht.set("salmon",4);
+ht.set("tomato",3);
+ht.set("tomato",4);
+console.log(ht.keys());
