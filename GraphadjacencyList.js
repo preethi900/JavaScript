@@ -32,4 +32,85 @@ class Graph{
 
     }
 
+    DFSRecursive(vert) {
+        const visited = {};
+        const results = [];
+        const list = this.adjacencyList;
+        function DFS(vertex) {
+            if(!vertex) {
+                return undefined;
+            }
+            visited[vertex] = "true";
+            results.push(vertex);
+            list[vertex].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    return DFS(neighbor)
+                }
+            }) ;
+            
+            
+        }
+        DFS(vert);
+        console.log(visited);
+        return results;
+   }
+
+   DFSIterative(vert) {
+       const stack = [];
+       const visited = {};
+       const results = [];
+       stack.push(vert);
+       let vertex;
+       while(stack.length !== 0) {
+           vertex = stack.pop();
+           if(!visited[vertex]) {
+               visited[vertex]  = "true";
+               results.push(vertex);
+               this.adjacencyList[vertex].forEach(neighbor => {
+                    stack.push(neighbor);
+                });
+            }
+        }
+       return results;
+  }
+
+  BFS(vert) {
+      const queue = [vert];
+      const visited = {};
+      const result = [];
+      let vertex;
+      while(queue.length !== 0) {
+          vertex = queue.shift();
+          if(!visited[vertex]) {
+              visited[vertex] = "true";
+              result.push(vertex);
+              this.adjacencyList[vertex].forEach(neighbor => {
+                  queue.push(neighbor);
+              });
+          }
+      }
+    
+      return result;
+  }
+
 }
+
+var list = new Graph();
+list.addVertex("A");
+list.addVertex("B");
+list.addVertex("C");
+list.addVertex("D");
+list.addVertex("E");
+list.addVertex("F");
+list.addEdge("A","B");
+list.addEdge("A","C");
+list.addEdge("B","D");
+list.addEdge("C","E");
+list.addEdge("D","E");
+list.addEdge("D","F");
+list.addEdge("E","F");
+//list.removeEdge("Tokyo","Dakota");
+//list.removeVertex("Tokyo");
+
+//list.DFSRecursive("A");
+console.log(list.DFSIterative("A"));
