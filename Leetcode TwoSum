@@ -14,3 +14,20 @@ var arr = [];
         }
     } 
 };
+
+
+//Another way with 0(n) time complexity
+
+var twoSum = function(nums, target) {
+   let map = {};
+    for(var i= 0 ; i < nums.length ; i++) {
+        const another = target - nums[i];
+        if(another in map) {
+            return [map[another],i];
+        }
+        map[nums[i]] = i;
+    }
+    
+    return null;
+    
+};
