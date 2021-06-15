@@ -1,0 +1,35 @@
+var strStr = function(haystack, needle) {
+    if(!needle) {
+        return 0;
+    }
+    for (var i = 0; i < haystack.length ; i++) {
+        if(haystack[i] === needle[0]) {
+            if(haystack.slice(i,i+needle.length) === needle) {
+                return i;
+            }
+        }
+    }
+        return -1;
+     
+  
+};
+
+
+
+//Another method Effective one
+
+var strStr = function(haystack, needle) {
+   if(!needle || haystack === needle) {
+       return 0;
+   }
+    let split = haystack.split(needle);
+    console.log(split);
+    if(split.length > 1) {
+        return split[0].length;
+    } else {
+        return -1;
+    }
+   
+     
+  
+};
