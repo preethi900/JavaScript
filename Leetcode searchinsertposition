@@ -11,3 +11,23 @@ var searchInsert = function(nums, target) {
     }
     return nums.length;
 };
+
+
+//Binary Search Logic using o(log n) 
+
+var searchInsert = function(nums, target) {
+    let min = 0;
+    let max = nums.length -1;
+    
+    while(min <= max) {
+        let mid = Math.floor((min+max) /2);
+        if(nums[mid] < target) {
+            min = mid + 1;
+        } else if(nums[mid] > target) {
+            max = mid -1;
+        } else {
+            return mid;
+        }
+    }
+   return min;
+};
