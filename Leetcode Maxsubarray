@@ -16,3 +16,12 @@ var res = nums[0];
   }
   return res;
 };
+
+//Simple method O(n) and O(1)
+var maxSubArray = function(nums) {
+   for(var i = 1 ; i < nums.length ; i++) {
+       nums[i] = Math.max(nums[i],nums[i]+nums[i-1]);
+   }
+    
+    return Math.max(...nums);
+   };
