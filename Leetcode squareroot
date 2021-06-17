@@ -12,3 +12,21 @@ var mySqrt = function(x) {
     }
     return Math.floor((a+b)/2);
 };
+
+//Binary Search method O(log n) and )(1)
+
+var mySqrt = function(x) {
+   let min = 0, max = x;
+    while (min <= max) {
+        let mid = Math.floor((min+max)/2);
+        if(mid * mid === x) {
+            return mid;
+        }
+        if(x < mid*mid) {
+            max = mid -1;
+        } else {
+            min = mid + 1;
+        }
+    }
+    return max;
+};
