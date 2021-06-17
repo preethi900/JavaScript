@@ -7,3 +7,21 @@ var lengthOfLastWord = function(s) {
     return words.length; //Returns the length of last word
     };
  lengthOfLastWord("hi yes!");
+ 
+ 
+ //Another method instead of pop
+ 
+ var lengthOfLastWord = function(s) {
+    let newstring = s.trim();
+    if(newstring === "") {
+        return 0;
+    }
+    var split = newstring.split(" ");
+    if(split.length > 1){
+        return split[split.length -1].length;
+    } else {
+        return split[0].length;
+    }
+    
+};
+ 
