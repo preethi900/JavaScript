@@ -12,3 +12,14 @@ var merge = function(nums1, m, nums2, n) {
     nums1.sort((a,b) =>  a-b);
     
 };
+
+//own try 
+
+var merge = function(nums1, m, nums2, n) {
+    let i = m;
+        for (var j = 0 ; j < n ; j++) {
+             nums1[i] = nums2[j];
+             i++;
+            }
+        nums1.sort((a,b) =>(a-b));
+};
