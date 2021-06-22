@@ -10,3 +10,21 @@ let n = 0;
     }
     return n;
 };
+
+//Map logic 0(n) time and 0(n)space
+var singleNumber = function(nums) {
+    var map = {};
+    
+    for (var i = 0 ; i < nums.length ; i++) {
+        if(nums[i] in map)  {
+            map[nums[i]]++;
+        } else {
+            map[nums[i]] = 1;
+        }
+    }
+    for(var i=0 ; i < nums.length ; i++) {
+        if(map[nums[i]] === 1)  {
+            return nums[i];
+        }
+    }
+};
