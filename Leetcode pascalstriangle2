@@ -1,0 +1,15 @@
+var getRow = function(rowIndex) {
+    var pascal = [[1]];
+    if(rowIndex === 0) {
+        return pascal[0];
+    } 
+    
+    for(var i = 1; i<=rowIndex ; i++) {
+        pascal[i]=[1];
+        for (var j = 0 ; j < pascal[i-1].length -1 ; j++) {
+            pascal[i].push(pascal[i-1][j] + pascal[i-1][j+1]);
+        }
+        pascal[i].push(1);
+    }
+    return pascal[rowIndex];
+};
