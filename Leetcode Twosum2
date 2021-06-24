@@ -14,3 +14,20 @@ var twoSum = function(numbers, target) {
  }
     return [i+1,j+1];
 };
+
+
+//Using dictionary method
+
+var twoSum = function(numbers, target) {
+  let map = {};
+    for (var i = 0 ; i < numbers.length ; i++) {
+        const addend = target - numbers[i];
+        if(!(addend in map)) {
+            map[numbers[i]] = i+1;
+        } else {
+            return [map[addend],i+1];
+        }
+    }
+    
+    
+};
