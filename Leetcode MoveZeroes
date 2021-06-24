@@ -12,3 +12,13 @@ var moveZeroes = function(nums) {
     
 };
 moveZeroes([1,2,3,0,1]);
+
+
+//Efficient method by just swapping
+ var temp=0;
+   for (var i= 0 ; i < nums.length ; i++) {
+       if(nums[i] !== 0) {
+           [nums[temp],nums[i]] = [nums[i],nums[temp]];
+           temp++;
+        }
+   }
