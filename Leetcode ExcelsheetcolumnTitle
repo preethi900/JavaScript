@@ -1,0 +1,7 @@
+var convertToTitle = function(columnNumber) {
+    columnNumber = columnNumber -1;
+    if(columnNumber >= 0 && columnNumber < 26) {
+        return String.fromCharCode(65+columnNumber);
+    }
+    return convertToTitle(Math.floor(columnNumber/26))+convertToTitle((columnNumber%26)+1);
+};
