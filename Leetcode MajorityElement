@@ -13,3 +13,46 @@ var majorityElement = function(nums) {
         
     }
 };
+
+
+//Dictionary Method
+var majorityElement = function(nums) {
+    if(nums.length === 1) {
+        return nums[0];
+   }
+    var map = {};
+    var count = 1;
+    var res;
+    for (var i = 0 ; i < nums.length ; i++) {
+        if(nums[i] in map) {
+            map[nums[i]]++;
+            if(map[nums[i]]   > count){
+                count = map[nums[i]];
+                res = nums[i];
+            }
+        
+        } else {
+            map[nums[i]] = 1;
+        }
+    }
+    return res;
+    };
+    
+    
+ //Boore Morre's Voting Algorithm -Very efficient
+    let index = 0;
+    let count = 1;
+    for (var i = 1 ; i < nums.length ; i++) {
+        if(nums[index] === nums[i]) {
+            count++;
+        } else {
+            count--;
+            if(!count) {
+                count =1;
+                index = i;
+            }
+        }
+        
+    }
+    return nums[index];
+};
