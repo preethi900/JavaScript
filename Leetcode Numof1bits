@@ -18,7 +18,7 @@ var hammingWeight = function(n) {
 //Another Logic
 
 var hammingWeight = function(n) {
-    n=n.toString(2).padStart(32,"0");
+    n=n.toString(2);
     let count =0;
     for (var i = 0 ; i< n.length ; i++) {
         if(n[i] === '1') {
@@ -26,4 +26,9 @@ var hammingWeight = function(n) {
         }
     }
     return count;
+};
+
+//Another Logic
+var hammingWeight = function(n) {
+  return n.toString(2).split("0").join("").length;
 };
