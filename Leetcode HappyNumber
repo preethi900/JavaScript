@@ -17,3 +17,44 @@ var isHappy = function(n) {
 
 };
 isHappy(6);
+
+
+//Using Array method
+var isHappy = function(n) {
+    
+    var arr = [];
+    while(n > 1 && !(n in arr)) {
+        n = "" + n;
+        var sum = 0;
+        for(var i = 0 ; i < n.length ; i++) {
+            sum += n[i]*n[i];
+        }
+       n = sum;
+       arr.push(n);
+
+    }
+    return n===1;
+
+};
+
+
+//Using map method
+
+var isHappy = function(n) {
+    
+    var map = {};
+    while(n > 1 && !map[n]) {
+        map[n] = true;
+        n = "" + n;
+        var sum = 0;
+        for(var i = 0 ; i < n.length ; i++) {
+            sum += n[i]*n[i];
+        }
+       n = sum;
+       
+
+    }
+    return n===1;
+
+};
+
