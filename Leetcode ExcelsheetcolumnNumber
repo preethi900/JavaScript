@@ -1,0 +1,8 @@
+var titleToNumber = function(columnTitle) {
+    let total = 0;
+    for(var i = 0 ; i < columnTitle.length ; i++) {
+       total = total*26 + columnTitle.charCodeAt(i) -"A".charCodeAt(0) +1; 
+    }
+    return total;
+    
+};
