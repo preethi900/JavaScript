@@ -14,3 +14,13 @@ var trailingZeroes = function(n) {
     
 };
 trailingZeroes(5);
+
+
+//Math Trick using 5
+var trailingZeroes = function(n) {
+ let numZeroes = 0;
+ for(var i = 5 ; i <= n ; i*=5) {
+     numZeroes += Math.floor(n/i);
+ }
+    return numZeroes;
+};
