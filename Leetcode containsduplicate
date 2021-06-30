@@ -11,3 +11,17 @@ var containsDuplicate = function(nums) {
     }
     return false;
 };
+
+
+//Using Object
+var containsDuplicate = function(nums) {
+    var map = {};
+    for (var i=0 ; i < nums.length ; i++) {
+        if(!(nums[i] in map)) {
+            map[nums[i]] = i;
+        } else {
+            return true;
+        }
+    }
+    return false;
+};
