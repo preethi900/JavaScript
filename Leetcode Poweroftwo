@@ -1,0 +1,16 @@
+var isPowerOfTwo = function(n) {
+    if(n===1) {
+        return true;
+    }
+    
+       let res=1;
+       while (res <= n) {
+           if(n===res) {
+               return true;
+           }
+            res *= 2;
+           
+       }
+       return false;
+    
+};
