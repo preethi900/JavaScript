@@ -17,3 +17,37 @@ var isAnagram = function(s, t) {
         return false;
     }
 };
+
+//using Dict logic
+
+var isAnagram = function(s, t) {
+    var map = {};
+    var map1 = {};
+    
+    let scount = 1;
+    let tcount =1;
+    if(s.length !== t.length) {
+        return false;
+    }
+      for(var i=0 ; i< s.length ; i++) {
+        if(!(s[i] in map)) {
+            map[s[i]] = scount;
+        } else {
+            map[s[i]]++;
+        }
+    }
+     for(var i=0 ; i< t.length ; i++) {
+        if(!(t[i] in map1)) {
+            map1[t[i]] = tcount;
+        } else {
+            map1[t[i]]++;
+        }
+    }
+    
+    for (var i = 0 ; i < s.length ; i++) {
+       if(!(map[s[i]] === map1[s[i]])) {
+          return false;
+        }
+    }
+  return true;
+};
