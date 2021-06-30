@@ -1,0 +1,21 @@
+var isIsomorphic = function(s, t) {
+    var map = {};
+    var map1 = {};
+
+    for (var i=0;i < s.length ;i++) {
+      if(!(s[i] in map)) {
+         map[s[i]] = t[i];
+      }
+    
+      if(!(t[i] in map1)) {
+         map1[t[i]] = s[i];
+      }
+
+      if((map[s[i]] !== t[i]) || (map1[t[i]] !== s[i])) {
+          return false;
+      }
+}
+  return true;
+      
+   
+};
