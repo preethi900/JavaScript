@@ -29,3 +29,29 @@ var addDigits = function(num) {
         return num % 9;
     }
 };
+
+
+//Recursion,loop logic
+var addDigits = function(num) {
+   while (num >= 10) {
+        let res = 0;
+        num = "" + num;
+        for (var i = 0 ; i < num.length ; i++) {
+            res += Number(num[i]);
+        }
+        num = res;
+   }
+    return num;
+    
+};
+
+//math logic with o(1) time and o(1) space
+
+var addDigits = function(num) {
+    if(!num) return 0;
+    if(num %9 === 0) {
+        return 9;
+    } else {
+        return num%9;
+    }
+};
