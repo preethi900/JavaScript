@@ -31,3 +31,42 @@ var isStrobogrammatic = function(num) {
         return false;
     }
 };
+
+//Dict Logic
+
+var isStrobogrammatic = function(num) {
+    
+    var str ='';
+   var map={'6':'9' ,'8':'8','9':'6','1':'1','0':'0'};
+    for(var i = 0; i < num.length ; i++) {
+        if(num[i] in map) {
+            str += map[num[i]];
+        } else  {
+            return false;
+        }
+    }
+    if(str.split('').reverse().join('') === num) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+
+//Another easy logic
+var isStrobogrammatic = function(num) {
+    const map = {
+        '0': '0',
+        '1': '1',
+        '6': '9',
+        '8': '8',
+        '9': '6'
+    }
+    
+    let l = 0, r = num.length-1;
+    
+    while(l <= r) {
+        if(num[l++] !== map[num[r--]]) return false;
+    }
+    return true;
+};
