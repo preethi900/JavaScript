@@ -29,3 +29,33 @@ var wordPattern = function(pattern, str) {
         return false;
     }
 };
+
+
+//My own Logic
+var wordPattern = function(pattern, s) {
+    s = s.split(' ');
+    pattern = pattern.split('');
+    if(s.length !== pattern.length) {
+        return false;
+    }
+  var map = {};
+  var map1= {};
+   for (var i = 0 ; i < pattern.length ; i++) {
+       if(!(pattern[i] in map)) {
+           map[pattern[i]] = s[i];
+       } else {
+           if(map[pattern[i]] !== s[i]) {
+               return false;
+           }
+       }
+   }
+   for (var i = 0 ; i < s.length ; i++) {
+       if(!(s[i] in map1)) {
+           map1[s[i]] = pattern[i];
+       } 
+   }
+   
+    
+   return Object.keys(map).length === Object.keys(map1).length ;
+  
+};
