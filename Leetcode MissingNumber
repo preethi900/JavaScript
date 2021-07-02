@@ -2,12 +2,24 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+
 var missingNumber = function(nums) {
-    var nums1 = nums.sort(function(a,b){return a-b});
-    for (var i = 0 ; i < nums1.length ; i++) {
-        if (nums[i] !== i) {
-            break;
-        }
-    }
-   return i;
+nums.sort((a,b) => a-b);
+  for(var i = 0 ;i <= nums.length ; i++) {
+      if(nums[i] !== i) {
+          return i;
+      }
+  }
+ //Second method O(1) time  O(n) time
+var numssum = 0;
+for(var i = 0 ; i < nums.length ; i++) {
+    numssum += nums[i];
+}
+   
+var expectedsum = 0;
+for (var i = 0 ; i < nums.length +1 ; i++) {
+    expectedsum += i
+}
+ return expectedsum - numssum;
 };
