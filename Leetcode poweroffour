@@ -18,3 +18,14 @@ var isPowerOfFour = function(num) {
   }  
     return false;
 };
+
+
+
+//Easy Logic
+var isPowerOfFour = function(n) {
+    let i =1;
+    while (i < n) {
+        i *= 4;
+    }
+    return i === n;
+};
