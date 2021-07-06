@@ -3,16 +3,46 @@
  * @param {string} t
  * @return {boolean}
  */
+ 
+ //First method
 var isSubsequence = function(s, t) {
-   let i = 0; j = 0;
-    while (j < t.length) {
+    let j = 0
+    if(s===t) {
+        return true;
+    }
+    if(t==="") {
+        return false;
+    }
+    if(s==="") {
+        return true;
+    }
+   
+   for(var i = 0 ; i < s.length ;i++) {
+       if(s[i] !== t[j]) {
+           j++;
+           i--;
+       } else {
+           j++;
+       }
+       if(j === t.length && i < s.length -1) {
+           return false;
+       }
+   }
+    return s.length === i;
+  };
+  
+  //Second Two pointer method
+  var isSubsequence = function(s, t) {
+    let i = 0;
+    let j = 0;
+    while (i < s.length) {
+        if(j === t.length) {
+            return false;
+        }
         if(s[i] === t[j]) {
             i++;
         }
         j++;
     }
-       if(i === s.length) {
-            return true;
-        }
-    return false;
+    return i === s.length;
 };
