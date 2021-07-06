@@ -9,3 +9,25 @@ var intersection = function(nums1, nums2) {
     }
     return [...new Set(arr)];
 };
+
+
+//Dict Logic
+
+var intersection = function(nums1, nums2) {
+    var map = {};
+    var arr = [];
+    for (var i = 0 ; i < nums1.length ; i++) {
+        if(!(nums1[i] in map)) {
+           map[nums1[i]] = 1;
+        } else {
+            map[nums1[i]]++;
+        }
+    }
+for (var i= 0 ;i < nums2.length ; i++) {
+    if(nums2[i] in map ) {
+        arr.push(nums2[i]);
+       delete map[nums2[i]];
+    }
+}
+    return arr;
+};
