@@ -1,0 +1,18 @@
+var findTheDifference = function(s, t) {
+    s = s + t;
+    let map = {};
+    for(var i= 0 ; i < s.length ; i++ ) {
+        if(!(s[i] in map)) {
+            map[s[i]] =1;
+        } else {
+            delete map[s[i]];
+        }
+    }
+    
+    for(var i = 0 ; i < t.length ; i++) {
+        if(map[t[i]] === 1) {
+            return t[i];
+        }
+    }
+
+};
