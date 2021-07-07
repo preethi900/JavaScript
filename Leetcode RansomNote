@@ -32,3 +32,27 @@ var canConstruct = function(ransomNote, magazine) {
         return i === l1;
     }
 };
+
+
+//Dict Method
+var canConstruct = function(ransomNote, magazine) {
+    var map = {};
+    for (var i = 0 ; i < magazine.length ; i++) {
+        if(!(magazine[i] in map)) {
+            map[magazine[i]] = 1;
+        } else {
+            map[magazine[i]]++;
+        }
+    }
+    for (var i= 0 ; i < ransomNote.length ; i++) {
+        if(ransomNote[i] in map) {
+            map[ransomNote[i]]--;
+            if(map[ransomNote[i]] === 0) {
+                delete map[ransomNote[i]];
+            } 
+        } else {
+            return false;
+        }
+    }
+    return true;
+};
