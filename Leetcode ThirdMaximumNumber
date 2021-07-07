@@ -1,0 +1,30 @@
+//Sort method o(nlogn)
+
+var thirdMax = function(nums) {
+  nums.sort((a,b) => b-a);
+    let count =0;
+    for (var i=0 ;i < nums.length-1; i++) {
+        if(nums[i] !== nums[i+1]) {
+            count++;
+            if(count === 2) {
+                return nums[i+1];
+            }
+        }
+    }
+    return nums[0]; 
+};
+
+//Set method
+
+ var thirdMax = function(nums) {   
+    let nums1 = new Set(nums);
+    if(nums1.size < 3) {
+        return Math.max(...nums1);
+    }
+    
+    for (var i =0 ; i < 3 ; i++) {
+        var max = Math.max(...nums1);
+        nums1.delete(max);
+    }
+    return max;
+};
