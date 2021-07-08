@@ -1,0 +1,21 @@
+var longestPalindrome = function(s) {
+    var map = {};
+    let count = 0;
+    let count1 = 0;
+   for(var i=0 ; i < s.length ; i++) {
+       if(!(s[i] in map)) {
+           map[s[i]]  =1;
+           count1 = map[s[i]];
+       } else {
+           map[s[i]] ++;
+           count += map[s[i]];
+           delete map[s[i]];
+       }
+   } 
+  
+    if(count+count1 <= s.length){
+        return count+count1;
+    } else {
+        return count;
+    }
+};
