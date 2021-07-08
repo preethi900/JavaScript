@@ -1,0 +1,22 @@
+var addStrings = function(num1, num2) {
+    let l1 = num1.length;
+    let l2 = num2.length;
+    let sum = '';
+    let carry = 0;
+    
+    while (l1 > 0 || l2 > 0 || carry) {
+       let num1Digit = num1.charAt(l1-1)*1;
+        let num2Digit = num2.charAt(l2-1)*1;
+        l1--;
+        l2--;
+        let digiCount = num1Digit+num2Digit+carry;
+        carry = Math.floor(digiCount/10);
+        let digitstobeappended =digiCount%10;
+        sum += digitstobeappended;
+        
+    }
+    return sum.split('').reverse().join('');
+    
+    
+    
+};
