@@ -1,0 +1,10 @@
+var arrangeCoins = function(n) {  [1,1,2,2,2,3,3,3,3,4]
+ 
+   let i =0;
+   while (i <= n) {
+       n -= i;
+       i++;
+   }
+   return i-1;
+  
+};
