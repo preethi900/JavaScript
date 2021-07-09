@@ -1,0 +1,26 @@
+//Using In Built method
+var findMaxConsecutiveOnes = function(nums) {
+   let spl = nums.toString(nums).replace(/,/g,'').split('0');
+    let max = 0;
+    for (var i = 0 ; i < spl.length ; i++) {
+        max = Math.max(max,spl[i].length);
+    }
+    return max;
+};
+//Regular Traversal
+var findMaxConsecutiveOnes = function(nums) {
+    let count = 0;
+    let max = 0;
+    for(var i=0 ; i < nums.length; i++) {
+        if(nums[i] === 1) {
+            count++;
+        } else {
+            count =0;
+        }
+        
+        if(count > max) {
+            max = count;
+        }
+    }
+    return max;
+};
