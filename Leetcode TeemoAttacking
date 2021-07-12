@@ -1,0 +1,11 @@
+var findPoisonedDuration = function(timeSeries, duration) {
+    var count = 0;
+    for (var i= 1 ; i < timeSeries.length; i++) {
+        if(timeSeries[i] - timeSeries[i-1] > duration) {
+            count += duration;
+        } else {
+            count += timeSeries[i] - timeSeries[i-1];
+        }
+    }
+    return count+duration;
+};
