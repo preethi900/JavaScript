@@ -12,3 +12,18 @@ var findComplement = function(num) {
     var nu = n.join('');
     return parseInt(nu,2);
 };
+
+
+//Neat way
+var findComplement = function(num) {
+    let binary = num.toString(2);
+    var res = '';
+    for (var i=0 ;i < binary.length ; i++) {
+        if(binary[i] === '1') {
+            res += '0';
+        } else {
+            res += '1';
+        }
+    }
+    return parseInt(res,2);
+};
