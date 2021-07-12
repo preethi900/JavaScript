@@ -7,3 +7,22 @@ var hammingDistance = function(x, y) {
  return (x ^ y).toString(2).replace(/0/g,'').length;
                                                
 };
+
+
+//Neat solution
+var hammingDistance = function(x, y) {
+    var binx = x.toString(2).padStart(32,"0");
+    var biny = y.toString(2).padStart(32,"0");
+    if(binx.length < biny.length) {
+        binx.padStart(biny.length,"0");
+    }else {
+        biny.padStart(binx.length,"0");
+    }
+    let count =0;
+    for(var i = 0 ; i < binx.length ; i++) {
+        if(binx[i] !== biny[i]) {
+            count++;
+        }
+    }
+    return count;
+};
