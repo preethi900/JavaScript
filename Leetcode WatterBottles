@@ -1,0 +1,15 @@
+var numWaterBottles = function(numBottles, numExchange) {
+    
+    let count =numBottles;
+   
+    while(numBottles >= 1) {
+             let drink = Math.floor(numBottles / numExchange);
+              if(!drink) {
+                  break;
+              }
+             count += drink;
+             numBottles = drink +(numBottles % numExchange);
+    }
+    
+  return count;
+};
