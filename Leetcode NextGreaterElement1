@@ -1,0 +1,25 @@
+var nextGreaterElement = function(nums1, nums2) {
+    var res = [];
+    var map = {};
+    for (var i=0; i < nums2.length ; i++) {
+        if(!(nums2[i] in map)) {
+            map[nums2[i]] = i;
+        }
+    }
+    for (var i =0 ; i < nums1.length ; i++) {
+        let flag = false;
+        while(map[nums1[i]] < nums2.length) {
+            if(nums2[map[nums1[i]] + 1] > nums1[i]) {
+                res.push(nums2[map[nums1[i]] + 1]);
+                flag =true;
+                break;
+            }  
+            map[nums1[i]]++;
+        }
+           if(!flag){
+                res.push(-1);
+           }
+        
+    }
+    return res;
+};
