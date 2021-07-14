@@ -1,0 +1,41 @@
+var customSortString = function(order, str) {
+    var map = {};
+    var map1 = {};
+    var strinorder = ''
+    
+    //Frequency of characters in str
+    for(var i = 0; i < str.length ; i++) {
+        if(!(str[i] in map)){
+            map[str[i]] =1;
+        } else {
+            map[str[i]]++;
+        }
+    }
+    
+    //Organizing order characters in Dict
+    for(var i = 0; i < order.length ; i++) {
+        map1[order[i]] =1;
+    }
+    
+    //Checking if order characters are in str dict and pushing characters the number of times it is in str
+    for(var i= 0; i < order.length ; i++) {
+       if((order[i] in map)) {
+          let k = 0;
+          while (k < map[order[i]] ) {
+            strinorder += order[i];
+            k++;
+          }
+       }
+    }
+   
+    if(strinorder === str) {
+      return strinorder;
+    } else {
+        for (var i = 0 ; i < str.length ; i++) {
+            if(!(str[i] in map1)) {
+                strinorder += str[i]
+            }
+        }
+        return strinorder;
+    }
+};
