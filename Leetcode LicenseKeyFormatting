@@ -1,0 +1,26 @@
+var licenseKeyFormatting = function(s, k) {
+    var arr =[];
+    var strjoin = s.split("-").join("").toUpperCase();
+    if(strjoin.length % k === 0) {
+        let start = 0;
+        let end = start+k;
+        while (start < strjoin.length) {
+            arr.push(strjoin.substring(start,end));
+            start = end;
+            end = end+k;
+        }
+    } else {
+        let oddpush = (strjoin.length % k);
+        arr.push(strjoin.substring(0,oddpush));
+        let start = oddpush;
+        let end = start+k;
+         while (start < strjoin.length) {
+            arr.push(strjoin.substring(start,end));
+            start = end;
+            end = end+k;
+        }
+        
+    }
+    
+    return arr.join('-');
+};
