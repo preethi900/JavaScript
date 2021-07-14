@@ -1,0 +1,16 @@
+var convertToBase7 = function(num) {
+    let number = Math.abs(num);
+    let str = '';
+    while (number > 0) {
+        str += number%7
+        number = Math.floor(number/7);
+        
+    }
+    if(num < 0) {
+        return '-'+str.split('').reverse().join('');
+    } else if(num === 0) {
+        return '0';
+    } else {
+        return str.split('').reverse().join('');
+    } 
+};
