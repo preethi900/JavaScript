@@ -1,0 +1,28 @@
+
+//o(n) method
+var findPeakElement = function(nums) {
+ 
+   for(var i = 1 ; i <= nums.length -1; i++) {
+       if(nums[i-1] < nums[i] && nums[i] > nums[i+1]) {
+           return i;
+       } else if(nums[i-1] < nums[i] && nums[i+1] === undefined) {
+           return i;
+       }
+   } 
+    return 0; 
+};
+
+//o(logn) method
+var findPeakElement = function(nums) {    
+    let start = 0;
+    let end = nums.length -1;
+    while (start < end) {
+        let mid = Math.floor((start+end)/2);
+        if(nums[mid] > nums[mid+1]){
+            end = mid;
+        } else {
+            start = mid+1;
+        }
+    }
+    return end;
+};
