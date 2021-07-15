@@ -1,0 +1,22 @@
+var findRelativeRanks = function(score) {
+    var map = {};
+    for(var i = 0; i < score.length ; i++) {
+        if(!(score[i] in map)) {
+            map[score[i]] = i;
+        }
+    }
+    var arr = Object.keys(map).sort((a,b) => b-a);
+    var ans =[];
+    for (var i=0; i < arr.length ;i++) {
+        if(i === 0) {
+            ans[map[arr[i]]] = "Gold Medal";
+        } else if(i === 1) {
+            ans[map[arr[i]]] = "Silver Medal";
+        } else if(i === 2) {
+            ans[map[arr[i]]] = "Bronze Medal";
+        } else {
+            ans[map[arr[i]]] = '' + (i+1);
+        }
+    }
+    return ans;
+};
