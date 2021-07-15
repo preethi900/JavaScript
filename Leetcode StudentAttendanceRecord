@@ -1,0 +1,12 @@
+var checkRecord = function(s) {
+    let absent = 0;
+    if(s.includes("LLL")) {
+            return false;
+        }
+   for (var i =0 ; i < s.length ; i++) {
+        if(s[i] === 'A') {
+            absent++;
+        }
+    }
+   return !(absent >= 2);
+};
