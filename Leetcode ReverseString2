@@ -1,0 +1,14 @@
+var reverseStr = function(s, k) {
+    var str ='';
+    let reverse = true;
+    for (var i =0 ; i < s.length ; i+=k) {
+        if(reverse) {
+            str += s.slice(i,i+k).split('').reverse().join('');
+            reverse = false;
+        } else {
+            str += s.slice(i,i+k);
+            reverse = true;
+        }
+    }
+    return str;
+};
