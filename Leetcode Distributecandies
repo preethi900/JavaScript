@@ -23,3 +23,9 @@ var distributeCandies = function(candies, num_people) {
     
     return arr;
 };
+//Other Method
+var distributeCandies = function(candyType) {
+    let max = candyType.length /2;
+    let repeat = new Set([...candyType]).size;
+    return Math.min(max,repeat);
+};
