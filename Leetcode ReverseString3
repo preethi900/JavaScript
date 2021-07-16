@@ -1,0 +1,27 @@
+var reverseWords = function(s) {
+    var s = s.split(' ');
+    var ans = [];
+    for (var i = 0 ; i < s.length ; i++) {
+       ans.push(s[i].split('').reverse().join(''));
+   } 
+    return ans.join(' ');
+    
+};
+
+var reverseWords = function(s) {
+    var s = s.split(' ');
+    var ans = [];
+
+   for(var i= 0 ; i < s.length ; i++) {
+       let str = s[i].split('');
+       let  k = 0;
+       let  j = str.length-1;
+       while (k <= j) {
+           [str[k],str[j]] = [str[j],str[k]];
+           k++;
+           j--
+       }
+       ans.push(str.join(''));
+   }
+    return ans.join(' ');
+};
