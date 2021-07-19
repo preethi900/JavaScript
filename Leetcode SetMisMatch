@@ -1,0 +1,23 @@
+var findErrorNums = function(nums) {
+    var map ={};
+    var ans = [];
+  for (var i =0 ; i < nums.length ; i++) {
+      if(!(nums[i] in map)) {
+          map[nums[i]] = 1;
+      } else {
+          map[nums[i]] ++;
+      }
+  }
+    for (var i= 0 ; i < nums.length ; i++) {
+        if(map[nums[i]] >1) {
+            ans.push(nums[i]);
+            map[nums[i]] --;
+        }
+    }
+    for (var i= 0 ; i < nums.length ; i++) {
+        if(!((i+1) in map)) {
+            ans.push(i+1);
+        }
+    }
+    return ans;
+};
