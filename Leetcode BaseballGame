@@ -1,0 +1,26 @@
+var calPoints = function(ops) {
+    var arr = [];
+    let sum = 0;
+    if(ops.length === 1) {
+        return Number(ops[0]);
+    }
+    for (var i =0 ; i < ops.length ; i++) {
+        switch(ops[i]) {
+            case "C" :
+                arr.pop();
+                break;
+            case "D" :
+                arr.push(arr[arr.length-1]*2);
+                break;
+            case "+" :
+                arr.push(arr[arr.length-1]+arr[arr.length -2]);
+                break;
+            default :
+                arr.push(Number(ops[i]));
+        }
+    }
+    for(var i= 0 ;i < arr.length ; i++) {
+       sum += arr[i]; 
+    }
+    return sum;
+};
