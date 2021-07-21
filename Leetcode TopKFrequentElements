@@ -1,0 +1,16 @@
+var topKFrequent = function(nums, k) {
+    var map = {};
+    for(var i=0 ; i < nums.length ; i++) {
+        if(!(nums[i] in map)) {
+            map[nums[i]] = 1;
+        } else {
+            map[nums[i]] ++;
+        }
+    }
+    var ans =[];
+    var arr = Object.keys(map).sort((a,b) => map[b]-map[a]);
+    for (var i = 0 ; i < k ; i++) {
+        ans.push(arr[i]);
+    }
+    return ans;
+};
