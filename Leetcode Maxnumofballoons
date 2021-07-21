@@ -1,0 +1,28 @@
+var maxNumberOfBalloons = function(text) {
+    var map = {'b':0,'a':0,'l':0,'o':0,'n':0};
+    for(var i = 0 ; i< text.length ; i++) {
+        if(text[i] in map) {
+            map[text[i]]++;
+        }
+    }
+   var word = "balloon"
+   var arr =[];
+    while(map['b'] !== 0) {
+        var str ='';
+       for (var i=0 ; i< word.length ; i++) {
+            if(map[word[i]] >= 1) {
+                str += word[i];
+                map[word[i]] --;
+            }
+        }
+        arr.push(str);
+    }
+    let count =0;
+    for(var i=0 ;i < arr.length ; i++) {
+        if(arr[i] === 'balloon') {
+            count++;
+        }
+    }
+    return count;
+  
+};
