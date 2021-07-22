@@ -1,0 +1,14 @@
+var addRungs = function(rungs, dist) {
+    let count = 0;
+    let pos =0;
+   
+    for(var i=0; i < rungs.length ; i++) {
+      
+      if(rungs[i] - pos > dist) {
+          count += Math.ceil((rungs[i] - pos)/dist) -1;
+      }  
+        pos = rungs[i];
+    }
+    return count;
+   
+};
