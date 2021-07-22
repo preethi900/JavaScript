@@ -1,0 +1,16 @@
+var partitionDisjoint = function(nums) {
+    let starting = nums[0];
+    let max= starting;
+    let index = 0;
+    
+    for(var i=1; i < nums.length ; i++) {
+        if(nums[i] < starting) {
+            index = i;
+            starting = max;
+        } else {
+            max = Math.max(max,nums[i]);
+        }
+    }
+    return index+1;
+    
+};
