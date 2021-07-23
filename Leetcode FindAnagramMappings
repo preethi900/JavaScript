@@ -1,0 +1,11 @@
+var anagramMappings = function(nums1, nums2) {
+    var map = {};
+    var arr = [];
+    for(var i=0 ; i< nums2.length ; i++) {
+        map[nums2[i]] = i;
+    }
+    for(var i=0; i < nums1.length ; i++) {
+        arr.push(map[nums1[i]]);
+    }
+    return arr;
+};
