@@ -1,0 +1,10 @@
+var rotateString = function(s, goal) {
+    let spl = s.split('');
+    for(var i = 0 ; i < spl.length ; i++) {
+        spl.push(spl.shift());
+         if(spl.join('') === goal) {
+            return true;
+        }
+    }
+    return false;
+};
