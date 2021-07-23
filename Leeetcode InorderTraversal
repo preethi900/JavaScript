@@ -1,0 +1,19 @@
+var inorderTraversal = function(root) {
+    var visited =[];
+    if(!root) {
+        return [];
+    }
+    traverse(root);
+    
+    function traverse(node) {
+        if(node.left) {
+            traverse(node.left);
+        }
+        visited.push(node.val);
+        if(node.right) {
+            traverse(node.right);
+        }
+    }
+    return visited;
+    
+};
