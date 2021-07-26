@@ -1,3 +1,4 @@
+//Recursive
 var inorderTraversal = function(root) {
     var visited =[];
     if(!root) {
@@ -15,5 +16,25 @@ var inorderTraversal = function(root) {
         }
     }
     return visited;
+    
+};
+
+
+//Iterative 
+var inorderTraversal = function(root) {    
+    var sta = [];
+    var res = [];
+    
+    while(root || sta.length) {
+        if(root) {
+            sta.push(root);
+            root = root.left;
+        } else {
+            root = sta.pop();
+            res.push(root.val);
+            root = root.right
+        }
+    }
+    return res;
     
 };
