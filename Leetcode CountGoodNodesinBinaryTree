@@ -1,0 +1,19 @@
+var goodNodes = function(root) {
+    
+   let count = 0; 
+traverse(root,root.val);
+function traverse(node,max) {
+    if(node.val >= max) {
+        count++;
+        max = node.val;
+    }
+    if(node.left) {
+        traverse(node.left,max);
+    }
+    
+    if(node.right) {
+        traverse(node.right,max);
+    }
+}
+    return count;
+};
