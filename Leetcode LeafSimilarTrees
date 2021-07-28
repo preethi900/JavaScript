@@ -1,0 +1,36 @@
+var leafSimilar = function(root1, root2) {
+    var res1 = helper(root1); 
+    var res2 = helper(root2);
+    if(res1.length !== res2.length) {
+        return false;
+    } else {
+    for(var i=0 ; i < res1.length ; i++) {
+        if(res1[i] !== res2[i]) {
+            return false;
+        }
+    }
+    }
+    return true;
+};
+   
+
+var helper = function(root) {
+    var res= [];
+    return traverse(root,res);
+    
+};
+    
+  
+    
+var traverse = function (node,res) {
+        if(node.left) {
+            traverse(node.left,res);
+        }
+        if(node.right) {
+            traverse(node.right,res);
+        } 
+        if(!node.left && !node.right) {
+            res.push(node.val);
+        }
+        return res;
+};
