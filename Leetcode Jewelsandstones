@@ -1,0 +1,17 @@
+var numJewelsInStones = function(jewels, stones) {
+    var map ={};
+    for(var i=0; i<stones.length ;i++) {
+        if(!(stones[i] in map)) {
+            map[stones[i]] = 1;
+        } else {
+            map[stones[i]]++;
+        }
+    }
+    let count =0;
+    for(var i=0 ; i<jewels.length ; i++) {
+        if(jewels[i] in map) {
+            count += map[jewels[i]];
+        }
+    }
+    return count;
+};
