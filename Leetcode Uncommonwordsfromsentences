@@ -1,0 +1,31 @@
+var uncommonFromSentences = function(s1, s2) {
+    var s1 = s1.split(' ');
+    var s2 = s2.split(' ');
+    
+    var dict = createDict(s1);
+    var dict1 = createDict(s2);
+    
+    function createDict(s) {
+        var map ={};
+        for(var i=0; i <s.length ; i++) {
+            if(!(s[i] in map)) {
+                map[s[i]] = 1;
+            } else {
+                map[s[i]]++;
+            }
+        }
+        return map;
+    }
+    var arr = [];
+    for(var i=0 ; i < s1.length ; i++) {
+        if((!(s1[i] in dict1)) && dict[s1[i]] === 1) {
+            arr.push(s1[i]);
+        }
+    }
+     for(var i=0 ; i < s2.length ; i++) {
+        if((!(s2[i] in dict) ) && dict1[s2[i]] === 1) {
+            arr.push(s2[i]);
+        }
+    }
+    return arr;
+};
