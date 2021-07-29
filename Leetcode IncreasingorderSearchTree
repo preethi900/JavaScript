@@ -1,0 +1,32 @@
+var increasingBST = function(root) {
+    var res=[];
+    if(!root) {
+        return null;
+    }
+    let arr =traverse(root);
+    return arraytoTree(arr,start=0);
+    
+    function arraytoTree(arr,start) {
+        if(start >= arr.length) {
+            return null;
+        }
+      
+        const root = new TreeNode(arr[start]);
+        root.right = arraytoTree(arr,start+1);
+      
+        return root;
+    }
+    
+    
+    function traverse(node) {
+        if(node.left) {
+            traverse(node.left);
+        }
+        res.push(node.val);
+        if(node.right) {
+            traverse(node.right);
+        }
+        return res;
+    }
+
+};
