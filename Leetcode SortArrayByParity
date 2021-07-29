@@ -1,0 +1,32 @@
+var sortArrayByParity = function(nums) {
+   let count =0;
+   if(nums.length === 1) {
+       return nums;
+   } 
+    
+    for(var i=0 ;i < nums.length ; i++) {
+      if(count === nums.length) {
+           break;
+       }
+        if(nums[i] % 2 !== 0) {
+            nums.push(nums.splice(i,1));
+            i--;
+        }
+       count++;
+    }
+    return nums;
+};
+
+var sortArrayByParity = function(nums) {
+    let temp = 0;
+    let i =0;
+    let j = nums.length;
+    while (i < j) {
+        if(nums[i] % 2 === 0) {
+            [nums[temp],nums[i]] = [nums[i],nums[temp]];
+            temp++;
+        }
+        i++;
+    }
+    return nums;
+};
