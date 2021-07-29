@@ -1,0 +1,19 @@
+var countNodes = function(root) {
+   
+    let count = 0;
+    if(!root) {
+        return 0;
+    }
+    return traverse(root);
+    
+    function traverse(node) {
+        if(node.left) {
+            traverse(node.left);
+        }
+        count++;
+        if(node.right) {
+            traverse(node.right);
+        }
+        return count;
+    }
+};
