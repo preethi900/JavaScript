@@ -1,0 +1,21 @@
+var fairCandySwap = function(aliceSizes, bobSizes) {
+    let sum1 =0;
+    let sum2 =0;
+    for(var i=0 ; i < aliceSizes.length ;i++) {
+        sum1 += aliceSizes[i];
+    }
+     for(var i=0 ; i < bobSizes.length ;i++) {
+        sum2 += bobSizes[i];
+    }
+    
+    let diff = sum1 -sum2;
+    
+    for(var i=0 ; i < aliceSizes.length;i++) {
+       for(var j =0 ;j < bobSizes.length ;j++) {
+           if((aliceSizes[i]-bobSizes[j]) === (diff/2)) {
+               return [aliceSizes[i],bobSizes[j]];
+           }
+       } 
+    }
+    
+};
