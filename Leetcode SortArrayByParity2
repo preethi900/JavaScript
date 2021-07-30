@@ -1,0 +1,14 @@
+var sortArrayByParityII = function(nums) {
+    let even =0;
+    let odd =1;
+    
+    while (even < nums.length && odd < nums.length) {
+        if(nums[even]%2 !== 0) {
+            [nums[even],nums[odd]] = [nums[odd],nums[even]];
+            odd += 2;
+        } else {
+            even +=2;
+        }
+    }
+    return nums;
+};
