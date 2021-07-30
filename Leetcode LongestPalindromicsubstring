@@ -1,0 +1,21 @@
+var longestPalindrome = function(s) {
+    var maxlen =0;
+    let start =0;
+  for(var i=0 ; i<s.length ; i++) {
+      helper(i,i);
+      helper(i,i+1);
+  }  
+
+    return s.substring(start,start+maxlen);
+    function helper(l,r) {
+        while(l >=0 && r < s.length &&s[l] === s[r]) {
+            l--;
+            r++;
+        }
+        
+        if(maxlen < r-l-1) {
+            start = l+1;
+            maxlen = r-l-1;
+        }
+    }
+};
