@@ -31,3 +31,26 @@ var twoSum = function(numbers, target) {
     
     
 };
+
+var twoSum = function(nums, target) {
+ for(var i=0 ; i < nums.length ; i++) {
+        for(var j =i+1; j < nums.length ; j++){
+            if(nums[i]+nums[j] === target) {
+                 return [i,j];
+            }
+         }
+    } 
+};
+
+var twoSum = function(nums, target) {
+   var map ={};
+   for(var i=0; i < nums.length ; i++) {
+       let diff = target - nums[i];
+        if(diff in map) {
+           return [map[diff],i];
+       }
+       if(!(nums[i] in map)) {
+           map[nums[i]] = i;
+       }
+   }
+};
