@@ -1,0 +1,28 @@
+var findSecondMinimumValue = function(root) {
+    var arr =[];
+    if(!root) {
+        return -1;
+    }
+    
+    var res = traverse(root);
+    res = res.sort((a,b) => a-b);
+    for(var i=0 ; i < res.length ; i++) {
+        if(res[i] < res[i+1]) {
+            return res[i+1];
+        }
+    }
+    
+    return -1;
+    
+    function traverse(node) {
+        if(node.left) {
+            traverse(node.left);
+        }
+        arr.push(node.val);
+        if(node.right) {
+            traverse(node.right);
+        }
+       return arr; 
+    }
+  
+};
