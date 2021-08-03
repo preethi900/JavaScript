@@ -1,0 +1,24 @@
+var highFive = function(items) {
+    var map = {};
+    for(var i=0 ; i < items.length ; i++) {
+        if(!(items[i][0] in map)) {
+            map[items[i][0]] = [];
+            map[items[i][0]].push(items[i][1]);
+        } else {
+            map[items[i][0]].push(items[i][1]);
+        }
+    }
+    var ans = [];
+    for(var i=0; i < Object.keys(map).length; i++) {
+       let sum = 0;
+        let key = Number(Object.keys(map)[i]);
+        let arr = Object.values(map)[i];
+        arr.sort((a,b) => b-a);
+        for(var j= 0 ; j < 5 ; j++) {
+            sum += arr[j];
+        }
+        sum = Math.floor(sum/5);
+        ans.push([key,sum]);
+    }
+    return ans;
+};
