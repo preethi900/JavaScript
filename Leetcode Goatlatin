@@ -1,0 +1,20 @@
+var toGoatLatin = function(sentence) {
+    sentence = sentence.split(' ');
+    var map = {'a':1,'e':1,'i':1,'o':1,'u':1,'A':1,'E':1,'I':1,'O':1,'U':1};
+    for(var i= 0 ; i< sentence.length ;i++) {
+        if (sentence[i][0] in map) {
+            sentence[i] += 'ma';
+        } else {
+            let sent = sentence[i].split('');
+            sent.push(sent.shift());
+            sentence[i] = sent.join('');
+            sentence[i] += 'ma';
+        }
+        let j = 0;
+        while(j <i+1) {
+            sentence[i] += 'a';
+            j++;
+        }
+    }
+    return sentence.join(' ');
+};
