@@ -1,0 +1,11 @@
+var isArmstrong = function(n) {
+       let n1 = n.toString();
+        let sum =0;
+        for (var i = 0 ; i < n1.length ; i++) {
+            let num = parseInt(n1[i])
+            sum += Math.pow(num,n1.length);
+        }
+     return sum === n;
+  
+    
+};
