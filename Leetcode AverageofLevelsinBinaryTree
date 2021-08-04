@@ -1,0 +1,32 @@
+var averageOfLevels = function(root) {
+   let visited = [];
+   let queue = [];
+   let temp = [];
+    let sum = 0;
+    let count =0;
+    queue.push(root);
+    
+    while(queue.length || temp.length) {
+        let node = queue.shift();
+        
+        sum += node.val;
+        count++;
+        
+        if(node.left) {
+            temp.push(node.left);
+        }
+        if(node.right)  {
+            temp.push(node.right);
+        }
+        
+        if(queue.length === 0) {
+            visited.push(sum/count);
+            sum =0;
+            count =0;
+            queue = temp;
+            temp = [];
+            
+        }
+    }
+    return visited;
+};
