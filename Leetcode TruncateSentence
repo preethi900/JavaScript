@@ -1,0 +1,13 @@
+var truncateSentence = function(s, k) {
+     s= s.split(' ');
+    var arr = [];
+     if(s.length === k) {
+         return s.join(' ');
+     }
+    
+     for(var i = 0; i < k ;i++) {
+        arr.push(s[i]); 
+     }
+    return arr.join(' ');
+
+};
