@@ -1,0 +1,16 @@
+var removeVowels = function(s) {
+    var str ='';
+    var map = {'a':0,'e':0,'i':0,'o':0,'u':0};
+    for (var i =0 ; i < s.length ; i++) {
+        if(s[i] in map) {
+            str += '';
+        } else {
+            str += s[i];
+        }
+    }
+    return str; 
+};
+
+ var removeVowels = function(s) {   
+    return s.replace(/[aeiou]/g,'');
+};
