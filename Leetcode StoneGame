@@ -1,0 +1,15 @@
+var stoneGame = function(piles) {
+    piles = piles.sort((a,b) => b-a);
+    let alex =0 ;
+    let lee =0;
+    
+    for(let i=0;i<piles.length ; i++) {
+        if(i%2 === 0) {
+            alex += piles[i];
+        } else {
+            lee += piles[i];
+        }
+    }
+    return alex > lee;
+    
+};
