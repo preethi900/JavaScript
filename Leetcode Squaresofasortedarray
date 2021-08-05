@@ -1,0 +1,26 @@
+var sortedSquares = function(nums) {
+    for (var i=0 ; i< nums.length ; i++) {
+        nums[i] = nums[i]*nums[i];
+    }
+    return nums.sort((a,b) => a-b);
+};
+
+
+var sortedSquares = function(nums) {    
+    let l = 0;
+    let r = nums.length-1;
+    let ans = [];
+    
+    for(var i = nums.length -1; i >= 0; i--) {
+        if(Math.abs(nums[l]) < Math.abs(nums[r])) {
+            ans[i] =nums[r]*nums[r];
+            r--;
+        } else {
+            ans[i] =nums[l]* nums[l];
+            l++;
+        }
+    
+  }
+    return ans;
+    
+};
