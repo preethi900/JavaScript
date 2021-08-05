@@ -1,0 +1,12 @@
+var transpose = function(matrix) {
+    var res = [];
+    for(var i=0; i < matrix[0].length ; i++) {
+       var arr = [];
+        for(var j =0 ; j < matrix.length ;j++) {
+            arr.push(matrix[j][i]);
+           // res[i][j] = matrix[j][i];
+        }
+       res.push(arr);
+    }
+    return res;
+};
