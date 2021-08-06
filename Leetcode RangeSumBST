@@ -1,0 +1,22 @@
+var rangeSumBST = function(root, low, high) {
+    let ans =[];
+    let sum = 0;
+    let arr = traverse(root);
+    for(var i=0 ; i < arr.length ; i++) {
+        if(arr[i] >= low && arr[i] <= high) {
+            sum += arr[i];
+        }
+    }
+    
+    return sum;
+    function traverse(node) {
+        if(node.left) {
+            traverse(node.left);
+        }
+        ans.push(node.val);
+        if(node.right) {
+            traverse(node.right);
+        }
+        return ans;
+    }
+};
