@@ -1,0 +1,16 @@
+var diStringMatch = function(s) {
+  let count =0;
+   let count1 = s.length;
+    let arr = [];
+   for (var i=0 ; i < s.length ; i++) {
+       if(s[i] === 'I')   {
+           arr.push(count);
+           count++;
+       } else {
+           arr.push(count1);
+           count1--;
+       }
+   }
+    arr.push(count);
+    return arr;
+};
