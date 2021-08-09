@@ -1,0 +1,21 @@
+var missingNumber = function(arr) {
+    let max = 0 ;
+    let min =Infinity;
+    for (var i = 0 ; i < arr.length -1; i++) {
+        let diff = Math.abs(arr[i+1] - arr[i]);
+        max = Math.max(max,diff);
+        min = Math.min(min,diff);
+    }
+    for (var i = 0 ; i < arr.length -1; i++) {
+      let diff = Math.abs(arr[i+1] -arr[i]);
+        if(diff === max) {
+            if(arr[i] > arr[i+1]) {
+                return arr[i] - min;
+            } else {
+                return arr[i] + min;
+            }
+        }
+    
+    } 
+    
+};
