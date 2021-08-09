@@ -1,0 +1,13 @@
+var maxNumberOfApples = function(arr) {
+    arr.sort((a,b) => a-b);
+    let sum = 0;
+     for(var i= 0 ; i < arr.length ; i++) {
+         if(sum < 5000) {
+             sum += arr[i];
+         } 
+         if(sum > 5000) {
+             return i;
+         }
+     }
+    return arr.length;
+};
