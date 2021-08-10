@@ -1,0 +1,26 @@
+var findNumbers = function(nums) {
+    let count =0;
+    for(var i=0; i < nums.length ; i++) {
+        if(nums[i].toString().length % 2 === 0) {
+            count ++;
+        }
+    } 
+    
+    
+    return count;
+};
+var findNumbers = function(nums) {
+    let sum = 0;
+    for(var i =0 ; i < nums.length ; i++) {
+        let temp = 1;
+        while(nums[i] >= 10)   {
+            nums[i] = nums[i]/10;
+            temp++;
+            
+        }
+        if(temp % 2 === 0) {
+            sum++;
+        }
+    }
+    return sum;
+};
