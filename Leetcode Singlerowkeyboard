@@ -1,0 +1,15 @@
+var calculateTime = function(keyboard, word) {
+    var map = {};
+    for(var i =0 ; i < keyboard.length ; i++) {
+        if(!(keyboard[i] in map)) {
+            map[keyboard[i]] = i
+        }
+    }
+
+    let sum = map[word[0]];
+    for(var i =1; i < word.length ; i++) {
+            let temp = Math.abs(map[word[i-1]] - map[word[i]]);
+            sum += temp;
+    }
+    return sum;
+};
