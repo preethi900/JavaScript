@@ -1,0 +1,11 @@
+var subtractProductAndSum = function(n) {
+    n = n.toString();
+    let product = 1; 
+    let sum = 0;
+    for(var i = 0 ; i < n.length; i++) {
+        product *= n[i];
+        sum += parseInt(n[i]);
+    }
+    
+    return product -sum;
+};
