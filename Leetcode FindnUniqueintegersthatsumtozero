@@ -1,0 +1,23 @@
+var sumZero = function(n) {
+    var arr = [0];
+    if(n === 1) {
+        return arr;
+    }
+    if(n % 2 !== 0) {
+        let i = n;
+        while (arr.length < n) {
+            arr.push(i);
+            arr.push(-i);
+            i -= 2;
+        }
+    } else {
+        arr =[];
+        let i = n;
+         while (arr.length < n) {
+            arr.push(i);
+            arr.push(-i);
+            i -= 2;
+        }
+    }
+    return arr;
+};
