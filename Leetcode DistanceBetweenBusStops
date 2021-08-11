@@ -1,0 +1,12 @@
+var distanceBetweenBusStops = function(distance, start, destination) {
+    if(start > destination) {
+        let temp = start;
+        start = destination;
+        destination = temp;
+    }
+    
+    let totaldist = distance.reduce((a,b) => a+b);
+    let startdist = distance.slice(start,destination).reduce((a,b) => a+b);
+    
+    return Math.min(startdist,totaldist-startdist);
+};
