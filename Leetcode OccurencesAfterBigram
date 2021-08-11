@@ -1,0 +1,12 @@
+var findOcurrences = function(text, first, second) {
+    text = text.split(' ');
+    var arr = [];
+    for(var i=0 ; i < text.length -1; i++) {
+        if(text[i] === first && text[i+1] === second) {
+            if(text[i+2] !== undefined) {
+                arr.push(text[i+2]);
+            }
+        }
+    }
+    return arr;
+};
