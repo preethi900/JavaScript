@@ -1,0 +1,14 @@
+var dayOfYear = function(date) {
+    var arr = [31,28,31,30,31,30,31,31,30,31,30,31];
+    let count =0;
+    date = date.split('-');
+    if(parseInt(date[0]) % 4 === 0 && parseInt(date[0]) % 100 !== 0 || parseInt(date[0]) % 400 === 0) {
+        arr[1] = 29;
+    } 
+    
+    for(var i = 0 ; i < parseInt(date[1])-1; i++) {
+        count += arr[i];
+    }
+    
+    return count+parseInt(date[2]);
+};
