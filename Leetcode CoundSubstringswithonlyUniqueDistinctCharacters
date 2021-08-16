@@ -1,0 +1,13 @@
+var countLetters = function(s) {
+      let constant =1;
+    let res = 1;
+   for(var i=1 ; i < s.length ; i++) {
+       if(s[i] === s[i-1]) {
+           constant++;
+       } else {
+           constant =1;
+       }
+       res += constant;
+   }
+    return res;
+};
