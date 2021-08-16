@@ -1,0 +1,20 @@
+var stringShift = function(s, shift) {
+    s = s.split('');
+    let flag = 0;
+   for(var i=0,j=0; i < shift.length ; i++)  {
+        if(shift[i][j] === flag) {
+            let k = 0;
+            while (k < shift[i][j+1]) {
+                s.push(s.shift());
+                k++;
+            }
+        } else {
+            let k = 0;
+            while (k < shift[i][j+1]) {
+                s.unshift(s.pop());
+                k++;
+            }
+        }
+   }
+    return s.join('');
+};
