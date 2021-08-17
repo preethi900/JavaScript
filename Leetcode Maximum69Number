@@ -1,0 +1,10 @@
+var maximum69Number  = function(num) {
+    num = num.toString().split('');
+    for(var i=0 ; i < num.length ; i++) {
+        if(num[i] !== '9') {
+            num[i] = '9';
+            break;
+        }
+    }
+   return parseInt(num.join(''));
+};
