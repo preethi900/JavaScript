@@ -1,0 +1,9 @@
+var makeFancyString = function(s) {
+    s= s.split('');
+   for(var i = 0 ; i < s.length ; i++) {
+       if(s[i] === s[i+1] && s[i] === s[i+2]) {
+           s[i] ='';
+       } 
+   } 
+    return s.join('');
+};
