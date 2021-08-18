@@ -1,0 +1,19 @@
+var smallerNumbersThanCurrent = function(nums) {
+    let map = {};
+    let arr = [];
+    for(var i =0 ; i < nums.length ; i++) {
+        arr.push(nums[i]);
+    }
+    let arr1 = nums.sort((a,b) => a-b);
+    for(var i = 0 ; i < arr1.length ; i++) {
+        if(!(arr1[i] in map)) {
+            map[arr1[i]] = i;
+        }
+    }
+    
+    for(var i =0 ; i < arr.length ; i++) {
+        arr[i]=map[arr[i]];
+    }
+    return arr;
+    
+};
