@@ -1,0 +1,14 @@
+var kWeakestRows = function(mat, k) {
+    var map = {};
+   for(var i = 0 ; i < mat.length ; i++) {
+       let count =0;
+       for(var j = 0; j < mat[i].length ; j++) {
+           if(mat[i][j] === 1) {
+              count++; 
+           }
+       }
+       map[i] = count;
+   } 
+    let ans = Object.keys(map).sort((a,b) => map[a]-map[b]);
+    return ans.slice(0,k);
+};
