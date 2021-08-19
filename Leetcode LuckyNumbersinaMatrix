@@ -1,0 +1,26 @@
+var luckyNumbers  = function(matrix) {
+    let arr = [];
+    for(var i= 0 ; i < matrix.length ; i++) {
+        let min = Math.min(...matrix[i]);
+        arr.push(min);
+    }
+    
+    let arr2 =[];
+    for(var i = 0 ; i < matrix[0].length ; i++) {
+         let arr1 = [];
+        for(var j=0 ; j < matrix.length ; j++) {
+            arr1.push(matrix[j][i]);
+        }
+        arr2.push(Math.max(...arr1));
+    }
+    
+    for(var i=0 ; i < arr.length ; i++) {
+        for(var j = 0 ; j < arr2.length; j++) {
+            if(arr[i] === arr2[j]) {
+                return [arr[i]];
+                
+            }
+        }
+    }
+    return [];
+};
