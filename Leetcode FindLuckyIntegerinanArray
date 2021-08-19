@@ -1,0 +1,21 @@
+var findLucky = function(arr) {
+    var map = {};
+    for(var i=0 ; i < arr.length ; i++) {
+        if(!(arr[i] in map)) {
+            map[arr[i]] = 1;
+        } else {
+            map[arr[i]]++;
+        }
+    }
+    var ans =[];
+    for(var i= 0 ; i < Object.keys(map).length ; i++) {
+        if(Number(Object.keys(map)[i]) === Object.values(map)[i]) {
+            ans.push(Object.values(map)[i]);
+        }
+    }
+    if(ans.length === 0) {
+        return -1;
+    } else {
+        return Math.max(...ans);
+    }
+};
