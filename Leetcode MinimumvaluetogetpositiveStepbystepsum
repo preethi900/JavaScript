@@ -1,0 +1,9 @@
+var minStartValue = function(nums) {
+   let min = Infinity;
+    let sum = 0;
+    for(var i = 0 ; i < nums.length ; i++) {
+        sum += nums[i];
+        min = Math.min(min,sum);
+    }
+    return min < 0 ? -min+1 :1;
+}
