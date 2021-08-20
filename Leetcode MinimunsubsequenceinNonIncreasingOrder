@@ -1,0 +1,13 @@
+var minSubsequence = function(nums) {
+   nums.sort((a,b) => b-a);
+    let sum = nums.reduce((a,b) => a+b);
+    let currentsum = 0;
+    for(var i = 0 ; i < nums.length ; i++) {
+        currentsum += nums[i];
+        if(currentsum > sum -currentsum) {
+            return nums.slice(0,i+1);
+            break;
+        }
+    }
+    
+};
