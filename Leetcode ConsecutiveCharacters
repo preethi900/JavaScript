@@ -1,0 +1,18 @@
+var maxPower = function(s) {
+    let count = 1;
+    let max = 0;
+    for(var i=0 , j=1; i < s.length ; i++) {
+        if(s[i] === s[j]) {
+            count++;
+            j++;
+            max= Math.max(max,count);
+            continue;
+        } else {
+            count=1;
+            max= Math.max(max,count);
+        }
+        j++;
+        
+    }
+    return max;
+};
