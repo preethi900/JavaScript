@@ -1,0 +1,34 @@
+var destCity = function(paths) {
+  var map = {};
+    for(var i = 0 ; i < paths.length ; i++) {
+        for(var j = 0; j < paths[i].length ; j++) {
+            if(!(paths[i][j] in map)) {
+                map[paths[i][j]] = 1;
+            } else {
+                map[paths[i][j]] ++;
+            }
+        }
+    }
+    for(var i = 0 ; i < paths.length ; i++) {
+        for(var j = 0; j < paths[i].length ; j++) {
+            if(map[paths[i][j]] ===1 && j===1) {
+                return paths[i][j];
+            }
+        }
+    } 
+};
+
+var destCity = function(paths) {
+    var map = new Set();
+    for( let [src,dst] of paths) {
+        if(!(src in map)) {
+            map.add(src);
+        } 
+    }
+    for( let [src,dst] of paths) {
+        if(!(map.has(dst))) {
+            return dst;
+        } 
+    }
+    
+};
