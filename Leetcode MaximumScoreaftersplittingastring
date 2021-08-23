@@ -1,0 +1,15 @@
+var maxScore = function(s) {
+    s = s.split('');
+    let sum;
+    let max = -Infinity;
+    for(var i = 0 ; i < s.length-1 ; i++) {
+        let addend = s.slice(0,i+1).join('').replace(/1/g,'').length;
+        
+        let addend1 = s.slice(i+1).join('').replace(/0/g,'').length;
+        
+        sum = addend+addend1;
+        
+        max = Math.max(max,sum);
+    }
+    return max;
+};
