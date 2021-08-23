@@ -1,0 +1,64 @@
+var tictactoe = function(moves) {
+    var matrix= [];
+    
+    
+    //Creating 3*3 Matrix since a Tic tac Toe is always 3*3
+    for(var i =0 ; i < 3 ; i++) {
+        var arr = new Array(3).fill(0);
+        matrix.push(arr);
+    }
+    
+    //Filling the matrix according to the moves
+    let flag = false;
+    for(var i= 0 ; i < moves.length ; i++) {
+        let [a,b] = moves[i];
+        if(!flag) {
+            matrix[a][b] = 'X';
+            flag = true;
+        } else {
+            matrix[a][b] = 'O';
+            flag=false;
+        }
+    }
+    
+    
+    //Diagonal Value Check:If it satisfies returns the answer
+     if(matrix[0][0] === 'X' && matrix[1][1] === 'X' && matrix[2][2] === 'X') {
+            return 'A';
+        } else if(matrix[0][0] === 'O' && matrix[1][1] === 'O' && matrix[2][2] === 'O' ) {
+            return 'B';
+        } else if(matrix[0][2] === 'X' && matrix[1][1] === 'X' && matrix[2][0] === 'X') {
+            return 'A';
+        } else if(matrix[0][2] === 'O' && matrix[1][1] === 'O' && matrix[2][0] === 'O') {
+            return 'B';
+        }
+    
+    //Row check
+    for(var i =0 ; i < matrix.length ; i++) {
+        
+        if(matrix[i].join('') === 'XXX') {
+            return 'A';
+        } else if(matrix[i].join('') === 'OOO') {
+            return 'B';
+        }
+        
+    }
+   //Column Check
+    for(var i =0 ; i < matrix.length ; i++) {
+        let colchk = [];
+        for(var j = 0 ;  j < matrix.length ; j++) {
+            colchk.push(matrix[j][i]);
+        }
+          if(colchk.join('') === 'XXX') {
+                return 'A';
+            } else if(colchk.join('') === 'OOO') {
+                return 'B';
+            } 
+    }
+   
+    
+    return moves.length === 9 ? "Draw" : "Pending";
+    
+    
+    
+};
