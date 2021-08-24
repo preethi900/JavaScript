@@ -1,0 +1,21 @@
+var canBeEqual = function(target, arr) {
+    var map = {};
+    for(var i = 0 ; i < target.length ; i++) {
+        if(!(target[i] in map)) {
+            map[target[i]] = 1;
+        } else {
+            map[target[i]]++;
+        }
+    }
+    for(var i=0 ; i < arr.length ; i++) {
+        if(!(arr[i] in map)) {
+            return false;
+        } else {
+            map[arr[i]]--;
+            if(map[arr[i]] === 0) {
+                delete map[arr[i]];
+            }
+        }
+    }
+    return true;
+};
