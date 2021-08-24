@@ -1,0 +1,17 @@
+var buildArray = function(target, n) {
+    var res= [];
+    let num =1;
+   for(var i=0 ; i < target.length ; i++) {
+       if(target[i] === num) {
+           res.push("Push");
+           num++;
+       } else {
+           i--;
+           res.push("Push");
+           res.push("Pop");
+           num++;
+           
+       }
+   } 
+    return res;
+};
