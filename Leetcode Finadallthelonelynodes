@@ -1,0 +1,20 @@
+var getLonelyNodes = function(root) {
+    let ans = [];
+   return traverse(root);
+   function traverse(node) {
+       let child =[];
+       if(node.left) {
+           child.push(node.left.val);
+           traverse(node.left);
+       }
+       if(node.right) {
+            child.push(node.right.val);
+            traverse(node.right);
+       }
+       if(child.length === 1) {
+           ans.push(child[0]);
+       }
+       return ans;
+   }
+    
+};
