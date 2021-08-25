@@ -1,0 +1,10 @@
+var shuffle = function(nums, n) {
+    var arr = [];
+    let j = n;
+   for(var i = 0 ; i < n ; i++) {
+       arr.push(nums[i]);
+       arr.push(nums[j]);
+       j++;
+   } 
+    return arr;
+};
