@@ -1,0 +1,19 @@
+var countOdds = function(low, high) {
+    let  total = 0;
+    if(low % 2 !== 0) {
+        for(var i = low ; i <= high ; i++) {
+            total++;
+            i++;
+         } 
+        return total;
+    } else {
+        for(var i = low+1 ; i <= high ; i++) {
+            total++;
+            i++;
+         }
+        return total;
+    }
+}; 
+var countOdds = function(low, high) {
+    return Math.floor((high+1)/2) - Math.floor((low/2));
+};
