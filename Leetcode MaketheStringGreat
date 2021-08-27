@@ -1,0 +1,19 @@
+var makeGood = function(s) {
+    let flag = false;
+    s = s.split('');
+    for(var i = 0 ; i < s.length-1; i++) {
+     if(s[i] !== s[i+1]) {
+        if(s[i].toUpperCase() === s[i+1] || s[i] === s[i+1].toUpperCase()) {
+            flag = true;
+            s[i] = '';
+            s[i+1] = '';
+            break;
+        } 
+    }
+    }
+    if(flag) {
+        return makeGood(s.join(''));
+    } else {
+        return s.join('');
+    }
+};
