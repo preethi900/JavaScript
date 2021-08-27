@@ -1,0 +1,37 @@
+var diagonalSum = function(mat) {
+    let sum = [];
+    let sum1 =[];
+   
+    for(var i=0; i < mat.length ; i++) {
+        sum.push(mat[i][i]);
+    }
+    for(var i=0, j =mat.length -1; i < mat.length ; i++,j--) {
+        sum1.push(mat[i][j]);
+    }
+    
+    if(sum.length === 1) {
+        return sum[0];
+    }
+  
+
+    if(sum.length % 2 === 0) {
+        return sum.reduce((a,b)=>a+b)+sum1.reduce((a,b)=>a+b);
+    } else {
+        let skip = Math.floor((sum.length)/2)
+        let num = sum1[skip];
+    
+        return ((sum.reduce((a,b)=>a+b))) + ((sum1.reduce((a,b)=>a+b))-num);
+    }
+};
+
+var diagonalSum = function(mat) {
+    let sum = 0;
+    let skip = 0;
+    for(var i=0, j =mat.length -1; i < mat.length ; i++,j--) {
+        sum += mat[i][i] + mat[i][j];
+        if(i === j) {
+            skip = mat[i][j];
+        }
+    }
+    return sum-skip;
+};
