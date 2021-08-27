@@ -1,0 +1,14 @@
+var findKthPositive = function(arr, k) {
+    let res =[];
+    let i = 0;
+    let j =1;
+    while(res.length  < k) {
+        if(arr[i] !== j) {
+            res.push(j);
+            i--;
+        }
+        j++;
+        i++;
+    }
+    return res.pop();
+};
