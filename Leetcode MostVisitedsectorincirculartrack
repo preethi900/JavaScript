@@ -1,0 +1,19 @@
+var mostVisited = function(n, rounds) {
+    
+    let start = rounds[0];
+    let end = rounds[rounds.length -1];
+    let res = [];
+    if(start <= end) {
+        for(var i = start ; i <= end ; i++) {
+            res.push(i);
+        }
+    } else {
+        for(var i = 1; i <= end ; i++) {
+            res.push(i);
+        }
+        for(var i = start ; i <=n ; i++) {
+            res.push(i);
+        }
+    }
+    return res;
+};
