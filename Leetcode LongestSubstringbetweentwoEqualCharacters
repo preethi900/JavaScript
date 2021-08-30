@@ -1,0 +1,13 @@
+var maxLengthBetweenEqualCharacters = function(s) {
+    let max= 0;
+    let long = 0;
+   for(var i =0 ; i < s.length ; i++) {
+       let start = s.indexOf(s[i]);
+       let end = s.lastIndexOf(s[i]);
+       if(start !== -1 && end !== -1) {
+           long =s.substring(start+1,end).length;
+           max = Math.max(max,long);
+       }
+   } 
+    return max !== 1 ? max : -1;
+};
