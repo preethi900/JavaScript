@@ -1,0 +1,18 @@
+var modifyString = function(s) {
+    var alphabets = 'abcdefghijklmnopqrstuvwxyz';
+    s= s.split('');
+    for(var i=0 ; i < s.length ; i++) {
+        if(s[i] === '?') {
+            let prev = s[i-1];
+            let next = s[i+1];
+            let j =0;
+            s[i] = alphabets[j];
+            while(s[i] === s[i-1] || s[i] === s[i+1]) {
+               j++;
+               s[i] = alphabets[j] 
+            } 
+            
+        }
+    }
+    return s.join('');
+};
