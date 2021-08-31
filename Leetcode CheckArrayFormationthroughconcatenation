@@ -1,0 +1,16 @@
+var canFormArray = function(arr, pieces) {
+    var map = {};
+    var res = [];
+    for(var i = 0 ; i < pieces.length ; i++) {
+        if(!(pieces[i] in map)) {
+            map[pieces[i][0]] = pieces[i];
+        } 
+    }
+    
+    for(var i =0 ; i < arr.length ; i++) {
+        if(arr[i] in map) {
+           res.push(...map[arr[i]]); 
+        }
+    }
+   return arr.every((a,b) => a === res[b]);
+};
