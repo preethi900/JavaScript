@@ -1,0 +1,15 @@
+var interpret = function(command) {
+    var str ='';
+    for(var i =0 ; i < command.length ; i++) {
+        if (command[i] === 'G') {
+            str += 'G';
+        } else if(command[i] === '(' && command[i+1] === ')') {
+            str += 'o';
+            i++;
+        } else {
+            str += 'al';
+            i = i+3;
+        }
+    }
+    return str;
+};
