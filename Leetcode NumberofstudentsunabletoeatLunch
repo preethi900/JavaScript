@@ -1,0 +1,21 @@
+var countStudents = function(students, sandwiches) {
+    let count = 0;
+    for(var i =0 ; i < students.length ; i++) {
+        if(students[i] === sandwiches[i]) {
+            count = 0;
+            students.shift();
+            
+            sandwiches.shift();
+            i--;
+        } else {
+            students.push(students[i]);
+            students.shift();
+            count++;
+            i--;
+        }
+        if(count === students.length) {
+            break;
+        }
+    }
+    return students.length;
+};
