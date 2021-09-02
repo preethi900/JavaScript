@@ -1,0 +1,15 @@
+var maximumUnits = function(boxTypes, truckSize) {
+    let boxes = 0;
+    let res = 0;
+    boxTypes.sort((a,b) => b[1]-a[1]);
+    for(var i=0 ; i < boxTypes.length ; i++) {
+       if(truckSize-boxTypes[i][0] >=0) {
+           truckSize -= boxTypes[i][0];
+           res += (boxTypes[i][0] * boxTypes[i][1]);
+       } else {
+           res += (truckSize*boxTypes[i][1]);
+           break;
+       }
+    }
+    return res;
+};
