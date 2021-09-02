@@ -1,0 +1,18 @@
+var halvesAreAlike = function(s) {
+    s = s.toLowerCase();
+    let s1 = s.slice(0,s.length/2);
+    let s2 = s.slice(s.length/2);
+    let count =0;
+    let count1 = 0;
+    for(var i =0 ; i < s1.length ; i++) {
+        if(s1[i] === 'a' || s1[i] === 'e' || s1[i] === 'i' || s1[i] === 'o' || s1[i] === 'u') {
+            count++;
+        }
+    }
+     for(var i =0 ; i < s2.length ; i++) {
+        if(s2[i] === 'a' || s2[i] === 'e' || s2[i] === 'i' || s2[i] === 'o' || s2[i] === 'u') {
+            count1++;
+        }
+    }
+    return count === count1;
+};
