@@ -1,0 +1,20 @@
+var reformatNumber = function(number) {
+    regex =/[0-9]/g;
+    number = number.match(regex).join('');
+    let res = [];
+    while (number.length > 4) {
+        res.push(number.substring(0,3));
+        number = number.substring(3);
+    }
+    
+    if(number.length === 4) {
+        res.push(number.substring(0,2));
+        number = number.substring(2);
+        res.push(number);
+    } else {
+        res.push(number);
+    }
+    
+    return res.join('-');
+     
+};
