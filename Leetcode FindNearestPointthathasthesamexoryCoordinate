@@ -1,0 +1,31 @@
+var nearestValidPoint = function(x, y, points) {
+    var arr = [];
+  for(let [a,b] of points) {
+      if(a=== x || b === y) {
+          arr.push([a,b]);
+      }
+     
+  }
+    if(arr.length === 0) {
+        return -1;
+    }
+    var map = {};
+     let min = Infinity;
+    let value;
+    for(let [a,b] of arr) {
+        value = Math.abs(x-a) + Math.abs(y-b);
+        map[[a,b]] = value;
+        if(value < min) {
+            min = value;
+        }
+
+    }
+
+    let j=0;
+    for(let [a,b] of points) {
+        if(map[[a,b]] === min) {
+            return j;
+        }
+        j++;
+    }
+};
