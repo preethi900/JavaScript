@@ -1,0 +1,18 @@
+var sumOfUnique = function(nums) {
+    var map = {};
+    let sum = 0;
+    for(var i=0; i < nums.length ; i++) {
+        if(!(nums[i] in map)) {
+            map[nums[i]] = 1;
+        } else {
+            map[nums[i]]++;
+        }
+    }
+    
+    for(var i=0 ; i < nums.length ; i++) {
+        if(map[nums[i]] === 1) {
+            sum += nums[i];
+        }
+    }
+   return sum;
+};
