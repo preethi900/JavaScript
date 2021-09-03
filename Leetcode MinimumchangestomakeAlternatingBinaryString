@@ -1,0 +1,20 @@
+var minOperations = function(s) {
+   let count = 0;
+    let count1 = 0;
+    for(var i = 0 ; i < s.length ; i++) {
+        if(i % 2 === 0) {
+            if(s[i] === '0') {
+                count++;
+            } else {
+                count1++;
+            }
+        } else {
+            if(s[i] === '1') {
+                count++;
+            } else {
+                count1++;
+            }
+        }
+    }
+    return Math.min(count,count1);
+};
