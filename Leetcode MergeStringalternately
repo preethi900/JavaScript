@@ -1,0 +1,26 @@
+var mergeAlternately = function(word1, word2) {
+    let str = '';
+   for(var i = 0 ; i < word1.length ; i++)  {
+       if(word2[i] !== undefined) {
+        str += word1[i] + word2[i];
+       } else {
+           str += word1[i];
+       }
+   } 
+    if(word2.length > word1.length) {
+        for(var i = word1.length ; i < word2.length ; i++) {
+            str += word2[i];
+        }
+    }
+    return str;
+};
+
+var mergeAlternately = function(word1, word2) {
+    let str ='';
+    let max = Math.max(word1.length , word2.length);
+    for(var i =0 ; i < max ; i++) {
+        str += word1[i] || '';
+        str += word2[i] || '';
+    }
+    return str;
+};
