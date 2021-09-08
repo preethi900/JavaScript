@@ -1,0 +1,24 @@
+var middleNode = function(head) {
+    let length =0;
+    let start = head;
+    while (head) {
+        length++;
+        head = head.next;
+    }
+    if(length % 2 === 0) {
+        length = (length/2) +1;
+    } else {
+        length =Math.round(length/2);
+    }
+        head = start;
+     
+    
+    let length1 = 0;
+    while(head) {
+        length1++;
+        if(length === length1) {
+            return head;
+        }
+        head = head.next;
+    }
+};
