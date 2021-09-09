@@ -1,0 +1,31 @@
+var removeNthFromEnd = function(head, n) {
+    let length = 0;
+    let start = head;
+    while(head) {
+        length++;
+        head = head.next;
+    }
+    if(!head) {
+        head=start;
+    }
+    let nthposition = length - n;
+    length = 0;
+    
+    while(head)  {
+                length++;
+           if(nthposition === 0) {
+               let prev = null;
+               let next = head.next;
+              head.next = prev;
+               head= next;
+              return head;
+           } else if(length === nthposition) {
+                head.next = head.next.next;
+                head = head.next;
+            } else {
+                head= head.next;
+            }
+            
+    }
+    return start;
+};
