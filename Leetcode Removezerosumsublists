@@ -1,0 +1,29 @@
+var removeZeroSumSublists = function(head) {
+    if(!head) {
+        return head;
+    }
+  
+    let dummy = new ListNode(0);
+    dummy.next = head;
+    
+    
+    let runningsum = 0;
+    let prefixmap = new Map();
+    let curr = dummy;
+    
+    while(curr) {
+        runningsum += curr.val;
+        prefixmap.set(runningsum,curr);
+        curr = curr.next;
+    }
+    curr = dummy;
+    runningsum = 0;
+    
+    while(curr) {
+        runningsum += curr.val;
+        curr.next = prefixmap.get(runningsum).next;
+        curr = curr.next;
+    }
+    
+    return dummy.next;
+};
