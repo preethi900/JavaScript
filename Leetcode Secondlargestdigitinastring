@@ -1,0 +1,19 @@
+var secondHighest = function(s) {
+    let regex =/[0-9]/g;
+    s = s.match(regex);
+    if(!s) {
+        return -1;
+    } 
+    var map = {};
+    for(var i=0 ; i < s.length ; i++) {
+        if(!(s[i] in map)) {
+            map[s[i]] = i;
+        } 
+    }
+    if(Object.keys(map).length === 1) {
+        return -1;
+    } else {
+        let arr = Object.keys(map).sort((a,b) => b-a);
+        return parseInt(arr[1]);
+    }
+};
