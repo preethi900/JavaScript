@@ -1,0 +1,6 @@
+var printLinkedListInReverse = function(head) {
+    if(head) {
+        printLinkedListInReverse(head.getNext());
+        head.printValue();
+    }
+};
