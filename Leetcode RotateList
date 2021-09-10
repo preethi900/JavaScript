@@ -1,0 +1,20 @@
+var rotateRight = function(head, k) {
+    let tail = head;
+    if(!head) {
+        return head;
+    }
+    let length = 1;
+    while(tail.next) {
+        length++;
+        tail = tail.next;
+    }
+    tail.next = head;
+    let count = length - (k%length);
+    while(count > 0) {
+        head = head.next;
+        tail = tail.next;
+        count--;
+    }
+     tail.next = null;
+    return head;
+};
