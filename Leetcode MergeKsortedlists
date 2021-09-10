@@ -1,0 +1,36 @@
+var mergeKLists = function(lists) {
+    if(lists.length === 0) {
+        return null;
+    }
+    
+    function mergeLists(l1,l2) {
+        let list = new ListNode(0);
+        let head= list;
+        
+        while(l1 && l2)  {
+            if(l1.val < l2.val) {
+                head.next = new ListNode(l1.val);
+                l1 = l1.next;
+            } else {
+                head.next = new ListNode(l2.val);
+                l2 = l2.next;
+            }
+            head = head.next;
+        }
+        
+        if(!l1) {
+            head.next = l2;
+        } else if(!l2) {
+            head.next = l1;
+        }
+        return list.next;
+    }
+    
+    while(lists.length > 1) {
+        let a = lists.shift();
+        let b = lists.shift();
+        let h = mergeLists(a,b);
+        lists.push(h);
+    }
+    return lists[0];
+};
