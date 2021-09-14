@@ -1,0 +1,29 @@
+var areAlmostEqual = function(s1, s2) {
+    if(s1 === s2) {
+        return true;
+    }
+    
+   
+    var map ={};
+    let count =0;
+    for(var i = 0 ; i < s1.length ; i++) {
+        if(!(s1[i] in map)) {
+            if(s1[i] !== s2[i]) {
+                map[s1[i]] = s2[i];
+            } else {
+                count++;
+            }
+        } else {
+            if(s1[i] === s2[i]) {
+                count++;
+            }
+        }
+    }
+    let notequal = s1.length - count;
+    if (Object.keys(map).length === 2 && notequal <= 2) {
+       if(Object.keys(map)[0] === Object.values(map)[1] &&Object.values(map)[0] === Object.keys(map)[1]  ) {
+           return true;
+       } 
+    }
+    return false;
+};
