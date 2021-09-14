@@ -1,0 +1,11 @@
+var findCenter = function(edges) {
+   let [x,y] = edges[0];
+     let [a,b] = edges[1];
+   
+       if(x === a || x === b) {
+          return x;
+       } else {
+           return y;
+       }
+
+};
