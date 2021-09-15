@@ -1,0 +1,21 @@
+var maxTurbulenceSize = function(arr) {
+    let up = 1;
+    let down = 1;
+    let max = 1;
+    
+    for(var i = 1; i < arr.length ; i++) {
+        if(arr[i] < arr[i-1]) {
+            down = up +1;
+            up = 1;
+        } else if(arr[i] > arr[i-1]) {
+            up = down+1;
+            down =1;
+        } else {
+            up = 1;
+            down =1;
+        }
+        
+        max= Math.max(max,Math.max(up,down));
+    }
+    return max;
+};
