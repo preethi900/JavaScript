@@ -1,0 +1,19 @@
+var squareIsWhite = function(coordinates) {
+    coordinates = coordinates.split('');
+    let ans;
+    let flag = false;
+   var map = {'a' : 0,'b': 1,'c':0,'d':1,'e':0,'f':1,'g':0,'h':1};
+  for(var i = 1 ; i <= coordinates[1] ; i++) {
+      if(!flag) {
+        ans = map[coordinates[0]];
+        flag = true;
+      } else {
+          if(ans === 0) {
+              ans = 1;
+          } else {
+              ans = 0;
+          }
+      }
+  }
+    return ans === 1;
+};
