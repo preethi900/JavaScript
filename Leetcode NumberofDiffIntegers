@@ -1,0 +1,31 @@
+var numDifferentIntegers = function(word) {
+   var arr = [];
+    var arr1 = [];
+    word = word.split('');
+   
+    for(var i=0 ; i < word.length ; i++) {
+        if(word[i].match(/[a-z]/g)) {
+            word[i] = '';
+        }
+    }
+   
+    let str = '';
+    for(var i = 0 ; i < word.length; i++) {
+        if(word[i] !== '' && word[i+1] !== '' && word[i+1] !== undefined) {
+           str += word[i] + word[i+1];
+            if(word[i+2] === '' || word[i+2] === undefined) {
+                arr1.push(Number(str));
+                str ='';
+            }
+            i++;
+        } else if( word[i] !== '' && word[i+1] === '' ||word[i] !== '' && word[i+1] === undefined) {
+            str += word[i];
+            arr1.push(Number(str));
+            str ='';
+        }
+    }
+    
+    if(arr1.includes(Infinity)) {
+        return arr1.length;
+    }
+   return [...new Set(arr1)].length;
