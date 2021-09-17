@@ -1,0 +1,12 @@
+var numPairsDivisibleBy60 = function(time) {
+    
+    let hashMap = new Array(60).fill(0);
+    let c = 0;
+    for (let i = 0; i < time.length; i++) {
+        let val = time[i] % 60;
+        c += hashMap[(60 - val) % 60];
+        hashMap[val] += 1;
+    }
+    return c;
+    
+};
