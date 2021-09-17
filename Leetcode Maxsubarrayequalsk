@@ -1,0 +1,16 @@
+    var map = {0 : -1};
+    
+    let sum = 0;
+    let len =0 ;
+    for(var i =0 ; i < nums.length ; i++) {
+        sum += nums[i];
+        if((sum - k) in map) {
+            len = Math.max(len,i-map[sum-k]);
+        }
+        
+        if(!(sum in map)) {
+            map[sum] = i
+        }
+    }
+   return len;
+};
