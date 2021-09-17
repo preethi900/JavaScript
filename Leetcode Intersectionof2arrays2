@@ -1,0 +1,29 @@
+var intersect = function(nums1, nums2) {
+    let res = [];
+    function mapgeneration(nums) {
+        var map = {};
+        for(var i =0 ; i < nums.length ; i++) {
+            if(!(nums[i] in map)) {
+                map[nums[i]] = 1;
+            } else {
+                map[nums[i]]++;
+            }
+        }
+        return map;
+    }
+    var map = mapgeneration(nums1);
+    var map1 = mapgeneration(nums2);
+    
+    for(var i =0 ; i < nums1.length ; i++) {
+        if(nums1[i] in map1) {
+            res.push(nums1[i]);
+            map1[nums1[i]]--;
+            if(map1[nums1[i]] <= 0) {
+                delete map1[nums1[i]];
+            }
+        }
+    }
+    return res;
+    
+   
+};
