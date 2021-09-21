@@ -1,0 +1,14 @@
+var maxDepth = function(root) {
+    let max = 0;
+    
+    if(!root) {
+        return max;
+    }
+    
+    for(let child of root.children) {
+        max= Math.max(max,maxDepth(child));
+    }
+    return max+1;
+    
+    
+};
