@@ -1,0 +1,17 @@
+var preorder = function(root) {
+    let res = [];
+   
+    
+    function traverse(node) {
+        if(!node) {
+            return;
+        }
+        
+        res.push(node.val);
+        for(let child of node.children) {
+            traverse(child);
+        }
+    }
+     traverse(root);
+    return res;
+};
