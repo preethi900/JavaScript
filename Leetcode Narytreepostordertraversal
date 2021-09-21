@@ -1,0 +1,15 @@
+var postorder = function(root) {
+    let res = [];
+    function traverse(node) {
+        if(!node) {
+            return;
+        }
+        for(let child of node.children) {
+            traverse(child);
+        }
+        res.push(node.val);
+    }
+    
+    traverse(root);
+    return res;
+};
