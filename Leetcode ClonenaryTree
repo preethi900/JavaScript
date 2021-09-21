@@ -1,0 +1,5 @@
+var cloneTree = function(root) {
+    if(root) {
+        return new Node(root.val,root.children.map(cloneTree));
+    }
+};
