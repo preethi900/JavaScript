@@ -1,0 +1,12 @@
+var replaceDigits = function(s) {
+    var alphabets = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    var ans ='';
+     s = s.split('');
+    for(var i = 0 ; i < s.length ; i++) {
+        var num = Number(s[i]);
+        if(num >= 0) {
+            s[i] = alphabets[(alphabets.indexOf(s[i-1])) + num]; 
+        }
+    }
+    return s.join('');
+};
