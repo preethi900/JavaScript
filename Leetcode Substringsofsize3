@@ -1,0 +1,25 @@
+var countGoodSubstrings = function(s) {
+    let res = 0;
+    if(s.length < 3) {
+        return res;
+    }
+    
+    let a=s[0];
+    let b = s[1];
+    let c=s[2];
+    
+    for(var i =3 ; i < s.length ; i++) {
+        if(a != b && b!=c && c!=a) {
+            res++;
+        }
+        
+        a=b;
+        b=c;
+        c=s[i];
+    }
+    
+    if(a != b && b!=c && c!=a) {
+            res++;
+    }
+    return res;
+};
