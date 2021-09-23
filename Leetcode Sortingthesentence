@@ -1,0 +1,9 @@
+var sortSentence = function(s) {
+    var res = [];
+    s= s.split(' ');
+    for(var i = 0 ; i < s.length ; i++) {
+        let word = s[i];
+        res[Number(word[word.length -1]) -1] = word.slice(0,word.length-1);
+    }
+    return res.join(' ');
+};
