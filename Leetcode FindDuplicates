@@ -1,0 +1,12 @@
+  let res = [];
+    let index;
+    
+    for(var i = 0 ; i < nums.length ; i++) {
+        index = Math.abs(nums[i]) -1;
+        if(nums[index] < 0) {
+            res.push(index+1);
+        } else {
+            nums[index] *= -1;
+        }
+    }
+    return res;
