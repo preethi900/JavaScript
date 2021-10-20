@@ -33,3 +33,14 @@ var reverseWords = function(s) {
    } 
     return arr.join(' ');
 };
+
+var reverseWords = function(s) {
+    let res = [];
+    s= s.trim().split(' ');
+    for(var i = s.length -1 ; i >= 0 ; i--) {
+        if(s[i] !== '') {
+            res.push(s[i]); 
+        }
+    }
+    return res.join(' ');
+};
