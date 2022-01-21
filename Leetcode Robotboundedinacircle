@@ -1,0 +1,23 @@
+var isRobotBounded = function(instructions) {
+    const DIRECTION = { "N": [0,1], "S": [0,-1], "E": [1,0], "W": [-1,0] };
+    const LEFT = { "N" : "W",  "W" : "S", "S" : "E", "E" : "N" };
+    const RIGHT = { "N" : "E",  "E" : "S", "S" : "W", "W" : "N" };
+    // initial starting point of the robot
+    let robot = [0,0];
+    // the direction our robot is currently facing (initialized to north)
+    let facing = "N";
+	
+    for (let i of instructions) {
+		// if G, update the current position of the robot based on the direction
+        if (i === "G") robot = [robot[0] + DIRECTION[facing][0], robot[1] + DIRECTION[facing][1]];
+		// if L, change facing direction of the robot using LEFT
+        else if (i === "L") facing = LEFT[facing];
+		// otherwise (R), change the facing direction of the robot using RIGHT 
+        else facing = RIGHT[facing];
+    }
+	
+	// if we are facing a new direction or we have not moved we are in a circular pattern, return true
+    if (facing !== "N" || (robot[0] === 0 && robot[1] === 0)) return true;
+	// otherwise return false
+    return false;
+};
