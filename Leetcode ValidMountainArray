@@ -1,0 +1,21 @@
+var validMountainArray = function(arr) {
+    if(arr.length < 3) {
+        return false;
+    }
+    let max=Math.max(...arr);
+    let index = arr.indexOf(max);
+    if (index === arr.length -1|| index === 0) {
+        return false;
+    }
+    for(var i= 0 ;i <  index ; i++) {
+        if(arr[i] >= arr[i+1]) {
+            return false;
+        }
+    }
+    for(var i= index ;i < arr.length -1; i++) {
+        if(arr[i] <= arr[i+1]) {
+            return false;
+        }
+    }
+    return true;
+};
