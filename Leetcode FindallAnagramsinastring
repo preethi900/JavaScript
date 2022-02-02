@@ -28,3 +28,52 @@ var findAnagrams = function(s, p) {
   
   return r;
 };
+
+
+//Another solution
+
+var findAnagrams = function(s, p) {
+    var output = [];
+    var map = {};
+    
+    for(var i = 0 ; i < p.length ; i++) {
+        if(p[i] in map) {
+            map[p[i]] ++;
+        } else {
+            map[p[i]] = 1;
+        }
+    }
+    
+    let left = 0; 
+    let right = 0;
+    let count = p.length;
+    
+    while(right < s.length) {
+        if(map[s[right]] > 0) {
+             count--;
+        }
+     
+        map[s[right]]--;
+        right++;
+        
+        
+        if(count === 0) {
+            output.push(left);
+        }
+        
+        if(right - left === p.length) {
+            if(map[s[left]] >= 0) {
+                count++;
+            }
+            
+            map[s[left]]++;
+            left++;
+        }
+        
+        
+        
+        
+        
+    }
+    return output;
+};
