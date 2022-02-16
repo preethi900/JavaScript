@@ -20,3 +20,35 @@ var setZeroes = function(matrix) {
         
     }
 };
+///Another Logic
+
+var setZeroes = function(matrix) {
+    var map = {};
+    var map1 = {};
+    
+    for(var i = 0 ; i < matrix.length ; i++) {
+        for(var j =0 ; j<matrix[i].length ; j++) {
+            if(matrix[i][j] === 0) {
+                 if(!(i in map)) {
+                    map[i] = true;
+                }
+                if(!(j in map1)) {
+                    map1[j] = true;
+                }
+            }
+        }
+    }
+    for(var i = 0 ; i < matrix.length ; i++) {
+        for(var j =0 ; j<matrix[i].length ; j++) {
+            if(i in map) {
+                matrix[i][j] = 0;
+            }
+            if(j in map1) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+    
+    
+    
+};
