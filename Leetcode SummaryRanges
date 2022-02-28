@@ -1,0 +1,26 @@
+var summaryRanges = function(nums) {
+    let res = [];
+    let j = 1;
+    let temp = -1;
+    for(var i=0 ; i < nums.length; i++) {
+        
+        if(nums[i+1]-nums[i] === 1) {
+            j++;
+            if(temp === -1) {
+                temp = i;
+            }
+          
+        } else {
+            if(temp === -1) {
+                res.push(''+nums[i]);
+                j++;
+            } else {
+                res.push(nums[temp]+"->" +nums[j-1]);
+                j ++;
+                temp = -1;
+            }
+            
+        }
+    }
+    return res;
+};
