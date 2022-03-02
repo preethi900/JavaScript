@@ -1,0 +1,16 @@
+var shortestDistance = function(wordsDict, word1, word2) {
+   var map = {};
+    let min = Infinity;
+    for(var i=0 ; i < wordsDict.length ; i++) {
+        if(!(wordsDict[i] in map)) {
+            map[wordsDict[i]] = i;
+        } else {
+            map[wordsDict[i]] = i;
+        }
+        if(word1 in map && word2 in map) {
+            min = Math.min(min,Math.abs(map[word1] - map[word2]));
+        }
+    }
+    
+    return min;
+};
