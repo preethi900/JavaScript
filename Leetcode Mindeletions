@@ -1,0 +1,34 @@
+var minDeletions = function(s) {
+    var map = {};
+    var seen = new Set();
+    
+    for(var i =0 ; i < s.length ; i++) {
+        if(!(s[i] in map)) {
+            map[s[i]] = 1;
+        } else {
+            map[s[i]]++;
+        }
+    }
+    let arr = Object.values(map);
+    let deletions = 0;
+    
+    for(var i = 0 ; i < arr.length ; i++) {
+        if(!(seen.has(arr[i]))) {
+            seen.add(arr[i]);
+        } else {
+            while(seen.has(arr[i])) {
+                deletions++;
+                arr[i]--;
+            }
+            if(arr[i] > 0) {
+                seen.add(arr[i]);
+            }
+        }
+        
+    }
+    
+    return deletions;
+    
+    
+  
+};
