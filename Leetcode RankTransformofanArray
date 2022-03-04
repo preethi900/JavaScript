@@ -1,0 +1,25 @@
+var arrayRankTransform = function(arr) {
+   
+    var map = {};
+    var duparr = [];
+    var res =[];
+    for(var i = 0; i < arr.length ; i++) {
+        duparr.push(arr[i]);
+    }
+    duparr.sort((a,b) => a-b);
+    
+    let count = 1;
+    for(var i =0 ;i < duparr.length ; i++) {
+        if(!(duparr[i] in map)) {
+            map[duparr[i]] = count;
+            count++;
+        } 
+    }
+   
+    for(var i = 0; i < arr.length ; i++) {
+        res[i] = map[arr[i]];
+    }
+    
+    return res;
+    
+};
