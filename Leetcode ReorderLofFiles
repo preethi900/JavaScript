@@ -1,0 +1,24 @@
+var reorderLogFiles = function(logs) {
+   var letter_logs = [];
+   var digit_logs = [];
+  for(var i = 0 ; i < logs.length ; i++) {
+      let regex = /[a-z]/;
+       let logz = logs[i].split(' ');
+       if(regex.test(logz[1])) {
+           letter_logs.push(logs[i]);
+       } else {
+           digit_logs.push(logs[i]);
+       }
+      
+  }
+    
+    letter_logs.sort((a,b) => {
+        var aBody = a.slice(a.indexOf(' ')+1);
+        var bBody = b.slice(b.indexOf(' ')+1);
+        var c= aBody.localeCompare(bBody);
+        if(c) {
+            return c;
+        } else {
+            return a.localeCompare(b);
+        }
+});
