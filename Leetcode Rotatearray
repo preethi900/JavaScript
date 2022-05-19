@@ -3,3 +3,22 @@ var rotate = function(nums, k) {
  nums.unshift(...nums.splice(nums.length -k%nums.length));
         
 };
+
+
+
+//Reverse Logic
+var rotate = function(nums, k) {
+   k %= nums.length;
+    
+   let reverse = function (start,end) {
+       while(start < end) {
+           [nums[start],nums[end]] = [nums[end],nums[start]];
+           start++;
+           end--;
+       }
+   }
+   
+   reverse(0,nums.length-1);
+    reverse(0,k-1);
+    reverse(k,nums.length-1);
+};
