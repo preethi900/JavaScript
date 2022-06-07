@@ -13,3 +13,31 @@ var lengthOfLongestSubstring = function(s) {
   }
     return maxlen;
 };
+
+
+///My own solution
+
+var lengthOfLongestSubstring = function(s) {
+   
+    let j = 0;
+    let str = '';
+    let max = 0;
+    
+    
+    var map = {};
+  while (j < s.length) {
+    for(var i = j ; i < s.length ; i++) {
+        if(!(s[i] in map)) {
+            map[s[i]] = 1;
+            str += s[i];
+            max = Math.max(max,str.length);
+        } else {
+            str = '';
+            map = {};
+            break;
+        }
+    }
+      j++;
+  }
+    return max;
+};
