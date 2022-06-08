@@ -19,3 +19,46 @@ var longestPalindrome = function(s) {
         }
     }
 };
+
+
+//Own Solution
+
+var longestPalindrome = function(s) {
+    let  j = 0;
+    
+    let str = '';
+    
+    var map = {};
+    let max = '';
+    if(s.split('').reverse().join('') === s) {
+        return s;
+    }
+    
+while(j < s.length) {
+    
+    for(var i = j ; i < s.length ; i++) {
+        str += s[i];
+        var l = 0 ;
+        var r = str.length -1;
+        var flag = false;
+        while(l <= r) {
+            if(str[l] !== str[r]) {
+                flag = true;
+                break;
+            } else {
+                l++;
+                r--;
+            }
+        }
+        if(!flag) {    
+                if(str.length > max.length) {
+                    max=str;
+                }
+        }
+        
+    }
+    str = '';
+    j++;
+}
+    return max;
+};
