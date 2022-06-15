@@ -1,0 +1,29 @@
+var characterReplacement = function(s, k) {
+    let left = 0;
+    let right = 0;
+    let map = {};
+    let maxCount = 0;
+    
+    while(right < s.length) {
+        let char = s[right];
+        if(!(char in map)) {
+            map[char] = 1;
+        } else {
+            map[char] ++;
+        }
+        
+        if(map[char] > maxCount) {
+            maxCount = map[char];
+        }
+       
+        if(right - left+1 - maxCount > k) {
+           
+            map[s[left]]--;
+            left++;
+        }
+        
+        right++;
+    }
+    
+    return right - left;
+};
