@@ -1,0 +1,17 @@
+var matrixReshape = function(mat, r, c) {
+    var res = [];
+     var arr = mat.flat();
+    
+    if(r*c !== arr.length) {
+        return mat;
+    }
+    
+    var arr = mat.flat();
+   
+
+    while(arr.length) {
+        res.push(arr.splice(0,c));
+    }
+    
+    return res;
+};
