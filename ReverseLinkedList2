@@ -1,0 +1,89 @@
+var reverseBetween = function(head, left, right) {
+    if(left === right) {
+        return head;
+    }
+    
+    let node = head;
+    let length = 0;
+    var List = new ListNode();
+    var pointer = List;
+    var del = new ListNode();
+    var del1 = del;
+   
+    while(head) {
+        
+        length++;
+        if(length >= left && length <= right) {
+            flag = true;
+            pointer.next = new ListNode(head.val);
+            pointer = pointer.next;
+        } else {
+            del1.next = new ListNode(head.val); 
+            del1 = del1.next;
+        }
+        head=head.next;
+       
+    }
+  
+    
+    let reversehead =List.next;
+ 
+    var prev = null;
+    while(reversehead) {
+       
+        let temp = reversehead.next;
+        reversehead.next = prev;
+        prev = reversehead;
+        reversehead = temp
+      
+    }
+ 
+  if(del.next === null) {
+      return prev;
+  }
+ 
+    let joining = del.next;
+    
+    let node1 = joining;
+    let rev = prev;
+    length = 0;
+  
+    while(joining) {
+        length ++;
+   
+       if(length === left-1) {
+           var temp = joining.next;
+           if(temp) {
+                joining.next = prev;
+           } else {
+              joining.next = prev;
+               break;
+           }
+       } else if(left-1 === 0){
+          while(prev) {
+             
+              if(prev.next === null) {
+                  prev.next = joining;
+                  break;
+              }
+              prev = prev.next;
+          }
+           
+           return rev;
+    } 
+     
+        
+        joining = joining.next;
+        if(joining.next === null) {
+            if(temp) {
+                joining.next = temp;
+            } else {
+                joining.next = prev;
+            }
+            
+            break;
+        }
+    }
+    return node1;
+    
+};
