@@ -8,3 +8,32 @@ var invertTree = function(root) {
     root.right = invertTree(left);
     return root;
 };
+
+
+//Own Logic
+
+var invertTree = function(root) {
+   if(!root) {
+       return root;
+   } 
+    function traverse(node) {
+        if(!node) {
+            return;
+        }
+     
+        let temp = node.left;
+    
+        node.left = node.right;
+        node.right = temp;
+        
+        traverse(node.left);
+        traverse(node.right);
+        return node;
+    }
+    
+    
+    
+    return traverse(root);
+    
+  
+};
