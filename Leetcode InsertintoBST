@@ -1,0 +1,38 @@
+var insertIntoBST = function(root, val) {
+    if(!root) {
+        root = new TreeNode(val);
+        return  root;
+    }
+    var flag = false;
+    function traverse(node,val) {
+      if(!node) {
+          return;
+      }
+        if(!node.left  && node.val > val) {
+          if(!flag) {
+            node.left = new TreeNode(val);
+              flag = true;
+              return;
+             
+          }
+        } else if(!node.right  && node.val < val) {
+            if(!flag) {
+                node.right = new TreeNode(val);
+                flag = true;
+                return;
+            }
+        } else {
+        if(!flag) {
+            if(val < node.val) {
+                traverse(node.left,val);
+            } else {
+                traverse(node.right,val);
+            }
+        }
+        }
+    }
+    
+    traverse(root,val);
+   return root;
+  
+};
