@@ -1,0 +1,59 @@
+var sortList = function(head) {
+  if(!head) {
+        return null;
+    }
+    
+    if(!head.next) {
+        return head;
+    }
+    
+    
+    function mergeList(l1,l2) {
+        var List = new ListNode();
+        var head = List;
+        while(l1 && l2) {
+            if(l1.val <= l2.val) {
+                head.next = new ListNode(l1.val);
+                l1 = l1.next;
+            } else {
+                head.next = new ListNode(l2.val);
+                l2 = l2.next;
+            }
+            head=head.next;
+        }
+        
+        while(l1) {
+            head.next = new ListNode(l1.val);
+            l1 = l1.next;
+            head = head.next;
+        } 
+        
+        while(l2) {
+             head.next = new ListNode(l2.val);
+            l2 = l2.next;
+            head = head.next;
+        }
+        
+        return List.next;
+    }
+    
+    var fast = head;
+    let tmp = head;
+    var slow = head;
+   
+    
+    while(fast && fast.next) {
+        var tmp1 = slow;
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+    
+  let mid = slow;
+   tmp1.next = null;
+   
+    var List1 = sortList(tmp);
+    var List2 = sortList(mid);
+    
+   return  mergeList(List1,List2);
+    
+ };
