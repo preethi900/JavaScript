@@ -25,3 +25,46 @@ var isPalindrome = function(head) {
     }
     return true;
 };
+
+
+//New Method
+var isPalindrome = function(head) {
+    let node1 = head;
+   var List = new ListNode();
+    var node = List;
+    
+    while(head) {
+        node.next = new ListNode(head.val);
+        node= node.next;
+        head = head.next;
+    }
+    
+    var prev = null;
+    
+    
+function reverse(node1) {
+    while(node1) {
+        let temp = node1.next;
+        node1.next = prev;
+        prev=node1;
+        node1 = temp;
+    }
+    return prev;
+}
+   
+  let reverselist = reverse(node1);
+   
+   let comp = List.next;
+   
+    
+   
+    while(reverselist && comp) {
+        if(reverselist.val !== comp.val) {
+            return false;
+        } else {
+            reverselist = reverselist.next;
+            comp = comp.next;
+        }
+    }
+    return true;
+};
