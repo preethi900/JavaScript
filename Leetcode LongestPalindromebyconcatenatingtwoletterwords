@@ -1,0 +1,47 @@
+var longestPalindrome = function(words) {
+    var map = {};
+    var count = 0;
+    for(var i = 0 ; i < words.length ; i++) {
+        let rev = words[i].split('').reverse().join('');
+        if(rev in map){
+            count += words[i].length * 2;
+            map[rev]--;
+            if(map[rev] === 0)   {
+                delete map[rev];
+            }
+        } else if(!(words[i] in map)) {
+            map[words[i]] = 1;
+        } else {
+            map[words[i]]++;
+        }
+    }
+
+   console.log(map);
+    console.log(count);
+ 
+  
+    var arr = Object.keys(map);
+    var count1 = 0;
+ 
+    for(var i = 0 ; i < arr.length ; i++) {
+       var flag = false;
+     
+     
+       
+           for(var j = 0 ; j < arr[i].length-1 ;j++) {
+                if(arr[i][j] !== arr[i][j+1]) {
+                    flag = true;
+                    break;
+                }
+            } 
+            if(!flag) { 
+                count1 = Math.max(count1,arr[i].length);
+                
+               flag =false;
+          }
+        }
+    
+    
+   
+    return count+count1;
+};
