@@ -1,0 +1,96 @@
+var intervalIntersection = function(firstList, secondList) {
+/*    var ans = [];
+    let arr = [];
+    if(firstList.length  === 0 || secondList.length === 0) {
+        return ans;
+    }
+    for(var i = 0  ; i < firstList.length ; i++) {
+        for(var j = 0 ; j < secondList.length ; j++) {
+            
+            if(firstList[i][1] === secondList[j][0]) {
+                    arr.push(firstList[i][1],secondList[j][0]);
+                    ans.push(arr);
+                    arr = [];
+                    
+            } else if(firstList[i][1] > secondList[j][0]) {
+                if(firstList[i][0] < secondList[j][0]) {
+                    if(firstList[i][1] === secondList[j][1]) {
+                        if(firstList[i][0] <= secondList[j][0]) {
+                           arr.push(secondList[j][0],secondList[j][1]);
+                            ans.push(arr);
+                            arr = []; 
+                        } else {
+                            arr.push(firstList[i][0],firstList[j][1]);
+                            ans.push(arr);
+                            arr = []; 
+                        }
+                    } else {
+                        if(firstList[i][1] < secondList[j][1]) {
+                            arr.push(secondList[j][0],firstList[i][1]);
+                            ans.push(arr);
+                            arr = [];
+                        } else {
+                        if(firstList[i][1] > secondList[j][1]){
+                            
+                            arr.push(firstList[i][0],secondList[j][1]);
+                            ans.push(arr);
+                            arr =[];
+                        } else {
+                           
+                            arr.push(firstList[i][0],firstList[i][1]);
+                            ans.push(arr);
+                            arr =[];
+                        }
+                    }
+                    }
+                } else {
+                    console.log(firstList[i]);
+                    if(secondList[j][1] >= firstList[i][0]) {
+                        if(secondList[j][1] >= firstList[i][1]) {
+                            console.log(firstList[i]);
+                            arr.push(firstList[i][0],firstList[i][1]);
+                            ans.push(arr);
+                            arr = [];
+                        } else {
+                            if(secondList[j][1] > firstList[i][0]) {
+                                arr.push(secondList[j][0],secondList[j][1]);
+                                ans.push(arr);
+                                arr = [];
+                            } else {
+                            
+                                arr.push(firstList[i][0],secondList[j][1]);
+                                ans.push(arr);
+                                arr = [];
+                            }
+                        }
+                    }  
+                }
+            } else {
+                break;
+            }
+        }
+    }
+    return ans; */
+    
+    var ans = [];
+    
+    let i = 0;
+    let j = 0;
+    
+    while(i<firstList.length && j < secondList.length) {
+        let max = Math.max(firstList[i][0],secondList[j][0]);
+        let min = Math.min(firstList[i][1],secondList[j][1]);
+        
+        if(max <= min) {
+            ans.push([max,min]);
+        }
+        
+        if(firstList[i][1] < secondList[j][1]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    
+    return ans;
+};
