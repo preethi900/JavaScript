@@ -1,0 +1,25 @@
+var combinationSum = function(candidates, target) {
+    var arr = [];
+    
+    function go(path,sum,index) {
+        if(sum > target) {
+            return;
+        }
+        if(sum === target) {
+            arr.push(path);
+        }
+        
+        
+        for(var i = index ; i < candidates.length ; i++) {
+            go([...path,candidates[i]],sum+candidates[i],i);
+        }
+    }
+    
+    
+    
+    
+    
+    
+    go([],0,0);
+    return arr;
+};
