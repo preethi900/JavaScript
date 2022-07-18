@@ -1,0 +1,17 @@
+var subsets = function(nums) {
+   let arr = [];
+    
+   function go(path,index) {
+       arr.push(path);
+       
+       for(var i = index; i < nums.length ; i++) {
+           go([...path,nums[i]],i+1);
+       }
+   }
+    
+    
+    
+    
+    go([],0);
+    return arr;
+};
