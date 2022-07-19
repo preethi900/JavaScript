@@ -1,0 +1,37 @@
+var combinationSum2 = function(candidates, target) {
+    
+    var arr = [];
+    var map = {};
+    candidates = candidates.sort();
+    
+    function go(path,sum,index) {
+      
+        if(sum > target) {
+            return;
+        }
+        
+        if(sum === target) {
+            
+            if(!(path in map)) {
+                 arr.push(path);
+               map[path] = 1;
+            }
+          
+        }
+       
+        for(var i = index ; i < candidates.length ; i++) {
+             console.log(i);
+            go([...path,candidates[i]],sum+candidates[i],i+1);
+            console.log(i);
+            
+           while(candidates[i]==candidates[i+1])i++;
+          
+        }
+    }
+    
+    
+    
+    
+    go([],0,0);
+    return arr;
+};
