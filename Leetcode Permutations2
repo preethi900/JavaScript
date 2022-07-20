@@ -1,0 +1,25 @@
+var permuteUnique = function(nums) {
+    var arr = [];
+    var map = {};
+    function go(path,nums) {
+        if(!nums.length) {
+            
+            if(!(path in map)) {
+                map[path] = 1;
+                arr.push(path);
+            }
+        }
+        
+        for(var i = 0 ; i < nums.length ; i++) {
+            go([...path,nums[i]],[...nums.slice(0,i),...nums.slice(i+1)]);
+        }
+    }
+    
+    
+    
+    
+    
+    go([],nums);
+    return arr;
+    
+};
