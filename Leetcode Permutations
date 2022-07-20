@@ -1,0 +1,20 @@
+var permute = function(nums) {
+    var arr = [];
+    
+    function go(path,nums) {
+     if(!nums.length) {
+         arr.push(path);
+         return;
+     } 
+        
+        for(var i =0 ; i < nums.length; i++) {
+            go([...path,nums[i]],[...nums.slice(0,i),...nums.slice(i+1)]);
+        }
+    }
+    
+    
+    
+    
+    go([],nums);
+    return arr;
+};
