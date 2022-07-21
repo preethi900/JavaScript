@@ -1,0 +1,31 @@
+var lengthOfLIS = function(nums) {
+    var arr = [];
+    
+    function binarySearch(arr,num) {
+        let left = 0;
+        let right = arr.length;
+        
+        while(left < right) {
+            let mid = Math.floor((right+left)/2);
+            if(arr[mid] < num) {
+                left = mid+1;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
+    }
+    
+    
+    
+    
+    for(var i = 0 ; i < nums.length ; i++) {
+       let pos = binarySearch(arr,nums[i]);
+        if(pos === arr.length) {
+            arr.push(nums[i]);
+        } else {
+            arr[pos] = nums[i];  
+        }
+    }
+    return arr.length;
+};
