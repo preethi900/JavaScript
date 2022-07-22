@@ -1,0 +1,29 @@
+var partition = function(head, x) {
+    var left = [];
+    var right = [];
+    
+    var dummy = head;
+    var dummy1 = head;
+    while(head) {
+        if(head.val < x) {
+            left.push(head.val);
+        } else {
+            right.push(head.val);
+        }
+        head = head.next;
+    }
+   
+    
+    while(dummy) {
+        if(left.length > 0) {
+            dummy.val = left.shift();
+        } else {
+            dummy.val = right.shift();
+        }
+        dummy = dummy.next;
+    }
+    
+    return dummy1;
+    
+    
+};
