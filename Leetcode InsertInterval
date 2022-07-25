@@ -1,0 +1,28 @@
+var insert = function(intervals, newInterval) {
+    if(intervals.length === 0) {
+        return [newInterval];
+    }
+    var res = [];
+    var flag = false;
+    for(var i = 0 ; i < intervals.length; i++) {
+        let interval = intervals[i];
+        if(interval[1] < newInterval[0]) {
+           res.push(interval); 
+        } else if(interval[0] > newInterval[1]) {
+            res.push(newInterval);
+            flag = true;
+            break;
+        } else {
+            newInterval[0] = Math.min(interval[0],newInterval[0]);
+            newInterval[1] = Math.max(interval[1],newInterval[1]);
+        }
+    }
+    
+    if(!flag) {
+        res.push(newInterval);
+        return res;
+    } else {
+         return res.concat(intervals.slice(i));
+    }
+    
+};
