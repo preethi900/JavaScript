@@ -1,0 +1,22 @@
+var findMissingRanges = function(nums, lower, upper) {
+    var res = [];
+   
+    
+    nums = [lower-1,...nums,upper+1];
+    
+    for(var i = 1 ; i < nums.length ; i++) {
+        let str = '';
+        let diff = nums[i] - nums[i-1];
+        if(diff === 2) {
+            str += nums[i-1]+1;
+            res.push(str);
+        } 
+        
+        if(diff > 2) {
+            str += nums[i-1]+1 +"->";
+            str += nums[i]-1;
+            res.push(str);
+        }
+    }
+    return res;
+};
