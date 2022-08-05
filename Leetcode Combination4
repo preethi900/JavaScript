@@ -1,0 +1,18 @@
+var combinationSum4 = function(nums, target) {
+    var arr = new Array(target+1).fill(0);
+    
+    arr[0] = 1;
+    
+    
+    for(var j= 1 ; j < target+1 ; j++) { // how to gt to each sum? 1 2 3 4 
+        for(var i = 0 ; i < nums.length ; i++) { // use only nums 3, [1,2,3]
+            var rem = j - nums[i];
+            if(rem >= 0) { 
+                arr[j] += arr[rem]; // 3:2 3:1
+
+            }
+        }
+    }
+    
+   return arr.pop();
+};
