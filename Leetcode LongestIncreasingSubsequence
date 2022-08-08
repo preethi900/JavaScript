@@ -29,3 +29,22 @@ var lengthOfLIS = function(nums) {
     }
     return arr.length;
 };
+
+
+//Dynamic Programming
+var lengthOfLIS = function(nums) {
+    var arr = new Array(nums.length).fill(1);
+    
+    
+    for(var i = 1; i < nums.length ; i++) {
+        for(var j = 0 ; j < i ; j++) {
+            if(nums[i] > nums[j]) {
+               arr[i] = Math.max(arr[i],arr[j]+1);
+                console.log(arr);
+               
+            }
+        }
+    }
+    
+    return Math.max(...arr);
+};
