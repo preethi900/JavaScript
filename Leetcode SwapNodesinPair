@@ -10,3 +10,45 @@ var swapPairs = function(head) {
     
     return temp;
 };
+
+
+
+var swapPairs = function(head) {
+    if(!head) {
+        return null;
+    }
+    if(!head.next) {
+        return head;
+    }
+    var List = new ListNode();
+    var node = List;
+    
+    let fast = head;
+    let slow = head;
+   
+        fast = fast.next;
+        head = fast.next;
+    
+    fast.next = null;
+    
+    var revlist = slow;
+    
+    function reverse(list) {
+        let prev = null;
+        while(list) {
+            let temp = list.next;
+            list.next = prev;
+            prev = list;
+            list = temp;
+        }
+        return prev;
+    }
+    
+    let ans = reverse(revlist);
+    node.next = ans;
+    node= node.next.next;
+    
+    let ans1 =swapPairs(head);
+    node.next = ans1;
+    return List.next;
+};
