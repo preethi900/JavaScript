@@ -1,0 +1,19 @@
+var pathSum = function(root, targetSum) {
+   if(!root) {
+       return 0;
+   }
+    
+    
+    return pathSumFrom(root,targetSum)+ pathSum(root.left,targetSum) + pathSum(root.right,targetSum);
+    
+    
+    function pathSumFrom(node,s) {
+        if(!node) {
+            return 0;
+        }
+        
+        
+        
+        return (node.val === s ? 1 :0) + pathSumFrom(node.left,s-node.val) + pathSumFrom(node.right,s-node.val);
+    }
+};
