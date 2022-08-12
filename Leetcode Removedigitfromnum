@@ -1,0 +1,13 @@
+var removeDigit = function(number, digit) {
+    var arr = [];
+    
+  for(var i = 0 ; i < number.length ; i++) {
+      
+      if(number[i] === digit) {
+          var temp = number.substring(0,i) + number.substring(i+1);
+          arr.push(temp);
+      }
+  } 
+    arr.sort();
+    return arr[arr.length-1];
+};  
