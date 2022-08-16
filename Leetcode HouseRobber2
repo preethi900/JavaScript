@@ -1,0 +1,28 @@
+var rob = function(nums) {
+    if(nums.length === 1) {
+        return nums[0];
+    }
+    if(nums.length === 2) {
+        return Math.max(nums[0],nums[1]);
+    }
+    
+    var maxTwoBefore = nums[0];
+    var maxOneBefore = Math.max(nums[0],nums[1]);
+    
+    var maxTwoBefore1 = nums[1];
+    var maxOneBefore1 = Math.max(nums[1],nums[2]);
+    for(var i=2 ; i < nums.length-1; i++) {
+        var maxCurrent = Math.max(nums[i]+maxTwoBefore,maxOneBefore);
+        maxTwoBefore = maxOneBefore;
+        maxOneBefore = maxCurrent;
+        
+    }
+    
+     for(var i=3 ; i < nums.length; i++) {
+         var maxCurrent1 = Math.max(nums[i]+maxTwoBefore1,maxOneBefore1);
+        maxTwoBefore1 = maxOneBefore1;
+        maxOneBefore1 = maxCurrent1;
+     }
+    return Math.max(maxOneBefore1,maxOneBefore);
+    
+};
