@@ -1,0 +1,14 @@
+var maxSubarraySumCircular = function(nums) {
+    var maxarr = [nums[0]];
+    var minarr = [nums[0]];
+    for(var i = 1; i < nums.length ; i++) {
+        maxarr[i] = Math.max(nums[i],nums[i]+maxarr[i-1]);
+        minarr[i] = Math.min(nums[i],nums[i]+minarr[i-1]);
+    }
+    
+    var totalsum = nums.reduce((a,b) => a+b);
+    var maxSum = Math.max(...maxarr);
+    var minSum = Math.min(...minarr)
+    
+    return maxSum > 0 ? Math.max(maxSum,totalsum-minSum) : maxSum;
+};
