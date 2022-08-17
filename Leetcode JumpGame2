@@ -1,0 +1,17 @@
+var jump = function(nums) {
+    var index = 0;
+    var max= 0;
+    var jumps = 0;
+    var curEnd = 0;
+    var target = nums.length -1;
+    while(index < target) {
+        max = Math.max(max,index+nums[index]);
+        if(index === curEnd) {
+            jumps++;
+            curEnd = max;
+        }
+        index++;
+    }
+    return jumps;
+    
+};
