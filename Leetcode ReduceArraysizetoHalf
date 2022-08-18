@@ -1,0 +1,27 @@
+var minSetSize = function(arr) {
+    arr.sort((a,b) => a-b);
+    var counts = [];
+    var curr = 1;
+    for(var i = 1 ; i < arr.length ; i++) {
+        if(arr[i] === arr[i-1]) {
+            curr += 1;
+            continue;
+        }
+        counts.push(curr);
+        curr =1;
+    }
+    counts.push(curr);
+    
+    
+    counts.sort((a,b) => b-a);
+    var curr1 = 0;
+    var result = 0;
+    for(var i = 0 ; i < counts.length ; i++) {
+        curr1 += counts[i];
+        result += 1;
+        if(curr1 >= arr.length/2) {
+            break;
+        }
+    }
+    return result;
+};
