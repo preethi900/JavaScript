@@ -1,0 +1,23 @@
+
+O(Nlog(MaxP)---->Time
+O(1) ------> Space
+
+
+var minEatingSpeed = function(piles, h) {
+    var start = 1;
+    var end = 1000000000;
+    
+    while(start < end) {
+        let mid = Math.floor((start+end)/2);
+        var total = 0;
+        for(var i = 0 ; i < piles.length; i++) {
+            total+= Math.ceil(piles[i]/mid);
+        }
+        if(total > h) {
+            start = mid+1;
+        } else {
+            end = mid;
+        }
+    }
+    return start;
+};
