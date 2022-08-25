@@ -1,0 +1,35 @@
+var findMode = function(root) {
+    if(!root) {
+        return null;
+    }
+    var arr = [];
+    var max = -Infinity;
+    var map = {};
+    function traverse(node) {
+        if(!node) {
+            return;
+        }
+        if(!(node.val in map)) {
+            map[node.val] = 1;
+        } else {
+            map[node.val]++;
+        }
+       
+        traverse(node.left);
+        traverse(node.right);
+        
+        
+    }
+    
+    traverse(root);
+  
+    max = Math.max.apply(max,Object.values(map));
+   
+    return Object.keys(map).filter(k => (map[k] ===max));
+    
+    
+    
+    
+    
+    
+};
