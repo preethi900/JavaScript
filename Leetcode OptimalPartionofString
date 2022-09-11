@@ -1,0 +1,17 @@
+var partitionString = function(s) {
+   var map = {};
+    var count= 0;
+    for(var i= 0 ; i < s.length ; i++) {
+        if(!(s[i] in map)) {
+            map[s[i]] = 1;
+         } else {
+            count++;
+             i--;
+           for(let member in map) {
+                delete map[member];
+            } 
+             
+        }
+    }
+    return count+1;
+};
