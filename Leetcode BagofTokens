@@ -1,0 +1,22 @@
+var bagOfTokensScore = function(tokens, power) {
+    tokens.sort((a,b) => a-b);
+    var res = 0;
+    var i = 0;
+    var j = tokens.length -1;
+    var score = 0;
+    while(i <= j) {
+        if(power >= tokens[i]) {
+            power -= tokens[i];
+            score++;
+            i++;
+            res = Math.max(res,score);
+        } else if(score > 0) {
+            power += tokens[j];
+            j--;
+            score--;
+        } else {
+            break;
+        }
+    }
+    return res;
+};
