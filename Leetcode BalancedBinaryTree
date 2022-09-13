@@ -1,0 +1,24 @@
+var isBalanced = function(root) {
+    if(!root) {
+        return true;
+    }
+    
+    if(!root.left && !root.right) {
+        return true;
+    }
+    
+    
+    function maxDepth(node) {
+        if(!node) {
+            return 0;
+        }
+        
+        return  1+ Math.max(maxDepth(node.left),maxDepth(node.right));
+    }
+    
+    return Math.abs(maxDepth(root.left) - maxDepth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+    
+    
+   
+    
+};
