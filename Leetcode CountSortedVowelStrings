@@ -1,0 +1,10 @@
+var countVowelStrings = function(n) {
+    var arr = [0,1,1,1,1,1];
+    
+    for(var i = 1 ; i <= n; i++) {
+        for(var k = 1 ; k < arr.length; k++) {
+            arr[k] += arr[k-1];
+        }
+    }
+    return arr[arr.length-1];
+};
