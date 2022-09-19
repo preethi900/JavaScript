@@ -1,0 +1,32 @@
+var findLeaves = function(root) {
+    var map = {};
+    
+    function traverse(node) {
+        if(!node){
+            return 0;
+        }
+        var depth = Math.max(traverse(node.left),traverse(node.right));
+       
+        if(depth in map) {
+            
+            map[depth].push(node.val);
+            console.log()
+            
+        } else {
+            map[depth] = [node.val];
+        }
+        
+        return depth+1;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    traverse(root);
+    return Object.values(map);
+};
