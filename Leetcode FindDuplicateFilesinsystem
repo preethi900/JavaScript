@@ -1,0 +1,17 @@
+var findDuplicate = function(paths) {
+    var map = {};
+    for(var i = 0 ; i < paths.length ; i++) {
+        var path = paths[i].split(' ');
+        for(var j = 1 ; j < path.length ; j++) {
+            var s = path[j].split('.');
+            if(!(s[1] in map)) {
+                map[s[1]] = [] ;
+            }
+           
+          
+           map[s[1]].push(path[0]+'/'+ s[0] + '.txt');
+           
+        }
+    }
+    return Object.values(map).filter( v => v.length >= 2);
+};
