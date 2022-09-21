@@ -1,0 +1,14 @@
+var sumEvenAfterQueries = function(nums, queries) {
+    var res= [];
+    for(let [val,index] of queries) {
+        nums[index] = nums[index]+val;
+        var sum = 0;
+        for(var i = 0 ; i < nums.length ; i++) {
+            if(nums[i]%2 === 0) {
+                sum += nums[i];
+            }
+        }
+        res.push(sum);
+    }
+    return res;
+};
