@@ -1,0 +1,23 @@
+var buddyStrings = function(s, goal) {
+    if(s.length !== goal.length) {
+        return false;
+    }
+    var arr = [];
+    for(var i = 0 ; i < s.length ; i++) {
+       if(s[i] !== goal[i]) {
+           arr.push(i);
+           if(arr.length > 2) {
+               return false;
+           }
+       }
+    } 
+       
+    if(!arr.length) {
+        var len = [...new Set(s)].length;
+      
+        return s.length > len;
+    }
+    
+    
+    return s[arr[0]] === goal[arr[1]] && s[arr[1]] === goal[arr[0]]; 
+};
