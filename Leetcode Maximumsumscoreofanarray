@@ -1,0 +1,18 @@
+var maximumSumScore = function(nums) {
+  
+    var sum = nums.reduce((a,b) => a+b);
+    var max= -Infinity;
+    var leftSum = nums[0];
+    var rightSum =sum;
+    var i = 0;
+    while(i < nums.length) {
+        max = Math.max(max,Math.max(leftSum,rightSum));
+        rightSum -= nums[i];
+        i++;
+        leftSum += nums[i];
+        
+       
+    }
+        
+    return max;
+};
