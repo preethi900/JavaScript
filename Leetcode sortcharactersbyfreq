@@ -1,0 +1,23 @@
+var frequencySort = function(s) {
+   var map = {} ;
+    var res = '';
+    for(var i = 0; i < s.length ; i++) {
+        if(!(s[i] in map)) {
+            map[s[i]] = 1;
+            
+        } else {
+            map[s[i]]++;
+        }
+    }
+    
+    var arr = Object.keys(map).sort((a,b) => map[b]-map[a]);
+
+    for(var i =0 ; i < arr.length ; i++) {
+        var k = 0 ;
+        while( k < map[arr[i]]) {
+            res += arr[i];
+            k++;
+        }
+    }
+    return res;
+};
