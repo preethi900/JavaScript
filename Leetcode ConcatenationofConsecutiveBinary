@@ -1,0 +1,10 @@
+var concatenatedBinary = function(n) {
+    var num = 0;
+    
+    for(var i =1; i <= n ; i++) {
+        num *= (2 ** i.toString(2).length);
+        num += i;
+        num %= (10 ** 9 + 7);
+    }
+    return num;
+};
