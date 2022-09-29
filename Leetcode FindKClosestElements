@@ -1,0 +1,14 @@
+var findClosestElements = function(arr, k, x) {
+  var start = 0;
+    var end = arr.length - k;
+    while(start < end) {
+        var mid = Math.floor((start+end)/2);
+        
+        if(x-arr[mid] > arr[mid+k]-x) {
+            start = mid+1;
+        } else {
+            end = mid;
+        }
+    }
+    return arr.slice(start,start+k);
+};
