@@ -1,0 +1,29 @@
+ var traverse = (node,v,d,level) =>  {
+        if(!node) {
+            return;
+        }
+        if(level === d) {
+            let leftNode = new TreeNode(v);
+            let rightNode = new TreeNode(v);
+            leftNode.left = node.left;
+            node.left = leftNode;
+            rightNode.right = node.right;
+            node.right = rightNode;
+            return;
+        } 
+        traverse(node.left,v,d,level+1);
+        traverse(node.right,v,d,level+1);
+       
+        
+    };
+var addOneRow = function(root, val, depth) {
+     if(depth === 1) {
+            let newNode = new TreeNode(val);
+            newNode.left = root;
+            return newNode;
+        }
+
+
+    traverse(root,val,depth,2);
+    return root;
+};
