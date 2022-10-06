@@ -1,0 +1,42 @@
+var TimeMap = function() {
+    this.map = {};
+};
+
+/** 
+ * @param {string} key 
+ * @param {string} value 
+ * @param {number} timestamp
+ * @return {void}
+ */
+TimeMap.prototype.set = function(key, value, timestamp) {
+   
+    if(!(key+timestamp in this.map)) {
+        this.map[key+timestamp] = value;
+    }
+    
+};
+
+/** 
+ * @param {string} key 
+ * @param {number} timestamp
+ * @return {string}
+ */
+TimeMap.prototype.get = function(key, timestamp) {
+    if(key+timestamp in this.map) {
+        return this.map[key+timestamp];
+    } else {
+        for(var i = timestamp-1 ; i > 0 ; i--) {
+            if(key+i in this.map) {
+                return this.map[key+i];
+            }
+        }
+        return "";
+    }
+};
+
+/** 
+ * Your TimeMap object will be instantiated and called as such:
+ * var obj = new TimeMap()
+ * obj.set(key,value,timestamp)
+ * var param_2 = obj.get(key,timestamp)
+ */
