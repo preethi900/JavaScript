@@ -1,0 +1,37 @@
+var MyCalendarThree = function() {
+   this.map = {}; 
+};
+
+/** 
+ * @param {number} start 
+ * @param {number} end
+ * @return {number}
+ */
+MyCalendarThree.prototype.book = function(start, end) {
+   if(!(start in this.map)) {
+        this.map[start] = 1;
+    } else {
+        this.map[start]++;
+    }
+
+      if(!(end in this.map)) {
+        this.map[end] = -1;
+    } else {
+        this.map[end]--;
+    } 
+   
+
+    var maxCount = 0;
+    var count = 0;
+    for(let key in this.map) {
+        count += this.map[key];
+        maxCount = Math.max(maxCount,count);
+    }
+    return maxCount;
+};
+
+/** 
+ * Your MyCalendarThree object will be instantiated and called as such:
+ * var obj = new MyCalendarThree()
+ * var param_1 = obj.book(start,end)
+ */
