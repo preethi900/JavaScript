@@ -1,0 +1,17 @@
+var breakPalindrome = function(palindrome) {
+     palindrome = palindrome.split('');
+    if(palindrome.length === 1) {
+        return '';
+    }
+    
+    for(var i = 0 ; i < Math.floor(palindrome.length/2); i++) {
+       if(palindrome[i] !== 'a') {
+           palindrome[i] = 'a';
+           return palindrome.join('');
+       }
+    }
+   
+   palindrome[palindrome.length-1] = 'b';
+   return palindrome.join('');
+    
+};
