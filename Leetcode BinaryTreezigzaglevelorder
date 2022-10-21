@@ -1,0 +1,30 @@
+var zigzagLevelOrder = function(root) {
+    var level = 0;
+    var res = [];
+    var flag = false;
+    function traverse(node,l,f) {
+        if(!node) {
+            return;
+        }
+        if(res[l] === undefined) {
+            res[l] = [];
+        }
+
+        if(l%2 === 0) {
+            res[l].push(node.val);
+        } else {
+            res[l].unshift(node.val);
+        }
+        l++;
+        traverse(node.left,l);
+        traverse(node.right,l);
+        l--;
+    
+    }
+
+
+
+
+    traverse(root,level,flag);
+    return res;
+};
