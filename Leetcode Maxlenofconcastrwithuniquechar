@@ -1,0 +1,18 @@
+var maxLength = function(arr) {
+    
+   var res = [""];
+   var count = 0;
+
+   for(let word of arr) {
+       for(var i = 0 ; i < res.length ; i++) {
+           var word1 = res[i] + word;
+           var newSet = new Set(word1.split(""));
+           if(word1.length !== newSet.size) {
+               continue;
+           }
+           res.push(word1);
+           count = Math.max(count,word1.length);
+       }
+   }
+   return count;
+};
