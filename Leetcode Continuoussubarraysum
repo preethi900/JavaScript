@@ -1,0 +1,30 @@
+var checkSubarraySum = function (nums, k) {
+  /*  for(var i = 0; i < nums.length - 1; i++) {
+        var count = nums[i];
+        for(var j =i+1 ; j < nums.length ; j++) {
+            count += nums[j]
+            if(count % k === 0) {
+                return true;
+            }
+        }
+    }
+    return false; */
+
+    var map = {};
+    var sum = 0;
+    var prevsum = 0;
+    for(var i = 0; i < nums.length; i++) {
+        sum += nums[i];
+        sum %= k;
+        if(!(sum in map)) {
+            map[prevsum] = 0;
+            prevsum = sum;
+        } else {
+            return true;
+        }
+    }
+    return false;
+
+
+
+};
