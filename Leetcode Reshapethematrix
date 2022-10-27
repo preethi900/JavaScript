@@ -1,0 +1,27 @@
+var matrixReshape = function(mat, r, c) {
+    var res =[] ;
+    var len = mat.length * mat[0].length;
+    if(mat.length === 0 || len !== r*c) {
+        return mat;
+    } else {
+        var row = 0;
+        var col = 0;
+        for(var i = 0 ; i < mat.length ; i++) {
+            
+            for(var j = 0 ; j < mat[0].length ; j++) {
+                 if (res[row] === undefined) {
+                    res[row] = [];
+                }
+            
+                res[row].push(mat[i][j]); 
+                col++;
+                if(col === c) {
+                    col = 0;
+                    row++;
+                }
+            }
+        }
+        return res;
+    }
+   
+};
