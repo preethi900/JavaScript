@@ -1,0 +1,14 @@
+var isToeplitzMatrix = function(matrix) {
+   
+ 
+    
+    for(var i = 1 ; i < matrix.length ; i++) {
+        for(var j = 1 ; j < matrix[0].length ; j++) {
+            if( matrix[i-1][j-1] !== matrix[i][j]) {
+                return false;
+            }
+        }
+        
+    }
+    return true;
+};
