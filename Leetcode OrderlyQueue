@@ -1,0 +1,15 @@
+var orderlyQueue = function(s, k) {
+    if(k === 1) {
+        var res = s;
+
+        for(var i = 0 ; i < s.length ; i++) {
+            var comstring = s.substring(i)+s.substring(0,i);
+            if(res.localeCompare(comstring) > 0) {
+                res = comstring;
+            }
+        }
+        return res;
+    }
+
+    return s.split('').sort().join('');
+};
