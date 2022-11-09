@@ -1,0 +1,36 @@
+var StockSpanner = function() {
+    this.stack = [];
+};
+
+/** 
+ * @param {number} price
+ * @return {number}
+ */
+StockSpanner.prototype.next = function(price) {
+    var count = 1;
+    if(!this.stack.length) {
+        this.stack.push(price);
+        return count;
+    }
+    this.stack.push(price);
+    var len = this.stack.length-1;
+    if(this.stack[len] < this.stack[len-1]){
+            return count;
+    } else {
+        count =1;
+            for(var j = len ; j >= 0 ; j--) {
+                if(this.stack[j-1] <= this.stack[len]) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+        return count;
+    }
+};
+
+/** 
+ * Your StockSpanner object will be instantiated and called as such:
+ * var obj = new StockSpanner()
+ * var param_1 = obj.next(price)
+ */
