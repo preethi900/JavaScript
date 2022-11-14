@@ -1,0 +1,35 @@
+/**
+ * @param {number[][]} stones
+ * @return {number}
+ */
+var removeStones = function(stones) {
+    
+    
+    var map = {};
+    var n = 0;
+
+    function find(a) {
+        if(!(a in map)) {
+            map[a] = a;
+            n++;
+        } else if(map[a] !== a) {
+            map[a] =find(map[a]);
+           
+        }
+        return map[a];
+    }
+    function union(x,y) {
+        const p1= find(x);
+        const p2= find(y);
+        if(p1 !== p2) {
+            map[p1] = p2;
+            n--;
+        }
+    }
+
+
+    for(let [x,y] of stones) {
+        union(x,~y);
+    }
+    return stones.length - n;
+};
