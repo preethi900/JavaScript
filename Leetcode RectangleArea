@@ -1,0 +1,18 @@
+var computeArea = function(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2) {
+    var areaA = (ay2-ay1) * (ax2-ax1);
+    var areaB = (by2-by1) * (bx2-bx1);
+    
+
+    var overlapX = Math.min(ax2,bx2) - Math.max(ax1,bx1);
+    var overlapY = Math.min(ay2,by2) - Math.max(ay1,by1);
+    var overlap = 0;
+    if(overlapX > 0 && overlapY > 0) {
+        overlap = overlapX*overlapY;
+    }
+    var total = areaA+areaB;
+    
+
+    
+        return total - overlap;
+    
+};
