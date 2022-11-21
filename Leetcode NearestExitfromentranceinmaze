@@ -1,0 +1,39 @@
+/**
+ * @param {character[][]} maze
+ * @param {number[]} entrance
+ * @return {number}
+ */
+var nearestExit = function(maze, entrance) {
+    var dirs =[[-1,0],[1,0],[0,-1],[0,1]];
+    var queue = [entrance];
+    var steps = 0;
+    var r = maze.length;
+    var c = maze[0].length;
+
+  
+    maze[entrance[0]][entrance[1]] = "+";
+while(queue.length) {
+      var len = queue.length;
+      steps++;
+    for(var i = 0 ;i < len ; i++) {
+        const [row,col] = queue.shift();
+
+        for(let[rowdir,coldir] of dirs) {
+            var newrow = row+rowdir;
+            var newcol = col+coldir;
+            if( newrow < 0 || newcol < 0 || newrow >= r || newcol >= c || maze[newrow][newcol] === "+") {
+                continue;
+            }
+            if(newrow === 0 || newrow === r-1 || newcol === 0 || newcol === c-1) {
+                return steps;
+            }
+                maze[newrow][newcol] = "+";
+                queue.push([newrow,newcol]);
+        }
+     
+
+    }
+   
+}
+    return -1;
+};
