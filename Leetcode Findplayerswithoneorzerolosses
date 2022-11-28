@@ -1,0 +1,41 @@
+var findWinners = function(matches) {
+    var winner = {};
+    var loser = {};
+    var res= [];
+
+    for(let [x,y] of matches) {
+        if(!(x in winner)) {
+            winner[x] = 1;
+        } else {
+            winner[x]++
+        }
+         if(!(y in loser)) {
+            loser[y] = 1;
+        } else {
+            loser[y]++
+        }
+
+    }
+    var arr= Object.keys(winner);
+    var arr1 =Object.keys(loser);
+    for(var i = 0; i < arr.length ; i++) {
+        if(loser[arr[i]] > 1) {
+            delete winner[arr[i]];
+            delete loser[arr[i]]
+        } else if(loser[arr[i]] === 1) {
+            delete winner[arr[i]];
+        }
+    }
+
+     for(var i = 0; i < arr1.length ; i++) {
+        if(!(loser[arr1[i]] === 1)) {
+            delete loser[arr1[i]]
+        }
+    } 
+    
+    res.push(Object.keys(winner));
+    res.push(Object.keys(loser));
+    return res;
+
+    
+};
