@@ -1,0 +1,41 @@
+var RandomizedCollection = function() {
+    
+    this.arr = [];
+};
+
+/** 
+ * @param {number} val
+ * @return {boolean}
+ */
+RandomizedCollection.prototype.insert = function(val) {
+    if(!(this.arr.includes(val))) {
+        this.arr.push(val);
+        return true;
+    } else {
+        this.arr.push(val);
+        return false;
+    }
+    
+};
+
+/** 
+ * @param {number} val
+ * @return {boolean}
+ */
+RandomizedCollection.prototype.remove = function(val) {
+   var i = this.arr.indexOf(val);
+   if(i === -1) {
+       return false;
+   } else {
+       this.arr.splice(i,1);
+       return true;
+   }
+};
+
+/**
+ * @return {number}
+ */
+RandomizedCollection.prototype.getRandom = function() {
+   
+   return this.arr[Math.floor(Math.random()*this.arr.length)];
+};
