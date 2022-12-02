@@ -1,0 +1,36 @@
+var closeStrings = function(word1, word2) {
+    if(word1.length !== word2.length) {
+        return false;
+    }
+
+     var map ={};
+     var map1 = {};
+
+     for(var i = 0; i < word1.length ;i++) {
+         if(!(word1[i] in map)) {
+             map[word1[i]] = 1;
+         } else {
+             map[word1[i]]++;
+         }
+     }
+
+
+     for(var i = 0; i < word2.length ;i++) {
+         if(!(word2[i] in map1)) {
+             map1[word2[i]] = 1;
+         } else {
+             map1[word2[i]]++;
+         }
+     }
+    var arr1 = Object.values(map).sort((a,b) => a-b);
+     var arr2 = Object.values(map1).sort((a,b) => a-b);
+     var key1 = Object.keys(map).sort();
+     var key2 = Object.keys(map1).sort();
+     for(var i = 0 ; i < arr1.length ; i++) {
+         if(arr1[i] !== arr2[i] || key1[i] !== key2[i]) {
+            return false;
+         }
+     }
+     return true; 
+    
+};
