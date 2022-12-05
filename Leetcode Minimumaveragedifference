@@ -1,0 +1,19 @@
+var minimumAverageDifference = function(nums) {
+    
+let left = 0;
+let right = nums.reduce((a,b) => a+b);
+var min =Infinity;
+let idx = 0;
+
+for(var i = 0 ; i < nums.length; i++) {
+    left += nums[i];
+    right -= nums[i];
+    let avg = Math.abs(Math.floor(left/(i+1))-Math.floor(right/(nums.length-i-1) || 0));
+    if(avg < min) {
+        min = avg;
+        idx = i;
+    }
+    
+}
+return idx;
+};
