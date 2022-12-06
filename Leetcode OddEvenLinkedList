@@ -39,3 +39,60 @@ var oddEvenList = function(head) {
     return List3.next;
     
 };
+
+
+
+//Updated Code
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var oddEvenList = function(head) {
+    if(!head) {
+        return head;
+    }
+    var List = new ListNode(0);
+    var dummy = List;
+
+    var dummyhead= head;
+    var dummyhead1 = head.next;
+    while(dummyhead && dummyhead.next) {
+        dummy.next = new ListNode(dummyhead.val);
+        dummy = dummy.next;
+        dummyhead = dummyhead.next.next;
+       
+    }
+    if(dummyhead) {
+        dummy.next = new ListNode(dummyhead.val);
+        dummy = dummy.next;
+    }
+
+    
+
+    while(dummyhead1 && dummyhead1.next) {
+        dummy.next = new ListNode(dummyhead1.val);
+         dummy = dummy.next;
+         dummyhead1 = dummyhead1.next.next;
+
+    }
+   
+    if(dummyhead1) {
+        dummy.next = new ListNode(dummyhead1.val);
+        dummy = dummy.next;
+    }
+
+
+  
+
+    return List.next;
+
+
+};
