@@ -1,0 +1,17 @@
+var minFallingPathSum = function(matrix) {
+    var n = matrix.length;
+
+    for(var i =1 ; i < n ; i++) {
+        for(var j = 0 ; j < n ; j++) {
+            var topleft = j-1 >=0 ? matrix[i-1][j-1] : Infinity;
+            var top = matrix[i-1][j];
+            var topright = j+1 < n ? matrix[i-1][j+1] : Infinity;
+
+            matrix[i][j] += Math.min(topleft,top,topright);
+        }
+
+        
+    }
+    
+    return Math.min(...matrix[n-1]);
+};
