@@ -25,3 +25,43 @@ var dailyTemperatures = function(temperatures) {
     arr.push(0);
     return arr;
 };
+
+
+
+var dailyTemperatures = function(temperatures) {
+  /*  var count = 0;
+    var ans = [];
+    for(var i=0; i<temperatures.length-1; i++) {
+        for(var j = i+1 ; j <temperatures.length; j++) {
+            if(temperatures[i] < temperatures[j]) {
+                count++;
+                ans.push(count);
+                count = 0;
+                break;
+            } else {
+                if(temperatures[j+1] !== undefined) {
+                    count++;
+                    continue;
+                } else {
+                    count = 0;
+                    ans.push(count);
+                }
+               
+            }
+        }
+    }
+    ans.push(0);
+    return ans; */
+
+    var stack = [];
+    var res = new Array(temperatures.length).fill(0);
+    for(var i=0; i<temperatures.length; i++) {
+        while(stack.length && temperatures[i] > temperatures[stack[stack.length-1]]){
+            var temp = stack.pop();
+            res[temp] = i-temp;
+        }
+        stack.push(i);
+    }
+    return res;
+    
+};
