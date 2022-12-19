@@ -1,0 +1,42 @@
+var validPath = function(n, edges, source, destination) {
+    var map = {};
+  
+
+    for(let edge of edges) {
+        if(!(edge[0] in map)) {
+            map[edge[0]] = [edge[1]];
+        } else {
+             map[edge[0]].push(edge[1]);
+        }
+        if(!(edge[1] in map)) {
+            map[edge[1]] = [edge[0]];
+        } else {
+             map[edge[1]].push(edge[0]);
+        }
+    }
+    
+    var visited = new Set();
+    function dfs(s,d) {
+        if(s === d) {
+            return true;
+        }
+        if(visited.has(s)) {
+            return false;
+        } 
+            visited.add(s);
+        
+
+        for(let node of map[s]) {
+            if(dfs(node,d) === true) {
+                return true;
+            }
+        }
+        return false;
+        
+        
+    }
+   
+
+  return dfs(source,destination);
+    
+};
