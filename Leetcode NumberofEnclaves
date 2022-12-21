@@ -1,0 +1,44 @@
+var numEnclaves = function(grid) {
+    var count=0;
+   function enclaves(grid,x,y) {
+       
+       if(x < 0 || y < 0 || x >= grid.length || y >= grid[x].length) {
+           return;
+       }
+       
+       if(grid[x][y] === 1) {
+          grid[x][y] = 0;
+       } else {
+           return;
+       }
+        enclaves(grid,x-1,y);
+        enclaves(grid,x+1,y);
+        enclaves(grid,x,y-1);
+        enclaves(grid,x,y+1);
+      
+        
+   } 
+
+
+
+
+
+    for(var i=0 ; i < grid.length ; i++) {
+        for(var j=0 ; j < grid[i].length ; j++) {
+            if(i === 0 || j === 0 || i >= grid.length-1 || j >= grid[i].length-1) {
+                enclaves(grid,i,j);
+                 
+            }
+        }
+    }
+  
+    for(var i=0 ; i < grid.length ; i++) {
+        for(var j=0 ; j < grid[i].length ; j++) {
+            if(grid[i][j] === 1) {
+                count++;
+                 
+            }
+        }
+    }
+    return count;
+};
