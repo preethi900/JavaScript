@@ -1,0 +1,27 @@
+var minStoneSum = function(piles, k) {
+    var pq= new MaxPriorityQueue({priority: x => x});
+   
+    for(let e of piles) {
+        pq.enqueue(e);
+    }
+  
+    while(k > 0) {
+        var cur = pq.dequeue().element;
+        console.log(cur);
+      
+        var half = Math.ceil(cur/2);
+       
+        pq.enqueue(half);
+        k--;
+        
+    }
+    console.log(pq);
+    var arr = pq.toArray();
+    console.log(arr);
+    
+    var res = 0;
+    for(let e of arr) {
+        res += e.element;
+    }
+    return res;
+};
