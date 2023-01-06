@@ -1,0 +1,13 @@
+var maxIceCream = function(costs, coins) {
+    costs.sort((a,b) => a-b);
+    var max = 0;
+    for(var i=0 ; i < costs.length ; i++) {
+        if(coins >= costs[i]) {
+            coins -= costs[i];
+            max++;
+        } else {
+            return max;
+        }
+    }
+    return max;
+};
