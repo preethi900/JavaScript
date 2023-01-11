@@ -1,0 +1,30 @@
+var minTime = function(n, edges, hasApple) {
+    var map = {};
+
+    edges.sort((a,b) =>a[0]-b[0]);
+
+    for(let edge of edges) {
+        if(!(edge[1] in map)) {
+            map[edge[1]] = edge[0];
+        } else {
+            map[edge[0]] = edge[1];
+        }
+    }
+    console.log(map);
+    var res = 0;
+
+    for(var i = 0 ; i < hasApple.length ; i++) {
+        if(hasApple[i] === false) {
+            continue;
+        }
+        console.log(i);
+        let p = i;
+        while(p !== 0 && map[p] >= 0) {
+            let temp = map[p];
+            map[p] = -1;
+            p = temp;
+            res += 2;
+        }
+    }
+    return res;
+};
