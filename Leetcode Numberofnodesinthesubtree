@@ -1,0 +1,57 @@
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @param {string} labels
+ * @return {number[]}
+ */
+var countSubTrees = function(n, edges, labels) {
+   /* var map = {};
+    var res = [];
+    for(var i= 0 ; i < labels.length ; i++) {
+        if(!(labels[i] in map)) {
+            map[labels[i]] = 1;
+        } else {
+            map[labels[i]]++;
+        }
+    }
+    for(var i = 0 ; i < labels.length ; i++) {
+        if(labels[i] in map) {
+            res.push(map[labels[i]]);
+            map[labels[i]]--;
+            if(map[labels[i]] === 0) {
+                delete map[labels[i]];
+            }
+        }
+        map[labels[i]]
+    }
+    return res; */
+   
+    let arr = Array.from(Array(n),()=>new Array());
+  
+    let cArray = new Array(26).fill(0)
+
+    for(let [x,y] of edges){
+        arr[x].push(y)
+        arr[y].push(x)
+    }
+
+    let res = new Array(n).fill(0)
+    let iterate = (index,prev,c) =>{
+        let total = c[labels.charCodeAt(index) - 97];
+       
+        c[labels.charCodeAt(index) - 97]++
+        
+
+        for(let i of arr[index]){
+            
+            if(i == prev) continue;
+           
+            iterate(i,index,c)
+        }
+        res[index] = c[labels.charCodeAt(index) - 97] - total
+    }
+    iterate(0,-1,cArray)
+    return res
+
+
+};
