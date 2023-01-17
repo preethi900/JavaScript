@@ -1,0 +1,12 @@
+var minFlipsMonoIncr = function(s) {
+    var ans =0;
+    var num =0;
+    for(var i = 0 ;i < s.length ; i++) {
+        if(s[i] === '0') {
+            ans = Math.min(num,ans+1);
+        } else {
+            num++;
+        }
+    }
+    return ans;
+};
