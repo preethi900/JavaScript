@@ -1,0 +1,15 @@
+var findJudge = function(n, trust) {
+   var count = new Array(n+1).fill(0);
+
+   for(let [i,j] of trust) {
+       count[i] -= 1;
+       count[j] += 1;
+   }
+
+   for(var i = 1 ; i <= count.length ; i++) {
+       if((n-1) === count[i]) {
+           return i;
+       }
+   }
+   return -1;
+};
