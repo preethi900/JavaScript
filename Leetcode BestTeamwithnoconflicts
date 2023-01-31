@@ -1,0 +1,14 @@
+var bestTeamScore = function(scores, ages) {
+
+    let p = scores.map( ( s, i ) => [s,ages[i]] )
+                  .sort( ( a, b ) => a[1]-b[1] || a[0]-b[0] );
+    console.log(p);
+        h = p.map( ( [ s ] ) => s );
+        console.log(h);
+    for ( let i = 0; i < p.length; i++ )
+        for ( let j = 0; j < i; j++ )
+            if ( p[i][0] >= p[j][0] ) 
+                h[i] = Math.max( h[i], p[i][0]+h[j] )
+    return Math.max( ...h )
+
+};
