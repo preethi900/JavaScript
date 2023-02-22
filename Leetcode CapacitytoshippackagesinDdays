@@ -1,0 +1,29 @@
+var shipWithinDays = function(weights, days) {
+    var left = 0;
+    var right = 0;
+
+    for(let w of weights) {
+        left = Math.max(left,w);
+        right += w;
+    }
+    while(left < right) {
+        let mid = Math.floor((left+right)/2);
+        var next = 1;
+        var cur = 0;
+        for(let w of weights) {
+            if(cur + w > mid) {
+                next += 1;
+                cur = 0;
+            }
+            cur += w;
+        }
+
+        if(next > days) {
+            left = mid+1;
+        } else {
+            right = mid;
+        }
+
+    }
+    return left;
+};
